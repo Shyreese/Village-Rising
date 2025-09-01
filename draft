@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village Rising | Empowering Families, Building Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37; 
+            --sage-green: #8A9A5B;
+            --burnt-orange: #CC5500;
+            --off-white: #FAF9F6;
+            --white: #FFFFFF;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: #374151;
+        }
+        .hero-video-container {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+        }
+        .hero-overlay {
+            background-color: rgba(0,0,0,0.55);
+        }
+        .nav-link.active {
+            color: var(--burnt-orange);
+            font-weight: 700;
+        }
+        .btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .section-title {
+            border-left: 4px solid var(--gold);
+            padding-left: 1rem;
+        }
+        .program-card {
+            transition: all 0.3s ease;
+        }
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        .donation-tab {
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .donation-tab.active {
+            border-bottom-color: var(--burnt-orange);
+            color: var(--burnt-orange);
+        }
+        .amount-option {
+            transition: all 0.2s ease-in-out;
+            background-color: var(--white);
+        }
+        .amount-option:hover {
+            transform: scale(1.05);
+            border-color: var(--sage-green);
+        }
+        .amount-option.selected {
+            background-color: var(--sage-green);
+            color: white;
+            border-color: var(--sage-green);
+        }
+        .modal-overlay, .alert-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content, .alert-content {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            color: var(--burnt-orange);
+        }
+        /* Scroll Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-off-white text-gray-700">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://i.imgur.com/1ayrSLB.png" alt="Village Rising Logo" class="h-14 w-auto" onerror="this.onerror=null; this.src='https://placehold.co/100x100/8A9A5B/FFFFFF?text=VR';">
+                <div>
+                    <div class="text-xl sm:text-2xl font-bold text-gray-800 leading-tight">
+                        Village <span class="text-burnt-orange">Rising</span>
+                    </div>
+                    <p class="hidden sm:block text-xs text-gray-500 leading-tight italic">Where connection becomes collective growth</p>
+                </div>
+            </a>
+            <div id="main-nav" class="hidden md:flex items-center space-x-7">
+                <a href="#about" class="nav-link font-medium text-gray-600">About Us</a>
+                <a href="#programs" class="nav-link font-medium text-gray-600">Programs</a>
+                <a href="#board" class="nav-link font-medium text-gray-600">Our Board</a>
+                <a href="#involved" class="nav-link font-medium text-gray-600">Get Involved</a>
+                <a href="#contact" class="nav-link font-medium text-gray-600">Contact</a>
+            </div>
+            <a href="#involved" class="hidden lg:inline-block bg-burnt-orange text-white py-2 px-5 rounded-full font-bold btn hover:bg-burnt-orange-dark">
+                Donate
+            </a>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-100">About Us</a>
+            <a href="#programs" class="block py-2 px-4 text-sm hover:bg-gray-100">Programs</a>
+            <a href="#board" class="block py-2 px-4 text-sm hover:bg-gray-100">Our Board</a>
+            <a href="#involved" class="block py-2 px-4 text-sm hover:bg-gray-100">Get Involved</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-100">Contact</a>
+            <a href="#involved" class="block py-3 px-4 text-center bg-burnt-orange text-white font-bold">Donate</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-video-container">
+            <video autoplay loop muted playsinline id="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-family-walking-together-in-the-field-at-sunset-4774-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay absolute inset-0 flex items-center justify-center text-white text-center p-6">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Connecting Families. Building Futures.</h1>
+                    <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200">We empower underserved and middle-class families by fostering community connection, providing access to vital resources, and promoting collective growth.</p>
+                    <a href="#involved" class="bg-gold text-white py-4 px-8 rounded-full font-bold text-lg btn hover:bg-gold-dark">Join Our Mission</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 md:py-28 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">Our Purpose</h2>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Village Rising was founded on a simple, powerful idea: that a connected community is a thriving community. We bridge the gap for families who need support but may not qualify for traditional aid, creating a network of neighbors helping neighbors.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        Our work is rooted in integrity, service, and the belief that everyone deserves the opportunity to flourish. We are a registered 501(c)(3) nonprofit dedicated to making a tangible impact.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs & Services Section -->
+        <section id="programs" class="py-20 md:py-28 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4 inline-block">How We Serve</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">We offer a range of programs designed to meet families where they are and provide the tools for sustainable growth.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
+                        <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-1a6 6 0 00-5.197-5.975M15 21H9"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Community Hubs</h3>
+                        <p class="text-gray-600">Safe, welcoming spaces for families to connect, share resources, and attend workshops on financial literacy, parenting, and career development.</p>
+                    </div>
+                    <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
+                         <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Resource Navigation</h3>
+                        <p class="text-gray-600">One-on-one assistance to help families access essential services like childcare, housing support, and healthcare, simplifying complex systems.</p>
+                    </div>
+                    <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
+                         <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Youth Mentorship</h3>
+                        <p class="text-gray-600">Connecting young people with positive role models in the community to foster skills, confidence, and a vision for their future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Meet the Board Section -->
+        <section id="board" class="py-20 md:py-28 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4 inline-block">Meet Our Board of Directors</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our organization is guided by a dedicated team of community leaders committed to our mission.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Board Member 1 -->
+                    <div class="text-center">
+                        <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Board Member 1">
+                        <h3 class="mt-6 text-xl font-bold">Jane Doe</h3>
+                        <p class="text-md text-burnt-orange font-semibold">President & Co-Founder</p>
+                        <p class="mt-2 text-gray-600 text-sm">Jane has over 15 years of experience in community development and is passionate about creating equitable opportunities for all families.</p>
+                    </div>
+                    <!-- Board Member 2 -->
+                    <div class="text-center">
+                        <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Board Member 2">
+                        <h3 class="mt-6 text-xl font-bold">John Smith</h3>
+                        <p class="text-md text-burnt-orange font-semibold">Vice President</p>
+                        <p class="mt-2 text-gray-600 text-sm">A local business owner, John brings financial acumen and a deep commitment to fostering economic growth within the community.</p>
+                    </div>
+                    <!-- Board Member 3 -->
+                    <div class="text-center">
+                        <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src="https://images.unsplash.com/photo-1489424731084-a5d8b2190cbb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Board Member 3">
+                        <h3 class="mt-6 text-xl font-bold">Maria Garcia</h3>
+                        <p class="text-md text-burnt-orange font-semibold">Secretary</p>
+                        <p class="mt-2 text-gray-600 text-sm">As an educator and parent, Maria provides invaluable insight into the challenges and needs of the families we serve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Involved / Donation Section -->
+        <section id="involved" class="py-20 md:py-28 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4 inline-block">Make a Difference Today</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Your gift provides the resources families need to build a stable, brighter future. Thank you for your generosity.</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-off-white p-8 rounded-2xl shadow-2xl">
+                    <div class="flex border-b mb-6">
+                        <button id="one-time-tab" class="donation-tab flex-1 py-3 text-xl font-bold text-gray-500 active">One-Time</button>
+                        <button id="monthly-tab" class="donation-tab flex-1 py-3 text-xl font-bold text-gray-500">Monthly</button>
+                    </div>
+                    <div id="donation-feedback" class="text-center text-sage-green font-semibold mb-4 h-6 transition-opacity duration-300"></div>
+                    <div id="one-time-amounts">
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="25">$25</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg selected" data-amount="50">$50</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="100">$100</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="250">$250</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="500">$500</button>
+                            <input type="number" id="custom-amount" placeholder="Other" class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg w-full text-center text-gray-800 placeholder-gray-500">
+                        </div>
+                    </div>
+                     <div id="monthly-amounts" class="hidden">
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="10">$10</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg selected" data-amount="25">$25</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="50">$50</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="75">$75</button>
+                            <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="100">$100</button>
+                            <input type="number" id="custom-amount-monthly" placeholder="Other" class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg w-full text-center text-gray-800 placeholder-gray-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                         <button id="pay-givebutter" class="bg-blue-600 text-white font-bold py-4 rounded-lg btn hover:bg-blue-700">Pay with Givebutter</button>
+                         <button id="pay-zelle" class="bg-purple-600 text-white font-bold py-4 rounded-lg btn hover:bg-purple-700">Pay with Zelle</button>
+                    </div>
+                    <div class="text-center mb-6">
+                        <button id="open-qr-modal" class="text-burnt-orange font-semibold hover:underline">Prefer to scan a QR code?</button>
+                    </div>
+                    <button id="donate-now-btn" class="w-full bg-burnt-orange text-white font-bold text-xl py-4 rounded-lg btn hover:bg-burnt-orange-dark">Donate Now</button>
+                    <p class="text-xs text-center mt-4 text-gray-500">By donating, you agree to our terms of service. Village Rising is a 501(c)(3) organization.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-28 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4 inline-block">Get in Touch</h2>
+                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">Have questions? Want to partner with us? We'd love to hear from you.</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+                            <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                             <input type="text" placeholder="Subject" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-sage-green text-white py-3 px-8 rounded-full font-bold btn hover:bg-green-700">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financials Section -->
+        <section id="financials" class="py-20 md:py-28 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">Our Commitment to Transparency</h2>
+                    <p class="text-lg text-gray-700 mb-4">
+                        As a new organization, we are diligently working to establish our financial reporting systems. We are committed to complete transparency and will publish our financial statements and annual reports here as soon as they become available.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        Your trust is paramount to us. Thank you for your support as we grow.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <a href="#" class="inline-block">
+                <img src="https://i.imgur.com/1ayrSLB.png" alt="Village Rising Logo" class="h-16 w-auto mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/100x100/8A9A5B/FFFFFF?text=VR';">
+            </a>
+            <p class="my-4 text-gray-400">Empowering Families, Building Community.</p>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#" class="text-gray-400 social-icon transition-colors duration-300" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" class="text-gray-400 social-icon transition-colors duration-300" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zm-1.161 1.545c-1.04.048-1.67.21-2.148.395a3.37 3.37 0 00-1.217.882 3.37 3.37 0 00-.882 1.217c-.185.478-.347 1.108-.395 2.148-.048 1.024-.06 1.347-.06 3.808s.012 2.784.06 3.808c.048 1.04.21 1.67.395 2.148a3.37 3.37 0 00.882 1.217 3.37 3.37 0 001.217.882c.478.185 1.108.347 2.148.395 1.024.048 1.347.06 3.808.06s2.784-.012 3.808-.06c1.04-.048 1.67-.21 2.148-.395a3.37 3.37 0 001.217-.882 3.37 3.37 0 00.882-1.217c.185-.478.347-1.108.395-2.148.048-1.024.06-1.347.06-3.808s-.012-2.784-.06-3.808c-.048-1.04-.21-1.67-.395-2.148a3.37 3.37 0 00-.882-1.217 3.37 3.37 0 00-1.217-.882c-.478-.185-1.108-.347-2.148-.395-1.024-.048-1.347-.06-3.808-.06s-2.784.012-3.808.06zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd" /></svg>
+                </a>
+            </div>
+             <div class="mt-6 pt-6 border-t border-gray-700 text-sm text-gray-400">
+                <a href="#financials" class="hover:text-burnt-orange">Financial Transparency</a>
+            </div>
+            <p class="text-gray-500 text-sm mt-4">&copy; 2024 Village Rising. All Rights Reserved. A registered 501(c)(3) nonprofit organization.</p>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative transform scale-95">
+            <button id="close-qr-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-center mb-6">Scan to Pay</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="text-center">
+                    <h4 class="text-xl font-semibold mb-2">Pay with Zelle®</h4>
+                    <img src="https://i.imgur.com/CZID90b.png" alt="Zelle QR Code" class="w-48 h-48 mx-auto rounded-lg shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/192x192/9333ea/FFFFFF?text=Zelle+QR';">
+                    <p class="text-sm text-gray-600 mt-2">Use your mobile banking app to scan.</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-xl font-semibold mb-2">Pay with Givebutter</h4>
+                    <img src="https://i.imgur.com/qGIfPuL.png" alt="Givebutter QR Code" class="w-48 h-48 mx-auto rounded-lg shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/192x192/059669/FFFFFF?text=Givebutter+QR';">
+                    <p class="text-sm text-gray-600 mt-2">Scan here for Givebutter donations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Alert Modal -->
+    <div id="alert-modal" class="alert-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60] hidden opacity-0">
+        <div class="alert-content bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative transform scale-95 text-center">
+            <h3 id="alert-title" class="text-2xl font-bold text-gray-800 mb-4">Confirm Donation</h3>
+            <p id="alert-message" class="text-gray-600 mb-6">Message here</p>
+            <button id="close-alert-modal" class="bg-sage-green text-white font-bold py-2 px-6 rounded-full btn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Modal/Alert Opening/Closing Function ---
+            const setupModal = (modalId, openBtnIds, closeBtnId) => {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                const closeBtn = document.getElementById(closeBtnId);
+                const modalContent = modal.querySelector('.modal-content, .alert-content');
+
+                const openModal = () => {
+                    modal.classList.remove('hidden');
+                    setTimeout(() => {
+                        modal.classList.remove('opacity-0');
+                        if (modalContent) modalContent.classList.remove('scale-95');
+                    }, 10);
+                };
+
+                const closeModal = () => {
+                    modal.classList.add('opacity-0');
+                    if (modalContent) modalContent.classList.add('scale-95');
+                    setTimeout(() => modal.classList.add('hidden'), 300);
+                };
+
+                openBtnIds.forEach(id => {
+                    const openBtn = document.getElementById(id);
+                    if (openBtn) openBtn.addEventListener('click', openModal);
+                });
+
+                if (closeBtn) closeBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', e => e.target === modal && closeModal());
+                document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
+                
+                return { openModal, closeModal };
+            };
+
+            // --- Setup Modals ---
+            const qrModalControls = setupModal('qr-modal', ['open-qr-modal', 'pay-givebutter', 'pay-zelle'], 'close-qr-modal');
+            const alertModalControls = setupModal('alert-modal', [], 'close-alert-modal');
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+            for (let link of mobileMenuLinks) {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            }
+
+            // --- Donation Form & Feedback Logic ---
+            const oneTimeTab = document.getElementById('one-time-tab');
+            const monthlyTab = document.getElementById('monthly-tab');
+            const oneTimeAmounts = document.getElementById('one-time-amounts');
+            const monthlyAmounts = document.getElementById('monthly-amounts');
+            const donationFeedback = document.getElementById('donation-feedback');
+
+            function updateDonationFeedback() {
+                let amount = 0;
+                let frequency = '';
+                const activeTab = oneTimeTab.classList.contains('active') ? oneTimeAmounts : monthlyAmounts;
+                frequency = oneTimeTab.classList.contains('active') ? 'one-time' : 'monthly';
+                const selectedBtn = activeTab.querySelector('.amount-option.selected');
+
+                if (selectedBtn) {
+                    if (selectedBtn.tagName === 'INPUT') {
+                        amount = selectedBtn.value;
+                    } else {
+                        amount = selectedBtn.dataset.amount;
+                    }
+                }
+
+                if (amount && parseFloat(amount) > 0) {
+                    donationFeedback.textContent = `You've selected a $${amount} ${frequency} donation.`;
+                } else {
+                    donationFeedback.textContent = '';
+                }
+            }
+
+            oneTimeTab.addEventListener('click', () => {
+                oneTimeTab.classList.add('active');
+                monthlyTab.classList.remove('active');
+                oneTimeAmounts.classList.remove('hidden');
+                monthlyAmounts.classList.add('hidden');
+                updateDonationFeedback();
+            });
+
+            monthlyTab.addEventListener('click', () => {
+                monthlyTab.classList.add('active');
+                oneTimeTab.classList.remove('active');
+                monthlyAmounts.classList.remove('hidden');
+                oneTimeAmounts.classList.add('hidden');
+                updateDonationFeedback();
+            });
+
+            function handleAmountSelection(container) {
+                const amountOptions = container.querySelectorAll('.amount-option');
+                const customAmountInput = container.querySelector('input[type="number"]');
+
+                amountOptions.forEach(button => {
+                    button.addEventListener('click', function() {
+                        if (this.tagName === 'INPUT') return;
+                        amountOptions.forEach(btn => btn.classList.remove('selected'));
+                        this.classList.add('selected');
+                        if(customAmountInput) customAmountInput.value = '';
+                        updateDonationFeedback();
+                    });
+                });
+
+                if (customAmountInput) {
+                    customAmountInput.addEventListener('input', function() {
+                         if(this.value) {
+                             amountOptions.forEach(btn => {
+                                 if(btn.tagName !== 'INPUT') btn.classList.remove('selected');
+                             });
+                             this.classList.add('selected');
+                         }
+                         updateDonationFeedback();
+                    });
+                }
+            }
+            
+            handleAmountSelection(oneTimeAmounts);
+            handleAmountSelection(monthlyAmounts);
+            updateDonationFeedback(); // Initial call
+
+            // --- Donate Now Button Logic ---
+            const donateNowBtn = document.getElementById('donate-now-btn');
+            const alertMessage = document.getElementById('alert-message');
+
+            donateNowBtn.addEventListener('click', () => {
+                const feedbackText = donationFeedback.textContent;
+                if (feedbackText) {
+                    alertMessage.textContent = `Thank you for your generous commitment. Please proceed with your chosen payment method to finalize your donation.`;
+                } else {
+                    alertMessage.textContent = 'Please select or enter a valid donation amount.';
+                }
+                alertModalControls.openModal();
+            });
+            
+            // --- Scroll Animations & Active Nav Logic ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#main-nav a');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const navObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+                navObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
