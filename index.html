@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Village Rising | Empowering Families, Building Community</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -24,74 +25,183 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--off-white);
-      color: #374151; /* gray-700 */
+      color: #374151;
+      /* gray-700 */
     }
 
     /* Helper classes for brand colors (Tailwind CDN has no custom palette by default) */
-    .bg-off-white { background-color: var(--off-white); }
-    .text-off-white { color: var(--off-white); }
+    .bg-off-white {
+      background-color: var(--off-white);
+    }
 
-    .bg-burnt-orange { background-color: var(--burnt-orange); }
-    .text-burnt-orange { color: var(--burnt-orange); }
-    .hover\:bg-burnt-orange-dark:hover { background-color: var(--burnt-orange-dark); }
+    .text-off-white {
+      color: var(--off-white);
+    }
 
-    .bg-gold { background-color: var(--gold); }
-    .text-gold { color: var(--gold); }
-    .hover\:bg-gold-dark:hover { background-color: var(--gold-dark); }
+    .bg-burnt-orange {
+      background-color: var(--burnt-orange);
+    }
 
-    .bg-sage-green { background-color: var(--sage-green); }
-    .text-sage-green { color: var(--sage-green); }
-    .hover\:bg-sage-green-dark:hover { background-color: var(--sage-green-dark); }
+    .text-burnt-orange {
+      color: var(--burnt-orange);
+    }
+
+    .hover\:bg-burnt-orange-dark:hover {
+      background-color: var(--burnt-orange-dark);
+    }
+
+    .bg-gold {
+      background-color: var(--gold);
+    }
+
+    .text-gold {
+      color: var(--gold);
+    }
+
+    .hover\:bg-gold-dark:hover {
+      background-color: var(--gold-dark);
+    }
+
+    .bg-sage-green {
+      background-color: var(--sage-green);
+    }
+
+    .text-sage-green {
+      color: var(--sage-green);
+    }
+
+    .hover\:bg-sage-green-dark:hover {
+      background-color: var(--sage-green-dark);
+    }
 
     /* Approximate ring color for inputs using your gold */
-    .focus\:ring-gold:focus { box-shadow: 0 0 0 3px rgba(212,175,55,0.5); outline: none; }
-
-    .hero-video-container { position: relative; height: 80vh; overflow: hidden; }
-    #hero-video {
-      position: absolute; top: 50%; left: 50%;
-      min-width: 100%; min-height: 100%;
-      width: auto; height: auto; z-index: -100;
-      transform: translate(-50%, -50%); background-size: cover;
+    .focus\:ring-gold:focus {
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5);
+      outline: none;
     }
-    .hero-overlay { background-color: rgba(0,0,0,0.6); }
 
-    .nav-link.active { color: var(--burnt-orange); font-weight: 700; }
+    .hero-video-container {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
 
-    .btn { transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    #hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      transform: translate(-50%, -50%);
+      background-size: cover;
+    }
 
-    .section-title { border-left: 4px solid var(--gold); padding-left: 1rem; }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
 
-    .program-card { transition: all 0.3s ease; }
+    .nav-link.active {
+      color: var(--burnt-orange);
+      font-weight: 700;
+    }
+
+    .btn {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      border-left: 4px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .program-card {
+      transition: all 0.3s ease;
+    }
+
     .program-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
-    .donation-tab { transition: all 0.3s; border-bottom: 3px solid transparent; }
-    .donation-tab.active { border-bottom-color: var(--burnt-orange); color: var(--burnt-orange); }
+    .donation-tab {
+      transition: all 0.3s;
+      border-bottom: 3px solid transparent;
+    }
 
-    .amount-option { transition: all 0.2s ease-in-out; background-color: var(--white); }
-    .amount-option:hover { transform: scale(1.05); border-color: var(--sage-green); }
-    .amount-option.selected { background-color: var(--sage-green); color: white; border-color: var(--sage-green); }
+    .donation-tab.active {
+      border-bottom-color: var(--burnt-orange);
+      color: var(--burnt-orange);
+    }
 
-    .modal-overlay, .alert-overlay { transition: opacity 0.3s ease; }
-    .modal-content, .alert-content { transition: transform 0.3s ease; }
-    .social-icon:hover { color: var(--burnt-orange); }
+    .amount-option {
+      transition: all 0.2s ease-in-out;
+      background-color: var(--white);
+    }
+
+    .amount-option:hover {
+      transform: scale(1.05);
+      border-color: var(--sage-green);
+    }
+
+    .amount-option.selected {
+      background-color: var(--sage-green);
+      color: white;
+      border-color: var(--sage-green);
+    }
+
+    .modal-overlay,
+    .alert-overlay {
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-content,
+    .alert-content {
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: var(--burnt-orange);
+    }
 
     /* Scroll animation */
-    .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Back to Top */
-    #back-to-top { transition: opacity 0.3s, transform 0.3s; }
+    #back-to-top {
+      transition: opacity 0.3s, transform 0.3s;
+    }
 
     /* Fullscreen Menu */
-    #fullscreen-menu { transition: transform 0.3s ease-in-out; }
-    body.menu-open { overflow: hidden; }
+    #fullscreen-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
 
     /* Subtle text shadow for white-on-dark CTAs */
-    .text-shadow { text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); }
+    .text-shadow {
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 
@@ -102,7 +212,7 @@
     <nav id="main-nav" class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
       <a href="#top" class="flex items-center space-x-4">
         <img src="https://i.imgur.com/1ayrSLB.png" alt="Village Rising Logo" class="h-14 w-auto"
-             onerror="this.onerror=null; this.src='https://placehold.co/100x100/8A9A5B/FFFFFF?text=VR';">
+          onerror="this.onerror=null; this.src='https://placehold.co/100x100/8A9A5B/FFFFFF?text=VR';">
         <div class="text-xl sm:text-2xl font-bold text-gray-800 leading-tight">
           Village <span class="text-burnt-orange">Rising</span>
         </div>
@@ -111,19 +221,21 @@
       <!-- Primary nav links show on sm+ -->
       <div class="hidden sm:flex items-center space-x-6 font-semibold">
         <a href="#about" class="nav-link text-gray-700 hover:text-burnt-orange">Our Story</a>
-        <a href="#board" class="nav-link text-gray-700 hover:text-burnt-orange">Our Board</a>
         <a href="#programs" class="nav-link text-gray-700 hover:text-burnt-orange">Programs</a>
+        <a href="#board" class="nav-link text-gray-700 hover:text-burnt-orange">Our Board</a>
         <a href="#involved" class="nav-link text-gray-700 hover:text-burnt-orange">Get Involved</a>
         <a href="#contact" class="nav-link text-gray-700 hover:text-burnt-orange">Contact</a>
-        <a href="#involved" class="bg-burnt-orange text-white py-2 px-5 rounded-full font-bold btn hover:bg-burnt-orange-dark text-sm text-shadow">Donate</a>
+        <a href="#involved"
+          class="bg-burnt-orange text-white py-2 px-5 rounded-full font-bold btn hover:bg-burnt-orange-dark text-sm text-shadow">Donate</a>
       </div>
 
       <!-- Mobile controls -->
       <div class="sm:hidden flex items-center space-x-4">
-        <a href="#involved" class="bg-burnt-orange text-white py-2 px-4 rounded-full font-bold btn hover:bg-burnt-orange-dark text-sm text-shadow">Donate</a>
+        <a href="#involved"
+          class="bg-burnt-orange text-white py-2 px-4 rounded-full font-bold btn hover:bg-burnt-orange-dark text-sm text-shadow">Donate</a>
         <button id="menu-open-button" class="text-gray-800 focus:outline-none" aria-label="Open menu">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
@@ -135,7 +247,7 @@
     <div class="container mx-auto px-6 py-4 flex justify-end">
       <button id="menu-close-button" class="text-gray-800 focus:outline-none" aria-label="Close menu">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
@@ -145,7 +257,9 @@
       <a href="#programs" class="menu-link text-gray-700 hover:text-burnt-orange">Programs</a>
       <a href="#involved" class="menu-link text-gray-700 hover:text-burnt-orange">Get Involved</a>
       <a href="#contact" class="menu-link text-gray-700 hover:text-burnt-orange">Contact</a>
-      <a href="#involved" class="mt-8 bg-burnt-orange text-white py-3 px-8 rounded-full btn hover:bg-burnt-orange-dark text-shadow">Donate Now</a>
+      <a href="#involved"
+        class="mt-8 bg-burnt-orange text-white py-3 px-8 rounded-full btn hover:bg-burnt-orange-dark text-shadow">Donate
+        Now</a>
     </div>
   </div>
 
@@ -153,18 +267,25 @@
     <!-- Hero Section -->
     <section class="hero-video-container">
       <video autoplay loop muted playsinline id="hero-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-a-group-of-friends-of-different-ethnicities-hugging-each-other-4893-large.mp4" type="video/mp4">
+        <source
+          src="https://assets.mixkit.co/videos/preview/mixkit-a-group-of-friends-of-different-ethnicities-hugging-each-other-4893-large.mp4"
+          type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
       <div class="hero-overlay absolute inset-0 flex items-center justify-center text-white text-center p-6">
         <div>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Our Mission is Connecting Families. Building Futures.</h1>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Our Mission is Connecting Families.
+            Building Futures.</h1>
           <p class="text-lg md:text-xl max-w-3xl mx-auto mb-2 text-gray-200">
-            Creating pathways to family stability, economic mobility, and community leadership. One family at a time through comprehensive services.
+            Creating pathways to family stability, economic mobility, and community leadership. One family at a time
+            through comprehensive services.
           </p>
-          <p class="text-md md:text-lg max-w-3xl mx-auto mb-8 text-gray-300 italic">Where connection becomes collective growth.</p>
-          <a href="#involved" class="bg-gold text-white py-4 px-8 rounded-full font-bold text-lg btn hover:bg-gold-dark text-shadow">Join Our Mission</a>
+          <p class="text-md md:text-lg max-w-3xl mx-auto mb-8 text-gray-300 italic">Where connection becomes collective
+            growth.</p>
+          <a href="#involved"
+            class="bg-gold text-white py-4 px-8 rounded-full font-bold text-lg btn hover:bg-gold-dark text-shadow">Join
+            Our Mission</a>
         </div>
       </div>
     </section>
@@ -175,10 +296,13 @@
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-8 inline-block">Our Purpose</h2>
           <p class="text-lg text-gray-700 mb-4">
-            Village Rising was founded on a simple, powerful idea: that a connected community is a thriving community. We bridge the gap for families who need support but may not qualify for traditional aid, because of income requirements.
+            Village Rising was founded on a simple, powerful idea: that a connected community is a thriving community.
+            We bridge the gap for families who need support but may not qualify for traditional aid, because of income
+            requirements.
           </p>
           <p class="text-lg text-gray-700">
-            Our work is rooted in integrity, service, and the belief that everyone deserves the opportunity to flourish. We are a registered 501(c)(3) nonprofit dedicated to making a tangible impact.
+            Our work is rooted in integrity, service, and the belief that everyone deserves the opportunity to flourish.
+            We are a registered 501(c)(3) nonprofit dedicated to making a tangible impact.
           </p>
         </div>
       </div>
@@ -189,60 +313,88 @@
       <div class="container mx-auto px-6">
         <div class="text-center mb-20">
           <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">How We Serve</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">We offer a range of life advancing programs designed to meet low-to-moderate income families. Our offer the following programs: <br> 1. Overnight and Drop-In Childcare <br>2. Essential Family Resource Center <br>3. Housing Stability Program <br>4. Workforce Development & Internship Program  </p>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">We offer a range of life advancing programs designed to
+            meet low-to-moderate income families. Our offer the following programs: <br> 1. Overnight and Drop-In
+            Childcare <br>2. Essential Family Resource Center <br>3. Housing Stability Program <br>4. Workforce
+            Development & Internship Program </p>
           <br>
-        <p class="text-sm md:text-base font-normal leading-tight mb-4" style="color:#9CA3AF">For inquires before applying please email info@ourvillagerising.org. Please allow up to 7 business days for a response.</p>
+          <p class="text-sm md:text-base font-normal leading-tight mb-4" style="color:#9CA3AF">For inquires before
+            applying please email info@ourvillagerising.org. Please allow up to 7 business days for a response.</p>
         </div>
 
-       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
             <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-1a6 6 0 00-5.197-5.975M15 21H9"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-1a6 6 0 00-5.197-5.975M15 21H9" />
               </svg>
             </div>
             <h3 class="text-2xl font-bold mb-3">VR Childcare and Resource Center</h3>
-            <p class="text-gray-600">Our program provides a nurturing, educational environment for children while offering parents a unique fill in the gap program for essential family support and community resources. We combine high quality childcare with access to professional workshops and advocacy services that aims to empower the entire family to grow and succeed together.</p>
-          <br>
-          <p>To apply please email info@ourvillagerising.org</p>
-          </div> 
-
-          <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
-            <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-3">Housing Stability</h3>
-            <p class="text-gray-600">We facilitate temporary and emergency housing solutions by offering families immediate housing support. This includes a comprehensive suite of resources ranging from legal mediation to personalized budgeting workshops designed to prevent eviction. This intervention-based approach that addresses the systemic causes of housing insecurity, ensuring that vulnerable households have a stable foundation for professional and personal growth.</p>
-          <br>
-            <p class="text-gray-600"> To Qualify for our housing stability program, the following is required: 1. Proof of income 2. Proof of Housing Emergency 3. Background Screening. Persons with sexual, drug and domestic violence related charges are not eligible for this program</p>
-        <br>
-        <p>Please submit the required documentation to info@ourvillagerising.org This is a waitlisted program. Services are not Guaranteed.</p>  
-        </div>
-
-          <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
-            <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-3">Live Scan & Access to Employment Services</h3>
-            <p class="text-gray-600">Village Rising's Live Scan program supports low-income individuals and families by removing common administrative barriers to employment and professional advancement. We provide access to required background checks and related document services, such as mobile notary support, that are often prerequisites for jobs, licensing, housing, and voluneteer opportunities. Our goal is to ensure that cost, process complexity, or lack of access does not prevent individuals from moving forward with employment or stability-building opportunities. </p>
-          <br>
-          <p>To apply please email info@ourvillagerising.org</p>
+            <p class="text-gray-600">Our program provides a nurturing, educational environment for children while
+              offering parents a unique fill in the gap program for essential family support and community resources. We
+              combine high quality childcare with access to professional workshops and advocacy services that aims to
+              empower the entire family to grow and succeed together.</p>
+            <br>
+            <p>To apply please email info@ourvillagerising.org</p>
           </div>
 
           <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
             <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Housing Stability</h3>
+            <p class="text-gray-600">We facilitate temporary and emergency housing solutions by offering families
+              immediate housing support. This includes a comprehensive suite of resources ranging from legal mediation
+              to personalized budgeting workshops designed to prevent eviction. This intervention-based approach that
+              addresses the systemic causes of housing insecurity, ensuring that vulnerable households have a stable
+              foundation for professional and personal growth.</p>
+            <br>
+            <p class="text-gray-600"> To Qualify for our housing stability program, the following is required: 1. Proof
+              of income 2. Proof of Housing Emergency 3. Background Screening. Persons with sexual, drug and domestic
+              violence related charges are not eligible for this program</p>
+            <br>
+            <p>Please submit the required documentation to info@ourvillagerising.org This is a waitlisted program.
+              Services are not Guaranteed.</p>
+          </div>
+
+          <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
+            <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Live Scan & Access to Employment Services</h3>
+            <p class="text-gray-600">Village Rising's Live Scan program supports low-income individuals and families by
+              removing common administrative barriers to employment and professional advancement. We provide access to
+              required background checks and related document services, such as mobile notary support, that are often
+              prerequisites for jobs, licensing, housing, and voluneteer opportunities. Our goal is to ensure that cost,
+              process complexity, or lack of access does not prevent individuals from moving forward with employment or
+              stability-building opportunities. </p>
+            <br>
+            <p>To apply please email info@ourvillagerising.org</p>
+          </div>
+
+          <div class="program-card text-center p-8 bg-off-white rounded-xl shadow-lg">
+            <div class="bg-sage-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
             <h3 class="text-2xl font-bold mb-3">Workforce Development & Internship Program</h3>
-            <p class="text-gray-600">Village Rising’s Workforce Development Program offers structured internship and skill-building opportunities for college students, emerging professionals, and community members seeking meaningful pathways to growth. Through hands-on experience, mentorship, and real-world exposure, participants develop practical skills, professional confidence, and a clearer understanding of their career direction. The program is designed to strengthen workforce readiness while creating equitable opportunities for individuals and families to build sustainable futures.</p>
-          <br>
-          <p>For internship or workforce opportunities submit your resume to info@ourvillagerising.org</p>
+            <p class="text-gray-600">Village Rising’s Workforce Development Program offers structured internship and
+              skill-building opportunities for college students, emerging professionals, and community members seeking
+              meaningful pathways to growth. Through hands-on experience, mentorship, and real-world exposure,
+              participants develop practical skills, professional confidence, and a clearer understanding of their
+              career direction. The program is designed to strengthen workforce readiness while creating equitable
+              opportunities for individuals and families to build sustainable futures.</p>
+            <br>
+            <p>For internship or workforce opportunities submit your resume to info@ourvillagerising.org</p>
           </div>
         </div>
       </div>
@@ -252,57 +404,88 @@
     <section id="board" class="py-24 md:py-32 fade-in-section">
       <div class="container mx-auto px-6">
         <div class="text-center mb-20">
-          <h2 class="section-title text-3xl md:4xl font-bold text-gray-800 mb-6 inline-block">Meet Our Board of Directors</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our organization is guided by a dedicated team of community leaders committed to our mission.</p>
+          <h2 class="section-title text-3xl md:4xl font-bold text-gray-800 mb-6 inline-block">Meet Our Board of
+            Directors</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our organization is guided by a dedicated team of community
+            leaders committed to our mission.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           <!-- Board Member 1 -->
           <div class="text-center">
-            <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236613/Paskael_rj8ngf.jpg alt="Board Member 1">
+            <img class="w-40 h-40 mx-auto rounded-full shadow-lg"
+              src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236613/Paskael_rj8ngf.jpg alt="Board Member 1">
             <h3 class="mt-6 text-xl font-bold">Paskael Tyiska Jr.</h3>
             <p class="text-md text-burnt-orange font-semibold">Executive Director</p>
-            <p class="mt-3 text-gray-600 text-sm">As Executive Director of Village Rising, Paeskal leads programs and partnerships that connect families to resources and opportunity. His work is guided by integrity, service, and a commitment to strengthening family stability and community growth.</p>
+            <p class="mt-3 text-gray-600 text-sm">As Executive Director of Village Rising, Paeskal leads programs and
+              partnerships that connect families to resources and opportunity. His work is guided by integrity, service,
+              and a commitment to strengthening family stability and community growth.</p>
           </div>
 
           <!-- Board Member 2 -->
           <div class="text-center">
-            <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236883/Shyreese_ri4wu4.png alt="Board Member 2">
+            <img class="w-40 h-40 mx-auto rounded-full shadow-lg"
+              src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236883/Shyreese_ri4wu4.png
+              alt="Board Member 2">
             <h3 class="mt-6 text-xl font-bold">Shyreese Tyiska</h3>
             <p class="text-md text-burnt-orange font-semibold">Chief Operating Officer (COO)</p>
-            <p class="mt-3 text-gray-600 text-sm">Shyreese leads Village Rising’s early learning programs, supporting children’s development while partnering with families to build strong foundations for long-term success. Her approach reflects the organization’s belief in connection as the foundation of thriving communities.</p>
+            <p class="mt-3 text-gray-600 text-sm">Shyreese leads Village Rising’s early learning programs, supporting
+              children’s development while partnering with families to build strong foundations for long-term success.
+              Her approach reflects the organization’s belief in connection as the foundation of thriving communities.
+            </p>
           </div>
 
           <!-- Board Member 3 -->
           <div class="text-center">
-            <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236870/Domoniquic_t1mrdu.png alt="Board Member 3">
+            <img class="w-40 h-40 mx-auto rounded-full shadow-lg"
+              src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236870/Domoniquic_t1mrdu.png
+              alt="Board Member 3">
             <h3 class="mt-6 text-xl font-bold">Domoniquic McPherson</h3>
             <p class="text-md text-burnt-orange font-semibold">Community Engagement & Advocacy Coordinator</p>
-            <p class="mt-3 text-gray-600 text-sm">Domoniquic supports Village Rising as Community Engagement & Advocacy Coordinator, bringing a strong background in community advocacy, program coordination, and civic engagement. Their work centers on building equitable, community-driven solutions through strategic partnerships and wraparound services, reflecting Village Rising’s commitment to access, accountability, and meaningful impact for underserved populations.</p>
+            <p class="mt-3 text-gray-600 text-sm">Domoniquic supports Village Rising as Community Engagement & Advocacy
+              Coordinator, bringing a strong background in community advocacy, program coordination, and civic
+              engagement. Their work centers on building equitable, community-driven solutions through strategic
+              partnerships and wraparound services, reflecting Village Rising’s commitment to access, accountability,
+              and meaningful impact for underserved populations.</p>
           </div>
 
           <!-- Board Member 4 -->
           <div class="text-center">
-            <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236870/Kristina_k39jld.jpg alt="Board Member 3">
+            <img class="w-40 h-40 mx-auto rounded-full shadow-lg"
+              src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236870/Kristina_k39jld.jpg
+              alt="Board Member 3">
             <h3 class="mt-6 text-xl font-bold">Kristina Phillips</h3>
             <p class="text-md text-burnt-orange font-semibold">Program Advisor</p>
-            <p class="mt-3 text-gray-600 text-sm">Kristina supports Village Rising as a Program Advisor, bringing deep experience in healthcare leadership and community engagement to strengthen programs and partnerships. Her work is guided by a strong commitment to uplifting underserved families, reflecting Village Rising’s belief that connection, compassion, and opportunity are essential for communities to thrive.</p>
+            <p class="mt-3 text-gray-600 text-sm">Kristina supports Village Rising as a Program Advisor, bringing deep
+              experience in healthcare leadership and community engagement to strengthen programs and partnerships. Her
+              work is guided by a strong commitment to uplifting underserved families, reflecting Village Rising’s
+              belief that connection, compassion, and opportunity are essential for communities to thrive.</p>
           </div>
 
           <!-- Board Member 5 -->
           <div class="text-center">
-            <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236884/Tyrone_q4qmly.jpg alt="Board Member 3">
+            <img class="w-40 h-40 mx-auto rounded-full shadow-lg"
+              src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236884/Tyrone_q4qmly.jpg alt="Board Member 3">
             <h3 class="mt-6 text-xl font-bold">Tyrone Jackson</h3>
             <p class="text-md text-burnt-orange font-semibold">Chief Financial Officer (CFO)</p>
-            <p class="mt-3 text-gray-600 text-sm">Tyrone supports Village Rising as Chief Financial Officer, bringing decades of leadership, financial stewardship, and operational management experience across public and private sectors. His work focuses on strengthening financial systems, transparency, and long-term sustainability, reflecting Village Rising’s commitment to responsible growth and lasting community impact.</p>
+            <p class="mt-3 text-gray-600 text-sm">Tyrone supports Village Rising as Chief Financial Officer, bringing
+              decades of leadership, financial stewardship, and operational management experience across public and
+              private sectors. His work focuses on strengthening financial systems, transparency, and long-term
+              sustainability, reflecting Village Rising’s commitment to responsible growth and lasting community impact.
+            </p>
           </div>
 
           <!-- Board Member 6 -->
           <div class="text-center">
-            <img class="w-40 h-40 mx-auto rounded-full shadow-lg" src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236870/Lucile_lrgul7.jpg alt="Board Member 3">
+            <img class="w-40 h-40 mx-auto rounded-full shadow-lg"
+              src=https://res.cloudinary.com/dqifsvgju/image/upload/v1767236870/Lucile_lrgul7.jpg alt="Board Member 3">
             <h3 class="mt-6 text-xl font-bold">Lucile Jackson</h3>
             <p class="text-md text-burnt-orange font-semibold">Director of Resources</p>
-            <p class="mt-3 text-gray-600 text-sm">Lucile supports Village Rising as Director of Resources, bringing extensive experience in nonprofit leadership, resource development, and community safety education. Her work focuses on strengthening partnerships, building sustainable systems, and ensuring families have access to critical resources—reflecting Village Rising’s commitment to accountability, empowerment, and long-term community resilience.</p>
+            <p class="mt-3 text-gray-600 text-sm">Lucile supports Village Rising as Director of Resources, bringing
+              extensive experience in nonprofit leadership, resource development, and community safety education. Her
+              work focuses on strengthening partnerships, building sustainable systems, and ensuring families have
+              access to critical resources—reflecting Village Rising’s commitment to accountability, empowerment, and
+              long-term community resilience.</p>
           </div>
         </div>
       </div>
@@ -312,43 +495,63 @@
     <section id="involved" class="py-24 md:py-32 bg-white fade-in-section">
       <div class="container mx-auto px-6">
         <div class="text-center mb-20">
-          <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">Make a Difference Today</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Your gift provides the resources families need to build a stable, brighter future. Thank you for your generosity.</p>
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">Make a Difference
+            Today</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Your gift provides the resources families need to build a
+            stable, brighter future. Thank you for your generosity.</p>
         </div>
 
         <div class="max-w-2xl mx-auto bg-off-white p-8 sm:p-10 rounded-2xl shadow-xl">
           <div class="flex border-b mb-6">
-            <button id="one-time-tab" class="donation-tab flex-1 py-3 text-xl font-bold text-gray-500 active">One-Time</button>
+            <button id="one-time-tab"
+              class="donation-tab flex-1 py-3 text-xl font-bold text-gray-500 active">One-Time</button>
             <button id="monthly-tab" class="donation-tab flex-1 py-3 text-xl font-bold text-gray-500">Monthly</button>
           </div>
 
-          <div id="donation-feedback" class="text-center text-sage-green font-semibold mb-6 h-6 transition-opacity duration-300"></div>
+          <div id="donation-feedback"
+            class="text-center text-sage-green font-semibold mb-6 h-6 transition-opacity duration-300"></div>
 
           <div id="one-time-amounts">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="25">$25</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg selected" data-amount="50">$50</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="100">$100</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="250">$250</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="500">$500</button>
-              <input type="number" id="custom-amount" placeholder="Other" class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg w-full text-center text-gray-800 placeholder-gray-500">
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="25">$25</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg selected"
+                data-amount="50">$50</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="100">$100</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="250">$250</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="500">$500</button>
+              <input type="number" id="custom-amount" placeholder="Other"
+                class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg w-full text-center text-gray-800 placeholder-gray-500">
             </div>
           </div>
 
           <div id="monthly-amounts" class="hidden">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="10">$10</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg selected" data-amount="25">$25</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="50">$50</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="75">$75</button>
-              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg" data-amount="100">$100</button>
-              <input type="number" id="custom-amount-monthly" placeholder="Other" class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg w-full text-center text-gray-800 placeholder-gray-500">
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="10">$10</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg selected"
+                data-amount="25">$25</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="50">$50</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="75">$75</button>
+              <button class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg"
+                data-amount="100">$100</button>
+              <input type="number" id="custom-amount-monthly" placeholder="Other"
+                class="amount-option border-2 border-gray-300 rounded-lg p-4 font-bold text-lg w-full text-center text-gray-800 placeholder-gray-500">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button id="donate-now-btn" class="w-full bg-burnt-orange text-white font-extrabold text-lg py-4 rounded-lg btn hover:bg-burnt-orange-dark text-shadow">Proceed to Payment</button>
-            <button id="open-qr-modal" class="w-full bg-sage-green text-white font-extrabold text-lg py-4 rounded-lg btn hover:bg-sage-green-dark text-shadow">Scan to Pay (QR)</button>
+            <button id="donate-now-btn"
+              class="w-full bg-burnt-orange text-white font-extrabold text-lg py-4 rounded-lg btn hover:bg-burnt-orange-dark text-shadow">Proceed
+              to Payment</button>
+            <button id="open-qr-modal"
+              class="w-full bg-sage-green text-white font-extrabold text-lg py-4 rounded-lg btn hover:bg-sage-green-dark text-shadow">Scan
+              to Pay (QR)</button>
           </div>
 
           <p class="text-xs text-center mt-4 text-gray-500">
@@ -364,28 +567,38 @@
     <section id="receipt" class="py-24 md:py-32 fade-in-section">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">QR Code Donation Receipt</h2>
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">QR Code Donation
+            Receipt</h2>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Thank you! To receive your tax-deductible receipt, please submit your donation details below for verification by our team.
+            Thank you! To receive your tax-deductible receipt, please submit your donation details below for
+            verification by our team.
           </p>
         </div>
 
         <div class="max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-lg">
           <form action="#" method="POST">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <input type="text" placeholder="Full Name" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
-              <input type="email" placeholder="Email Address" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <input type="text" placeholder="Full Name"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <input type="email" placeholder="Email Address"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <input type="text" placeholder="Donation Amount ($)" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
-              <input type="date" placeholder="Date of Donation" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none text-gray-500">
+              <input type="text" placeholder="Donation Amount ($)"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <input type="date" placeholder="Date of Donation"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none text-gray-500">
             </div>
             <div class="mb-6">
-              <label for="transaction-id" class="block text-sm font-medium text-gray-700 mb-1">Transaction ID or Memo</label>
-              <input type="text" id="transaction-id" placeholder="e.g., Zelle memo or Givebutter ID" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <label for="transaction-id" class="block text-sm font-medium text-gray-700 mb-1">Transaction ID or
+                Memo</label>
+              <input type="text" id="transaction-id" placeholder="e.g., Zelle memo or Givebutter ID"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
             </div>
             <div class="text-center mt-6">
-              <button type="submit" class="bg-sage-green text-white py-3 px-8 rounded-full font-bold btn hover:bg-sage-green-dark">Submit for Verification</button>
+              <button type="submit"
+                class="bg-sage-green text-white py-3 px-8 rounded-full font-bold btn hover:bg-sage-green-dark">Submit
+                for Verification</button>
             </div>
           </form>
         </div>
@@ -397,23 +610,30 @@
       <div class="container mx-auto px-6">
         <div class="text-center mb-20">
           <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block">Get in Touch</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Have questions? Want to partner with us? We'd love to hear from you.</p>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Have questions? Want to partner with us? We'd love to hear
+            from you.</p>
         </div>
 
         <div class="max-w-2xl mx-auto bg-off-white p-8 sm:p-10 rounded-xl shadow-lg">
           <form action="#" method="POST">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
-              <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <input type="text" placeholder="Your Name"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <input type="email" placeholder="Your Email"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
             </div>
             <div class="mb-6">
-              <input type="text" placeholder="Subject" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+              <input type="text" placeholder="Subject"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
             </div>
             <div class="mb-6">
-              <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none"></textarea>
+              <textarea placeholder="Your Message" rows="5"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="bg-sage-green text-white py-3 px-8 rounded-full font-bold btn hover:bg-sage-green-dark">Send Message</button>
+              <button type="submit"
+                class="bg-sage-green text-white py-3 px-8 rounded-full font-bold btn hover:bg-sage-green-dark">Send
+                Message</button>
             </div>
           </form>
         </div>
@@ -424,9 +644,12 @@
     <section id="financials" class="py-24 md:py-32 fade-in-section">
       <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto text-center">
-          <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-8 inline-block">Our Commitment to Transparency</h2>
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-8 inline-block">Our Commitment to
+            Transparency</h2>
           <p class="text-lg text-gray-700 mb-4">
-            As a new organization, we are diligently working to establish our financial reporting systems. We are committed to complete transparency and will publish our financial statements and annual reports here as soon as they become available.
+            As a new organization, we are diligently working to establish our financial reporting systems. We are
+            committed to complete transparency and will publish our financial statements and annual reports here as soon
+            as they become available.
           </p>
           <p class="text-lg text-gray-700">
             Your trust is paramount to us. Thank you for your support as we grow.
@@ -441,19 +664,25 @@
     <div class="container mx-auto px-6 py-12 text-center">
       <a href="#top" class="inline-block">
         <img src="https://i.imgur.com/1ayrSLB.png" alt="Village Rising Logo" class="h-16 w-auto mx-auto"
-             onerror="this.onerror=null; this.src='https://placehold.co/100x100/8A9A5B/FFFFFF?text=VR';">
+          onerror="this.onerror=null; this.src='https://placehold.co/100x100/8A9A5B/FFFFFF?text=VR';">
       </a>
       <p class="my-4 text-gray-400">Empowering Families, Building Community.</p>
 
       <div class="flex justify-center space-x-6 my-6">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 social-icon transition-colors duration-300" aria-label="Facebook">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+          class="text-gray-400 social-icon transition-colors duration-300" aria-label="Facebook">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd"
+              d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+              clip-rule="evenodd" />
           </svg>
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 social-icon transition-colors duration-300" aria-label="Instagram">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+          class="text-gray-400 social-icon transition-colors duration-300" aria-label="Instagram">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.148.048-1.024.06-1.347.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a3.37 3.37 0 01.882-1.217 3.37 3.37 0 011.217-.882c.478-.185 1.108-.347 2.148-.395 1.024-.048 1.347-.06 3.808-.06zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.148.048-1.024.06-1.347.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a3.37 3.37 0 01.882-1.217 3.37 3.37 0 011.217-.882c.478-.185 1.108-.347 2.148-.395 1.024-.048 1.347-.06 3.808-.06zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+              clip-rule="evenodd" />
           </svg>
         </a>
       </div>
@@ -465,103 +694,147 @@
       </div>
 
       <p class="text-gray-500 text-sm mt-4">
-        &copy; 2024 Village Rising. All Rights Reserved. A registered 501(c)(3) nonprofit organization. We are committed to accessibility for all users.
+        &copy; 2024 Village Rising. All Rights Reserved. A registered 501(c)(3) nonprofit organization. We are committed
+        to accessibility for all users.
       </p>
     </div>
   </footer>
 
   <!-- QR Code Modal -->
-  <div id="qr-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
+  <div id="qr-modal"
+    class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
     <div class="modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative transform scale-95">
       <button id="close-qr-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800" aria-label="Close">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
 
       <h3 class="text-2xl font-bold text-center mb-6">Scan to Pay</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="text-center">
           <h4 class="text-xl font-semibold mb-4">Pay with Zelle®</h4>
-          <div class="w-48 h-48 mx-auto rounded-lg shadow-md bg-white p-2 flex items-center justify-center overflow-hidden">
+          <div
+            class="w-48 h-48 mx-auto rounded-lg shadow-md bg-white p-2 flex items-center justify-center overflow-hidden">
             <img src="https://i.imgur.com/CZID90b.png" alt="Zelle QR Code" class="w-full h-full object-cover"
-                 onerror="this.onerror=null; this.src='https://placehold.co/192x192/9333ea/FFFFFF?text=Zelle+QR';">
+              onerror="this.onerror=null; this.src='https://placehold.co/192x192/9333ea/FFFFFF?text=Zelle+QR';">
           </div>
-          <p class="text-sm text-gray-600 mt-4">Use your <strong class="text-gray-800">mobile banking app</strong> to scan.</p>
+          <p class="text-sm text-gray-600 mt-4">Use your <strong class="text-gray-800">mobile banking app</strong> to
+            scan.</p>
         </div>
 
         <div class="text-center">
           <h4 class="text-xl font-semibold mb-4">Pay with Givebutter</h4>
           <div class="w-48 h-48 mx-auto rounded-lg shadow-md bg-white p-2 flex items-center justify-center">
-            <img src="https://i.imgur.com/qGIfPuL.png" alt="Givebutter QR Code" class="max-w-full max-h-full object-contain"
-                 onerror="this.onerror=null; this.src='https://placehold.co/192x192/059669/FFFFFF?text=Givebutter+QR';">
+            <img src="https://i.imgur.com/qGIfPuL.png" alt="Givebutter QR Code"
+              class="max-w-full max-h-full object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/192x192/059669/FFFFFF?text=Givebutter+QR';">
           </div>
           <p class="text-sm text-gray-600 mt-4">Scan here for Givebutter donations.</p>
         </div>
       </div>
 
       <p class="text-xs text-center mt-8 text-burnt-orange font-semibold">
-        Important: To receive a tax receipt, please close this window after donating and fill out the "QR Code Donation Receipt" form on our page.
+        Important: To receive a tax receipt, please close this window after donating and fill out the "QR Code Donation
+        Receipt" form on our page.
       </p>
     </div>
   </div>
 
   <!-- Terms Modal -->
-  <div id="terms-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
-    <div class="modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative transform scale-95 flex flex-col">
-      <button id="close-terms-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800" aria-label="Close">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  <div id="terms-modal"
+    class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
+    <div
+      class="modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative transform scale-95 flex flex-col">
+      <button id="close-terms-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+        aria-label="Close">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
 
       <h3 class="text-2xl font-bold text-center mb-6">Terms of Service</h3>
       <div class="text-sm text-gray-600 space-y-4 overflow-y-auto max-h-[60vh] pr-4">
         <p><strong>Last Updated: [Date]</strong></p>
-        <p>Welcome to Village Rising. By accessing our website and making a donation, you agree to be bound by these Terms of Service. Please read them carefully.</p>
+        <p>Welcome to Village Rising. By accessing our website and making a donation, you agree to be bound by these
+          Terms of Service. Please read them carefully.</p>
 
         <h4 class="font-bold text-gray-800">Donation Policy</h4>
-        <p>All donations made to Village Rising, a 501(c)(3) nonprofit organization, are voluntary and non-refundable. We deeply appreciate your support. Your donation will be used to support our mission of empowering families and building community through our various programs and services. While we endeavor to apply donations to specific programs where designated, Village Rising reserves the right to use all donations in the manner that best serves our overall mission.</p>
+        <p>All donations made to Village Rising, a 501(c)(3) nonprofit organization, are voluntary and non-refundable.
+          We deeply appreciate your support. Your donation will be used to support our mission of empowering families
+          and building community through our various programs and services. While we endeavor to apply donations to
+          specific programs where designated, Village Rising reserves the right to use all donations in the manner that
+          best serves our overall mission.</p>
 
         <h4 class="font-bold text-gray-800">Tax-Deductible Receipts</h4>
-        <p>Village Rising is a registered 501(c)(3) nonprofit organization. Your donation is tax-deductible to the extent allowed by law. For online donations made through integrated payment processors, an automatic receipt will be sent to the email address you provide. For donations made through external methods like Zelle (QR Code), you must submit a receipt request through the form on our website for verification. A receipt will be issued only after our team has confirmed the transaction.</p>
+        <p>Village Rising is a registered 501(c)(3) nonprofit organization. Your donation is tax-deductible to the
+          extent allowed by law. For online donations made through integrated payment processors, an automatic receipt
+          will be sent to the email address you provide. For donations made through external methods like Zelle (QR
+          Code), you must submit a receipt request through the form on our website for verification. A receipt will be
+          issued only after our team has confirmed the transaction.</p>
 
         <h4 class="font-bold text-gray-800">Governing Law</h4>
-        <p>These terms shall be governed by the laws of the State of [Your State], without respect to its conflict of law provisions.</p>
+        <p>These terms shall be governed by the laws of the State of [Your State], without respect to its conflict of
+          law provisions.</p>
 
-        <p class="mt-6 text-xs"><strong>Disclaimer:</strong> This is a template Terms of Service. It is highly recommended that you consult with a legal professional to ensure it is compliant and tailored to your specific organization's needs.</p>
+        <p class="mt-6 text-xs"><strong>Disclaimer:</strong> This is a template Terms of Service. It is highly
+          recommended that you consult with a legal professional to ensure it is compliant and tailored to your specific
+          organization's needs.</p>
       </div>
     </div>
   </div>
 
   <!-- Privacy Modal -->
-  <div id="privacy-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
-    <div class="modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative transform scale-95 flex flex-col">
-      <button id="close-privacy-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800" aria-label="Close">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  <div id="privacy-modal"
+    class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
+    <div
+      class="modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative transform scale-95 flex flex-col">
+      <button id="close-privacy-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+        aria-label="Close">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
 
       <h3 class="text-2xl font-bold text-center mb-6">Privacy Policy</h3>
       <div class="text-sm text-gray-600 space-y-4 overflow-y-auto max-h-[60vh] pr-4">
         <p><strong>Last Updated: [Date]</strong></p>
-        <p>Village Rising ("us", "we", or "our") operates this website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+        <p>Village Rising ("us", "we", or "our") operates this website (the "Service"). This page informs you of our
+          policies regarding the collection, use, and disclosure of personal data when you use our Service and the
+          choices you have associated with that data.</p>
 
         <h4 class="font-bold text-gray-800">Information Collection and Use</h4>
-        <p>We collect several different types of information for various purposes to provide and improve our Service to you. This includes, but is not limited to, your name, email address, and donation details when you voluntarily provide them through our contact, donation, or receipt request forms.</p>
+        <p>We collect several different types of information for various purposes to provide and improve our Service to
+          you. This includes, but is not limited to, your name, email address, and donation details when you voluntarily
+          provide them through our contact, donation, or receipt request forms.</p>
 
         <h4 class="font-bold text-gray-800">Use of Data</h4>
-        <p>Village Rising uses the collected data for various purposes: to process donations, to provide tax receipts, to send you updates and newsletters (if you opt-in), to respond to your inquiries, and to improve our Service.</p>
+        <p>Village Rising uses the collected data for various purposes: to process donations, to provide tax receipts,
+          to send you updates and newsletters (if you opt-in), to respond to your inquiries, and to improve our Service.
+        </p>
 
         <h4 class="font-bold text-gray-800">Data Security</h4>
-        <p>The security of your data is important to us. We strive to use commercially acceptable means to protect your Personal Data, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+        <p>The security of your data is important to us. We strive to use commercially acceptable means to protect your
+          Personal Data, but remember that no method of transmission over the Internet or method of electronic storage
+          is 100% secure.</p>
 
         <h4 class="font-bold text-gray-800">Sharing of Data</h4>
-        <p>We will not sell, trade, or share your personal information with any third party without your consent, except to comply with the law, or to our trusted third-party service providers who assist us in operating our website and conducting our business, so long as those parties agree to keep this information confidential.</p>
+        <p>We will not sell, trade, or share your personal information with any third party without your consent, except
+          to comply with the law, or to our trusted third-party service providers who assist us in operating our website
+          and conducting our business, so long as those parties agree to keep this information confidential.</p>
 
-        <p class="mt-6 text-xs"><strong>Disclaimer:</strong> This is a template Privacy Policy. It is highly recommended that you consult with a legal professional to ensure it is compliant with regulations like GDPR, CCPA, etc., and is tailored to your specific organization's data practices.</p>
+        <p class="mt-6 text-xs"><strong>Disclaimer:</strong> This is a template Privacy Policy. It is highly recommended
+          that you consult with a legal professional to ensure it is compliant with regulations like GDPR, CCPA, etc.,
+          and is tailored to your specific organization's data practices.</p>
       </div>
     </div>
   </div>
 
   <!-- Custom Alert Modal -->
-  <div id="alert-modal" class="alert-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60] hidden opacity-0">
-    <div class="alert-content bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative transform scale-95 text-center">
+  <div id="alert-modal"
+    class="alert-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60] hidden opacity-0">
+    <div
+      class="alert-content bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative transform scale-95 text-center">
       <h3 id="alert-title" class="text-2xl font-bold text-gray-800 mb-4">Confirm Donation</h3>
       <p id="alert-message" class="text-gray-600 mb-6">Message here</p>
       <button id="close-alert-modal" class="bg-sage-green text-white font-bold py-2 px-6 rounded-full btn">OK</button>
@@ -569,8 +842,12 @@
   </div>
 
   <!-- Back to Top -->
-  <button id="back-to-top" class="fixed bottom-5 right-5 bg-burnt-orange text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-4 pointer-events-none" aria-label="Back to top">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  <button id="back-to-top"
+    class="fixed bottom-5 right-5 bg-burnt-orange text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-4 pointer-events-none"
+    aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
   </button>
 
   <script>
@@ -747,4 +1024,5 @@
     });
   </script>
 </body>
+
 </html>
