@@ -57,11 +57,26 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
   const [household, setHousehold] = useState("");
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
   const [zipCode, setZipCode] = useState("");
+  const [attempted, setAttempted] = useState(false);
 
   const toggleArea = (id: string) => {
     setSelectedAreas((prev) =>
       prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id]
     );
+  };
+
+  const errors = {
+    income: !income,
+    household: !household,
+    areas: selectedAreas.length === 0,
+    zipCode: !zipCode.trim() || !/^\d{5}$/.test(zipCode.trim()),
+  };
+
+  const isValid = !Object.values(errors).some(Boolean);
+
+  const handleNext = () => {
+    setAttempted(true);
+    if (isValid) onNext();
   };
 
   return (
@@ -75,7 +90,9 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
           <select
             value={income}
             onChange={(e) => setIncome(e.target.value)}
-            className="w-full h-[49px] px-4 bg-white border border-[#d1d5dc] rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer"
+            className={`w-full h-[49px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${
+              attempted && errors.income ? "border-[#dc2626]" : "border-[#d1d5dc]"
+            }`}
           >
             {incomeOptions.map((opt) => (
               <option key={opt} value={opt === "Select income range" ? "" : opt}>
@@ -83,6 +100,9 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
               </option>
             ))}
           </select>
+          {attempted && errors.income && (
+            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[13px] mt-1">Please select your annual household income.</p>
+          )}
         </div>
 
         {/* Household size */}
@@ -93,7 +113,9 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
           <select
             value={household}
             onChange={(e) => setHousehold(e.target.value)}
-            className="w-full h-[49px] px-4 bg-white border border-[#d1d5dc] rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer"
+            className={`w-full h-[49px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${
+              attempted && errors.household ? "border-[#dc2626]" : "border-[#d1d5dc]"
+            }`}
           >
             {householdOptions.map((opt) => (
               <option key={opt} value={opt === "Select household size" ? "" : opt}>
@@ -101,6 +123,9 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
               </option>
             ))}
           </select>
+          {attempted && errors.household && (
+            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[13px] mt-1">Please select your household size.</p>
+          )}
         </div>
 
         {/* Support areas */}
@@ -143,6 +168,9 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
           <p className="font-['Inter',sans-serif] text-[#6a7282] text-[14px] leading-[20px] mt-3">
             Please select at least one area
           </p>
+          {attempted && errors.areas && (
+            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[13px] mt-1">Please select at least one support area.</p>
+          )}
         </div>
 
         {/* Zip code */}
@@ -155,8 +183,13 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
             placeholder="e.g., 90210"
             value={zipCode}
             onChange={(e) => setZipCode(e.target.value)}
-            className="w-full h-[50px] px-4 bg-white border border-[#d1d5dc] rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] outline-none focus:border-[#c6a646] transition-colors"
+            className={`w-full h-[50px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] outline-none focus:border-[#c6a646] transition-colors ${
+              attempted && errors.zipCode ? "border-[#dc2626]" : "border-[#d1d5dc]"
+            }`}
           />
+          {attempted && errors.zipCode && (
+            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[13px] mt-1">Please enter a valid 5-digit zip code.</p>
+          )}
           <p className="font-['Inter',sans-serif] text-[#6a7282] text-[14px] leading-[20px] mt-2">
             We serve families in the greater metro area
           </p>
@@ -165,7 +198,7 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
         {/* Buttons */}
         <div className="flex gap-4 pt-4">
           <button
-            onClick={onNext}
+            onClick={handleNext}
             className="bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['Inter',sans-serif] text-[16px] px-8 h-[50px] rounded-[40px] cursor-pointer"
           >
             See My Results
