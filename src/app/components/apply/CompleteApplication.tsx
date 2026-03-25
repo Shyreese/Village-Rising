@@ -620,7 +620,7 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
 
       {/* Contact info */}
       <p className="font-['Inter',sans-serif] text-[#6a7282] text-[14px] leading-[20px] text-center">
-        Questions? Call us at (555) 123-4567 or email info@villagerising.org
+        Questions? Call us at (916)764-0211 or email info@villagevalues.net
       </p>
     </div>
   );

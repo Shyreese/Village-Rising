@@ -81,30 +81,28 @@ export function PartnerSection() {
   return (
     <section className="relative z-10 flex justify-center px-6 md:px-8 pb-16 md:pb-24">
       <div className="bg-[#f9fafb] rounded-[30px] px-8 py-10 max-w-[660px] w-full">
-        {/* Icon */}
+        
         <div className="flex justify-center mb-4">
           <div className="bg-[#dcf4ff] rounded-[10px] w-16 h-16 flex items-center justify-center">
             <HandshakeIcon />
           </div>
         </div>
 
-        {/* Heading */}
         <h2 className="font-['Playfair_Display',serif] text-[#0a0a0a] text-[28px] md:text-[33px] leading-[1.1] text-center mb-6">
           Partner With Us
         </h2>
 
-        {/* Description */}
         <p className="font-['Inter',sans-serif] text-[#4a5565] text-[18px] md:text-[20px] leading-[1.4] text-center mb-8 max-w-[593px] mx-auto">
           Corporate partnerships help us expand our reach and enhance our
           programs. Join leading businesses in supporting families and
           strengthening our community.
         </p>
 
-        {/* Benefits List */}
         <div className="mb-8">
           <h3 className="font-['Public_Sans',sans-serif] text-[#0a0a0a] text-[20px] leading-[28px] mb-4">
             What You Get:
           </h3>
+
           {benefits.map((row, rowIdx) => (
             <div
               key={rowIdx}
@@ -122,12 +120,15 @@ export function PartnerSection() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="flex justify-center">
-          <button className="bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['Inter',sans-serif] text-[16px] leading-[24px] px-8 py-3 rounded-[40px]">
+          <a
+            href="mailto:info@villagevalues.net?subject=Partnership%20Opportunity%20with%20Village%20Rising"
+            className="inline-block bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['Inter',sans-serif] text-[16px] leading-[24px] px-8 py-3 rounded-[40px]"
+          >
             Become a Partner
-          </button>
+          </a>
         </div>
+
       </div>
     </section>
   );

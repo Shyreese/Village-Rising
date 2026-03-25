@@ -107,10 +107,10 @@ export function ContactInfo() {
           Email us and we'll respond as quickly as possible:
         </p>
         <a
-          href="mailto:info@villagevalues.org"
+          href="mailto:info@villagevalues.net"
           className="inline-block bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['DM_Sans',sans-serif] text-[16px] leading-[24px] px-8 py-3.5 rounded-[52px]"
         >
-          info@villagevalues.org
+          info@villagevalues.net
         </a>
         <p className="font-['DM_Sans',sans-serif] text-[#4a5565] text-[15px] leading-[20px] mt-4">
           We typically respond within 24 hours
@@ -123,9 +123,9 @@ export function ContactInfo() {
           icon={<EnvelopeIcon />}
           iconBg="bg-[#cbfbf1]"
           title="Email"
-          value="info@villagevalues.org"
+          value="info@villagevalues.net"
           valueColor="#009689"
-          valueHref="mailto:info@villagevalues.org"
+          valueHref="mailto:info@villagevalues.net"
           subtitle="General inquiries"
         />
 

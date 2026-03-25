@@ -67,10 +67,10 @@ export function Footer() {
             <address className="not-italic">
               <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[15px] mb-2">
                 <a 
-                  href="mailto:info@villagevalues.org"
+                  href="mailto:info@villagevalues.net"
                   className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded"
                 >
-                  Email: info@villagevalues.org
+                  Email: info@villagevalues.net
                 </a>
               </p>
               <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[15px]">
