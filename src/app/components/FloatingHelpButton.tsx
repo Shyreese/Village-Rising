@@ -90,21 +90,21 @@ export function FloatingHelpButton() {
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Email Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">support@villagerising.org</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">info@villagevalues.org</div>
               </div>
             </a>
             
             <a 
-              href="tel:+15551234567" 
+              href="tel:+19267640211" 
               className="flex items-center gap-3 p-3 rounded-[8px] hover:bg-[#f4efe7] transition-colors group focus:outline-none focus:ring-2 focus:ring-[#c6a646]"
-              aria-label="Call us at (555) 123-4567"
+              aria-label="Call us at (926) 764-0211"
             >
               <div className="bg-[#dcfce7] text-[#50C878] p-2 rounded-full" aria-hidden="true">
                 <Phone className="w-4 h-4" />
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Call Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">(555) 123-4567</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">(926) 764-0211</div>
               </div>
             </a>
           </div>
