@@ -13,6 +13,7 @@ import { FloatingHelpButton } from "./FloatingHelpButton";
 import { HomeLogoBars } from "./HomeLogoBars";
 import { SkipLink } from "./SkipLink";
 
+
 export function HomePage() {
   return (
     <div className="min-h-screen bg-white font-['DM_Sans',sans-serif] relative overflow-hidden">
@@ -24,8 +25,8 @@ export function HomePage() {
       <main id="main-content" className="relative">
         <HomeLogoBars />
 
-        {/* Content */}
-        <div className="relative z-[1]">
+        {/* Centered content container */}
+        <div className="relative z-[1] max-w-[1260px] mx-auto px-4 sm:px-6">
           <MissionSection />
           <ImpactSection />
           <HowItWorksSection />

@@ -3,18 +3,18 @@ import { CheckCircle, User, HandHeart } from "lucide-react";
 const steps = [
   {
     icon: CheckCircle,
-    iconBg: "bg-[#3f5a3c]",
+    iconBg: "bg-[#c6a646]",
     iconColor: "text-[#FFE89B]",
-    cardBg: "bg-[#e9f0e7]",
+    cardBg: "bg-[rgba(245,229,157,0.6)]",
     title: "1. Check Eligibility",
     description: "Answer a few simple questions to see which programs you qualify for",
     textColor: "text-[#0a0a0a]",
   },
   {
     icon: User,
-    iconBg: "bg-[#3f5a3c]",
+    iconBg: "bg-[#c6a646]",
     iconColor: "text-[#C7DCCE]",
-    cardBg: "bg-[rgba(198,214,195,0.7)]",
+    cardBg: "bg-[rgba(221,177,34,0.6)]",
     title: "2. Find Out Level of Assistance",
     description: "Get matched with a dedicated family navigator who will guide you",
     textColor: "text-[#0a0a0a]",

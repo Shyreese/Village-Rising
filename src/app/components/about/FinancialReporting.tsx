@@ -106,7 +106,7 @@ export function FinancialReporting() {
             href="mailto:finance@villagerising.org"
             className="text-[#009689] hover:underline transition-colors"
           >
-            finance@villagerising.org
+            info@villagerising.org
           </a>
         </p>
       </div>

@@ -26,10 +26,10 @@ export function CTASection() {
           id="donate"
           className="bg-[#f3f4f6] rounded-[10px] border border-[#e5e7eb] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-10 lg:p-12"
         >
-          <h2 className="font-['DM Serif Display',serif] text-[#101828] text-[24px] lg:text-[28px] leading-[1.3] mb-4">
+          <h2 className="font-['DM_Serif_Display',serif] text-[#101828] text-[24px] lg:text-[28px] leading-[1.3] mb-4">
             Support Our Mission
           </h2>
-          <p className="font-['DM Sans',sans-serif] text-[#364153] text-[16px] leading-[1.5] mb-8 max-w-[441px]">
+          <p className="font-['DM_Sans',sans-serif] text-[#364153] text-[16px] leading-[1.5] mb-8 max-w-[441px]">
             Help us support more families through donations or corporate
             partnerships.
           </p>

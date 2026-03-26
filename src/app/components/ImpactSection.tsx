@@ -38,7 +38,7 @@ export function ImpactSection() {
           alt="Community impact"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#3f5a3c]/85" />
+        <div className="absolute bg-[#0000004D] inset-0 /85" />
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">

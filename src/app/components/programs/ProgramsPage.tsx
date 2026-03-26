@@ -10,6 +10,7 @@ import { Home, DollarSign, Briefcase, Heart, GraduationCap, Users, CheckCircle }
 import { useEffect } from "react";
 import { Link } from "react-router";
 import LogoFull from "../../../imports/LogoFull";
+import { HomeLogoBars } from "./../HomeLogoBars";
 
 import imgHousing from "@/assets/ac7adf1ec1d28b18ed35e1503159fd9ef32f2579.png";
 import imgFinancial from "@/assets/aa952a3bbad835f8c2d233a6712de5f76b8ca4d6.png";
@@ -123,28 +124,7 @@ export function ProgramsPage() {
 
       {/* Main content area with logo bars */}
       <main id="main-content" className="relative">
-        {/* Left decorative logo bar */}
-        <div
-          className="hidden xl:block absolute left-0 top-0 bottom-0 pointer-events-none z-0"
-          style={{ width: "calc((100vw - 1280px) / 2)" }}
-          aria-hidden="true"
-        >
-          <div className="w-full h-full">
-            <LogoFull />
-          </div>
-        </div>
-
-        {/* Right decorative logo bar */}
-        <div
-          className="hidden xl:block absolute right-0 top-0 bottom-0 pointer-events-none z-0"
-          style={{ width: "calc((100vw - 1280px) / 2)", transform: "scaleX(-1)" }}
-          aria-hidden="true"
-        >
-          <div className="w-full h-full">
-            <LogoFull />
-          </div>
-        </div>
-
+<HomeLogoBars />
         {/* Content */}
         <div className="relative z-[1]">
           <BridgingTheGap />

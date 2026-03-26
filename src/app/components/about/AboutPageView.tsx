@@ -9,6 +9,7 @@ import { OurStory } from "./OurStory";
 import { MissionValues } from "./MissionValues";
 import { LegalRecognition } from "./LegalRecognition";
 import { FinancialReporting } from "./FinancialReporting";
+import { HomeLogoBars } from "./../HomeLogoBars";
 
 export function AboutPageView() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -19,6 +20,7 @@ export function AboutPageView() {
 
   return (
     <div className="min-h-screen bg-white font-['DM_Sans',sans-serif]">
+
       <SkipLink />
       <Navbar activePage="about" />
       <AboutHero />
@@ -26,6 +28,7 @@ export function AboutPageView() {
 
       {/* Main content area with decorative side panel */}
       <main id="main-content" className="relative">
+        <HomeLogoBars />
         {/* Decorative left panel - visible on larger screens */}
         <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[calc((100%-1280px)/2)] bg-[rgba(216,187,119,0.18)]" aria-hidden="true" />
 
@@ -43,7 +46,7 @@ export function AboutPageView() {
               )}
             </div>
           </div>
-        </div>
+       </div>
       </main>
 
       <Footer />

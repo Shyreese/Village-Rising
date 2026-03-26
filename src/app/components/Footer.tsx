@@ -78,7 +78,7 @@ export function Footer() {
                   href="tel:+15551234567"
                   className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded"
                 >
-                  Phone: (555) 123-4567
+                  Phone: (916) 761-0211
                 </a>
               </p>
             </address>
@@ -88,7 +88,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-[#1e2939] pt-6">
           <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[13px] sm:text-[14px] text-center">
-            © 2026 Village Rising. All rights reserved. | Tax ID: 12-3456789
+            © 2026 Village Rising. All rights reserved. 
           </p>
         </div>
       </div>

@@ -90,7 +90,7 @@ export function FloatingHelpButton() {
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Email Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">support@villagerising.org</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">info@villagerising.org</div>
               </div>
             </a>
             
@@ -104,7 +104,7 @@ export function FloatingHelpButton() {
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Call Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">(555) 123-4567</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">(916) 761-0211</div>
               </div>
             </a>
           </div>
