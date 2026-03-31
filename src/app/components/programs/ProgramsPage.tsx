@@ -21,6 +21,7 @@ import imgVolunteer from "@/assets/529a501a728122d61bd3c4c32157e6b5e13648d3.png"
 
 const programs = [
   {
+    anchorId: "housing-assistance",
     tag: "Housing Assistance",
     title: "Housing Assistance",
     description:
@@ -39,6 +40,7 @@ const programs = [
     ],
   },
   {
+    anchorId: "financial-coaching",
     tag: "Financial Coaching",
     title: "Financial and Professional Coaching",
     description:
@@ -56,6 +58,7 @@ const programs = [
     ],
   },
   {
+    anchorId: "family-wellness",
     tag: "Wellness Support",
     title: "Family Wellness Services",
     description:
@@ -74,6 +77,7 @@ const programs = [
     ],
   },
   {
+    anchorId: "education-support",
     tag: "Education Support",
     title: "Education Support and Childcare Assistance",
     description:
@@ -92,6 +96,7 @@ const programs = [
     ],
   },
   {
+    anchorId: "workforce-development",
     tag: "Workforce Development",
     title: "Internship and Workforce Assistance",
     description:
@@ -113,6 +118,18 @@ const programs = [
 
 export function ProgramsPage() {
   useEffect(() => {
+    const hash = window.location.hash;
+
+    if (hash) {
+      const id = hash.slice(1);
+      const element = document.getElementById(id);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+    }
+
     window.scrollTo(0, 0);
   }, []);
 
@@ -130,7 +147,7 @@ export function ProgramsPage() {
           <BridgingTheGap />
 
           {/* Program Cards */}
-          <div className="space-y-8 pb-12">
+          <div id="programs-list" className="space-y-8 pb-12">
             {programs.map((program) => (
               <ProgramCard key={program.title} {...program} />
             ))}

@@ -6,6 +6,7 @@ const services = [
   {
     icon: Home,
     title: "Housing Support",
+    anchor: "housing-assistance",
     description:
       "Emergency shelter, rental assistance, and pathways to stable, affordable housing for families in need.",
     image:
@@ -14,6 +15,7 @@ const services = [
   {
     icon: GraduationCap,
     title: "Education & Childcare",
+    anchor: "education-support",
     description:
       "Tutoring, after-school programs, scholarships, and childcare subsidies so parents can pursue their goals.",
     image:
@@ -22,6 +24,7 @@ const services = [
   {
     icon: DollarSign,
     title: "Financial Coaching",
+    anchor: "financial-coaching",
     description:
       "Credit repair, debt management, home-buying guidance, and investment education for long-term wealth building.",
     image:
@@ -30,6 +33,7 @@ const services = [
   {
     icon: Users,
     title: "Workforce Development",
+    anchor: "workforce-development",
     description:
       "Job training, internships, resume building, and career coaching to help families achieve financial independence.",
     image:
@@ -78,7 +82,7 @@ export function WhatWeDoSection() {
                   {service.description}
                 </p>
                 <Link
-                  to="/programs"
+                  to={`/programs#${service.anchor}`}
                   className="font-['Inter',sans-serif] font-semibold text-[#fe9a00] text-[15px] hover:underline"
                 >
                   Learn more →
