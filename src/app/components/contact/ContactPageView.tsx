@@ -7,6 +7,7 @@ import { ContactHero } from "./ContactHero";
 import { ContactForm } from "./ContactForm";
 import { ContactInfo } from "./ContactInfo";
 import { ServingSacramento } from "./ServingSacramento";
+import { HomeLogoBars } from "./../HomeLogoBars";
 
 export function ContactPageView() {
   useEffect(() => {
@@ -14,15 +15,18 @@ export function ContactPageView() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-['DM_Sans',sans-serif]">
-      <SkipLink />
-      <Navbar activePage="contact" />
-      <ContactHero />
+    <div className="min-h-screen bg-white font-['DM_Sans',sans-serif] relative overflow-hidden">
+      <div className="relative z-[1]">
+        <SkipLink />
+        <Navbar activePage="contact" />
+        <ContactHero />
 
-      {/* Form + Info two-column layout */}
-      <main id="main-content" className="bg-[#f4efe7]">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16">
+        {/* Form + Info two-column layout */}
+        <main id="main-content" className="relative bg-[#f4efe7]">
+          <HomeLogoBars />
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-16">
+            
             {/* Left: Contact Form */}
             <div className="max-w-[710px]">
               <div className="bg-white rounded-[24px] p-6 sm:p-8 md:p-12 shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] border border-white relative overflow-hidden ring-1 ring-[#c6a646]/10">
@@ -39,6 +43,7 @@ export function ContactPageView() {
           </div>
         </div>
       </main>
+      </div>
 
       {/* Serving Sacramento */}
       <ServingSacramento />

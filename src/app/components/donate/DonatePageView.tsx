@@ -6,6 +6,7 @@ import { DonateHero } from "./DonateHero";
 import { DonationForm } from "./DonationForm";
 import { OtherWaysToSupport } from "./OtherWaysToSupport";
 import { ThankYouSection } from "./ThankYouSection";
+import { HomeLogoBars } from "../HomeLogoBars";
 import { useEffect } from "react";
 
 export function DonatePageView() {
@@ -18,9 +19,12 @@ export function DonatePageView() {
       <SkipLink />
       <Navbar activePage="donate" />
       <DonateHero />
-      <main id="main-content">
-        <DonationForm />
-        <ThankYouSection />
+      <main id="main-content" className="relative">
+        <HomeLogoBars />
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16 relative z-[1]">
+          <DonationForm />
+          <ThankYouSection />
+        </div>
       </main>
       <Footer />
       <FloatingHelpButton />

@@ -8,6 +8,7 @@ import { BoardGrid } from "./BoardGrid";
 import { JoinTeamSection } from "./JoinTeamSection";
 import { PartnerSection } from "./PartnerSection";
 import imgBackground from "../../../assets/d483a076d257953ae13d2864b725de069be059b5.png";
+import { HomeLogoBars } from "../HomeLogoBars";
 
 export function BoardPageView() {
   useEffect(() => {
@@ -33,7 +34,7 @@ export function BoardPageView() {
 
         {/* Decorative overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/80 pointer-events-none" aria-hidden="true" />
-
+      <HomeLogoBars />
         <BoardGrid />
         <JoinTeamSection />
         <PartnerSection />

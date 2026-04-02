@@ -74,10 +74,10 @@ function ValueItem({ icon, iconBg, title, children }: ValueItemProps) {
 
 export function MissionValues() {
   return (
-    <section>
+    <section className="relative z-[1]">
       <h2 className="font-['Playfair_Display',serif] text-[#0a0a0a] text-[36px] leading-[1.1] mb-8">
-        Our Mission And Values
-      </h2>
+          Our Mission And Values
+        </h2>
 
       <div className="space-y-8">
         {/* Mission */}

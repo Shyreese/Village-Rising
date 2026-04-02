@@ -2,8 +2,8 @@ import svgPaths from "../../imports/svg-h6o8ak0vfh";
 
 function LeftLogoBar() {
   return (
-    <svg className="block w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 447 4138">
-      <g id="logo_full_left" opacity="0.18">
+    <svg className="block w-full h-full" fill="none" preserveAspectRatio="xMidYMin slice" viewBox="0 0 447 4138">
+      <g id="logo_full_left" opacity="0.34">
         <g opacity="0.54">
           <path d={svgPaths.p1e1f1300} fill="url(#paint0_ll)" />
           <path d={svgPaths.p360eb000} fill="url(#paint1_ll)" />
@@ -118,8 +118,8 @@ function LeftLogoBar() {
 
 function RightLogoBar() {
   return (
-    <svg className="block w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 447 4138">
-      <g id="logo_full_right" opacity="0.18">
+    <svg className="block w-full h-full" fill="none" preserveAspectRatio="xMidYMin slice" viewBox="0 0 447 4138">
+      <g id="logo_full_right" opacity="0.34">
         <g opacity="0.54">
           <path d={svgPaths.p27ddf370} fill="url(#paint0_rl)" />
           <path d={svgPaths.p4e1ca30} fill="url(#paint1_rl)" />
@@ -229,22 +229,18 @@ export function HomeLogoBars() {
     <>
       {/* Left decorative logo bar */}
       <div
-        className="hidden xl:block absolute left-0 top-0 bottom-0 pointer-events-none z-0"
-        style={{ width: "calc((100vw - 1280px) / 2)" }}
+        className="absolute inset-y-0 left-0 pointer-events-none z-0 overflow-hidden"
+        style={{ width: "clamp(120px, calc((100vw - 1280px) / 2), 280px)" }}
       >
-        <div className="w-full h-full">
-          <LeftLogoBar />
-        </div>
+        <LeftLogoBar />
       </div>
 
       {/* Right decorative logo bar */}
       <div
-        className="hidden xl:block absolute right-0 top-0 bottom-0 pointer-events-none z-0"
-        style={{ width: "calc((100vw - 1280px) / 2)" }}
+        className="absolute inset-y-0 right-0 pointer-events-none z-0 overflow-hidden"
+        style={{ width: "clamp(120px, calc((100vw - 1280px) / 2), 280px)" }}
       >
-        <div className="w-full h-full">
-          <RightLogoBar />
-        </div>
+        <RightLogoBar />
       </div>
     </>
   );
