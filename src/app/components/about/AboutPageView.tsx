@@ -34,7 +34,7 @@ export function AboutPageView() {
           <div className={activeTab === "overview" ? "bg-[#f4efe7]" : "bg-[rgba(102,114,56,0.3)]"}>
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 relative z-[1]">
             {activeTab === "overview" ? (
-              <div className="max-w-[832px] mx-auto py-12 sm:py-16 md:py-24 space-y-12 sm:space-y-16">
+              <div className="max-w-[832px] mx-auto pt-12 sm:pt-16 md:pt-24 pb-6 sm:pb-6 md:pb-12 space-y-12 sm:space-y-16">
                 
                 <OurStory />
               </div>
@@ -46,7 +46,7 @@ export function AboutPageView() {
           </div>
 
           {activeTab === "overview" && (
-            <div className="relative overflow-hidden py-12 sm:py-16 md:py-24 min-h-[680px] lg:min-h-[760px]">
+            <div className="relative overflow-hidden pt-6 sm:pt-8 md:pt-12 pb-12 sm:pb-16 md:pb-24 min-h-[680px] lg:min-h-[760px]">
               
               <div className="relative z-[1] max-w-[832px] mx-auto space-y-12 sm:space-y-16 px-4 sm:px-6 md:px-8">
                 <MissionValues />

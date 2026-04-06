@@ -4,26 +4,26 @@ const steps = [
   {
     icon: CheckCircle,
     iconBg: "bg-[#c6a646]",
-    iconColor: "text-[#FFE89B]",
+    iconColor: "text-[#white]",
     cardBg: "bg-[rgba(245,229,157,0.6)]",
     title: "1. Check Eligibility",
     description: "Answer a few simple questions to see which programs you qualify for",
-    textColor: "text-[#0a0a0a]",
+    textColor: "text-[#f5f3ee]",
   },
   {
     icon: User,
     iconBg: "bg-[#c6a646]",
-    iconColor: "text-[#C7DCCE]",
-    cardBg: "bg-[rgba(221,177,34,0.6)]",
+    iconColor: "text-[#white]",
+    cardBg: "bg-[rgba(245,229,157,0.6)]",
     title: "2. Find Out Level of Assistance",
     description: "Get matched with a dedicated family navigator who will guide you",
-    textColor: "text-[#0a0a0a]",
+    textColor: "text-[#f5f3ee]",
   },
   {
     icon: HandHeart,
     iconBg: "bg-[#c6a646]",
     iconColor: "text-white",
-    cardBg: "bg-[rgba(63,90,60,0.6)]",
+    cardBg: "bg-[rgba(245,229,157,0.6)]",
     title: "3. Get Support",
     description: "Start receiving services within 1-2 weeks of your first meeting",
     textColor: "text-[#f5f3ee]",
@@ -32,17 +32,17 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-16 lg:py-20 bg-white px-6">
+    <section className="py-5 lg:py-6 px-6">
       <div className="max-w-[1280px] mx-auto">
-        <h2 className="font-['Playfair_Display',serif] text-[#0a0a0a] text-[28px] sm:text-[33px] text-center mb-12">
+        <h2 className="font-['Playfair_Display',serif] text-[#white] text-[28px] sm:text-[33px] text-center mb-8">
           How It Works
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-[900px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-[900px] mx-auto">
           {steps.map((step) => (
             <div
               key={step.title}
-              className={`${step.cardBg} rounded-[10px] px-6 py-6 flex flex-col items-center text-center gap-3`}
+              className={`${step.cardBg} rounded-[10px] px-3 py-3 flex flex-col items-center text-center gap-3`}
             >
               <div className={`w-16 h-16 rounded-full ${step.iconBg} flex items-center justify-center`}>
                 <step.icon className={`w-7 h-7 ${step.iconColor}`} strokeWidth={1.5} />

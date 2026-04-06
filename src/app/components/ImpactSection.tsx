@@ -61,7 +61,9 @@ export function ImpactSection() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
+
   );
 }

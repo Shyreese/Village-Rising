@@ -26,7 +26,7 @@ export function TeamSection() {
     <section id="team" className="bg-[#f3f4f6] py-16 lg:py-20 px-6">
       <div className="max-w-[1280px] mx-auto text-center">
         <h2 className="font-['Playfair_Display',serif] text-[#0a0a0a] text-[28px] sm:text-[33px] mb-12">
-          Meet Our Team
+          Meet Our Board
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10 max-w-[1200px] mx-auto mb-10">
@@ -53,7 +53,7 @@ export function TeamSection() {
           to="/board"
           className="font-['Inter',sans-serif] font-semibold text-[#fe9a00] text-[16px] hover:underline"
         >
-          Meet the full team →
+          Meet the full board →
         </Link>
       </div>
     </section>

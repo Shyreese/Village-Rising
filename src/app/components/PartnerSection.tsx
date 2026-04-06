@@ -1,4 +1,4 @@
-import svgPaths from "../../../imports/svg-z1on79aasj";
+import svgPaths from "../../imports/svg-z1on79aasj.ts";
 
 function HandshakeIcon() {
   return (

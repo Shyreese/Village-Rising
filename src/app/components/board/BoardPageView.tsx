@@ -6,7 +6,6 @@ import { SkipLink } from "../SkipLink";
 import { BoardHero } from "./BoardHero";
 import { BoardGrid } from "./BoardGrid";
 import { JoinTeamSection } from "./JoinTeamSection";
-import { PartnerSection } from "./PartnerSection";
 import imgBackground from "../../../assets/d483a076d257953ae13d2864b725de069be059b5.png";
 import { HomeLogoBars } from "../HomeLogoBars";
 
@@ -37,7 +36,6 @@ export function BoardPageView() {
       <HomeLogoBars />
         <BoardGrid />
         <JoinTeamSection />
-        <PartnerSection />
       </main>
 
       <Footer />

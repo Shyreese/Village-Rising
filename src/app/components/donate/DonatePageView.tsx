@@ -8,6 +8,7 @@ import { OtherWaysToSupport } from "./OtherWaysToSupport";
 import { ThankYouSection } from "./ThankYouSection";
 import { HomeLogoBars } from "../HomeLogoBars";
 import { useEffect } from "react";
+import { ImpactSnapshot } from "./ImpactSnapshot";
 
 export function DonatePageView() {
   useEffect(() => {
@@ -23,6 +24,8 @@ export function DonatePageView() {
         <HomeLogoBars />
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16 relative z-[1]">
           <DonationForm />
+
+          <ImpactSnapshot />
           <ThankYouSection />
         </div>
       </main>

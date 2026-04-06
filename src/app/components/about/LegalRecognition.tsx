@@ -17,7 +17,7 @@ export function LegalRecognition() {
             Village Rising is a registered 501(c)(3) nonprofit organization.
           </p>
           <a
-            href="#"
+            href="https://apps.irs.gov/app/eos/" target="_blank"
             className="inline-flex items-center gap-1.5 font-['Inter',sans-serif] text-[#009689] text-[16px] hover:underline transition-colors"
           >
             Recognized by the Internal Revenue Service

@@ -25,8 +25,11 @@ export function HeroSection() {
         </h1>
 
         <p className="font-['DM_Sans',sans-serif] font-semibold text-[#f4efe7] text-[18px] lg:text-[24px] leading-[1.4] mt-6 max-w-[700px]">
-          Helping families move from crisis to stability through childcare,
-          financial guidance, and housing support.
+          Village Rising's mission is to close the gap between crisis and
+          stability through integrated childcare, navigation, financial
+          literacy, and housing support by rebuilding the modern day village
+          and creating pathways to family stability, economic mobility, and
+          community leadership, one family at a time.
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-8 mt-10">

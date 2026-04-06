@@ -2,7 +2,6 @@ import { Navbar } from "./Navbar";
 import { HeroSection } from "./HeroSection";
 import { MissionSection } from "./MissionSection";
 import { ImpactSection } from "./ImpactSection";
-import { HowItWorksSection } from "./HowItWorksSection";
 import { WhoWeHelpSection } from "./WhoWeHelpSection";
 import { WhatWeDoSection } from "./WhatWeDoSection";
 import { TestimonialsSection } from "./TestimonialsSection";
@@ -29,7 +28,7 @@ export function HomePage() {
         <div className="relative z-[1] max-w-[1260px] mx-auto px-4 sm:px-6">
           <MissionSection />
           <ImpactSection />
-          <HowItWorksSection />
+          <div className="h-12 md:h-16" aria-hidden="true" />
           <WhoWeHelpSection />
           <WhatWeDoSection />
           <TestimonialsSection />

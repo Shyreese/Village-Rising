@@ -8,6 +8,7 @@ import { EligibilityCheck } from "./EligibilityCheck";
 import { YourResults } from "./YourResults";
 import { CompleteApplication } from "./CompleteApplication";
 import { HomeLogoBars } from "./../HomeLogoBars";
+import { HowItWorksSection } from "./HowItWorksSection";
 
 const heroContent: Record<
   number,
@@ -59,9 +60,12 @@ export function ApplyPageView() {
             <p className="font-['DM_Sans',sans-serif] text-[#f4efe7] text-[16px] sm:text-[18px] md:text-[24px] leading-[1.4]">
               {hero.subtitle}
             </p>
+          
           )}
           {step === 1 && (
+            
             <ul className="font-['DM_Sans',sans-serif] text-[#f4efe7] text-[14px] leading-[20px] mt-3 flex flex-wrap gap-x-4 gap-y-2">
+              <HowItWorksSection />
               <li className="flex items-center gap-2">
                 <span aria-hidden="true">&#10003;</span> Takes 2
                 minutes

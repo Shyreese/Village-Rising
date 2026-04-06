@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Programs", href: "/programs" },
   { label: "About", href: "/about" },
   { label: "Board", href: "/board" },
+  { label: "Get Involved", href: "/involved" },
   { label: "Contact", href: "/contact" },
 ];
 
