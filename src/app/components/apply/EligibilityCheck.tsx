@@ -25,26 +25,32 @@ const supportAreas = [
   {
     id: "internship",
     icon: Briefcase,
-    title: "Internship and Workforce Assistance",
+    title: "Workforce Development Program",
     desc: "Job training, internship opportunities",
   },
   {
     id: "housing",
     icon: Home,
-    title: "Housing Assistance",
-    desc: "Emergency shelter, rental help",
+    title: "Housing Assistance Program",
+    desc: "Emergency shelter, rental assistance",
   },
   {
     id: "education",
     icon: GraduationCap,
-    title: "Education Support and Childcare Assistance",
+    title: "Childcare and Family Resource Program",
     desc: "Tutoring, scholarships, childcare",
   },
   {
     id: "financial",
     icon: DollarSign,
-    title: "Financial and Professional Coaching",
+    title: "Financial Empowerment Series Program",
     desc: "Budget planning, credit building, job readiness",
+  },
+  {
+    id: "Opportunity",
+    icon: DollarSign,
+    title: "Opportunity Access Program",
+    desc: "Support with pre-employment qualification, Live Scan, Notary, CPR, etc.",
   },
 ];
 

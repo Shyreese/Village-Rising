@@ -3,23 +3,18 @@ import { Lock, FileCheck, Shield, Heart } from "lucide-react";
 import { OtherWaysToSupport } from "./OtherWaysToSupport";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 
-const frequencies = ["One-Time Gift", "Monthly Support", "Annual Giving"];
+const frequencies = ["Annual Giving", "Monthly Support", "One-Time Gift"];
 
 const amounts = [
   { value: 1000, label: "$1000", desc: "Transform lives" },
   { value: 500, label: "$500", desc: "Transform lives" },
-  { value: 250, label: "$250", desc: "Transform lives" },
-  { value: 100, label: "$100", desc: "Support families" },
-  { value: 50, label: "$50", desc: "Provide essentials" },
-  { value: 25, label: "$25", desc: "Provide essentials" },
+  { value: 250, label: "$250", desc: "Financial coaching program" },
+  { value: 100, label: "$100", desc: "Emergency housing assistance" },
+  { value: 50, label: "$50", desc: "Child tutoring sessions" },
+  { value: 25, label: "$25", desc: "Week of groceries for a family" },
 ];
 
-const impactItems = [
-  { amount: "$25", desc: "Week of groceries for a family" },
-  { amount: "$100", desc: "Emergency housing assistance" },
-  { amount: "$50", desc: "Child tutoring sessions" },
-  { amount: "$250", desc: "Financial coaching program" },
-];
+
 
 /* ---------- Photo collage data ---------- */
 
@@ -325,28 +320,6 @@ export function DonationForm() {
               </div>
             </div>
 
-            {/* Impact breakdown */}
-            <div
-              className="rounded-[16px] p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
-              style={{
-                backgroundImage:
-                  "linear-gradient(169deg, rgba(107, 124, 89, 0.1) 0%, rgba(0, 0, 0, 0) 100%)",
-              }}
-            >
-              {impactItems.map((item) => (
-                <div key={item.amount} className="flex items-start gap-5">
-                  <div className="w-2 h-2 rounded-full bg-[#c6a646] mt-2 flex-shrink-0" />
-                  <div>
-                    <p className="font-['Inter',sans-serif] text-[#2c2c2c] text-[16px]">
-                      {item.amount}
-                    </p>
-                    <p className="font-['Inter',sans-serif] text-[#4a5565] text-[14px]">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
 
             {/* Custom amount */}
             <div className="mb-8">

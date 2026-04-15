@@ -104,14 +104,8 @@ export function ContactInfo() {
           Need immediate assistance?
         </h3>
         <p className="font-['DM_Sans',sans-serif] text-[#364153] text-[16px] leading-[24px] mb-4">
-          Email us and we'll respond as quickly as possible:
+          Call or Text us at <strong>(916) 761-0211</strong> for urgent support. We're here to help families in crisis and will respond as quickly as possible.
         </p>
-        <a
-          href="mailto:info@villagevalues.net"
-          className="inline-block bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['DM_Sans',sans-serif] text-[16px] leading-[24px] px-8 py-3.5 rounded-[52px]"
-        >
-          info@villagevalues.net
-        </a>
         <p className="font-['DM_Sans',sans-serif] text-[#4a5565] text-[15px] leading-[20px] mt-4">
           We typically respond within 24 hours
         </p>
@@ -123,9 +117,9 @@ export function ContactInfo() {
           icon={<EnvelopeIcon />}
           iconBg="bg-[#cbfbf1]"
           title="Email"
-          value="info@villagevalues.net"
+          value="info@ourvillagerising.org"
           valueColor="#009689"
-          valueHref="mailto:info@villagevalues.net"
+          valueHref="mailto:info@ourvillagerising.org"
           subtitle="General inquiries"
         />
 
@@ -133,7 +127,7 @@ export function ContactInfo() {
           icon={<PhoneIcon />}
           iconBg="bg-[#dcfce7]"
           title="Phone"
-          value="(916) 764-0211"
+          value="(916) 761-0211"
           subtitle="Mon-Fri, 9am-5pm"
         />
 

@@ -67,10 +67,10 @@ export function Footer() {
             <address className="not-italic">
               <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[15px] mb-2">
                 <a 
-                  href="mailto:info@villagevalues.net"
+                  href="mailto:info@ourvillagerising.org"
                   className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded"
                 >
-                  Email: info@villagevalues.net
+                  Email: info@ourvillagerising.org
                 </a>
               </p>
               <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[15px]">
@@ -78,7 +78,7 @@ export function Footer() {
                   href="tel:+15551234567"
                   className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded"
                 >
-                  Phone: (916) 764-0211
+                  Phone: (916) 761-0211
                 </a>
               </p>
             </address>

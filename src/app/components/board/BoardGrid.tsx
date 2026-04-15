@@ -22,13 +22,13 @@ const boardMembers = [
   {
     name: "Domoniquic McPherson",
     title: "Community Engagement & Advocacy Coordinator",
-    bio: "Domoniquic leads all fundraising efforts and community partnerships for Village Rising. With over 12 years of experience in nonprofit development and corporate relations, she has successfully secured major grants and built lasting relationships with funding partners. Jennifer has a proven track record of capital campaigns and annual giving programs. She previously worked as Development Manager at Regional Health Foundation where she raised over $5 million in three years. Jennifer holds a degree in Communications and is certified in Fundraising Management. She serves on the board of the Local Philanthropy Network and is a frequent speaker at nonprofit conferences. In her free time, Jennifer enjoys cooking and traveling with her husband.",
+    bio: "Domoniquic leads all fundraising efforts and community partnerships for Village Rising. With over 12 years of experience in nonprofit development and corporate relations, she has successfully secured major grants and built lasting relationships with funding partners.",
     image: imgContainer2,
   },
   {
     name: "Kristina Phillips",
     title: "Program Advisor",
-    bio: "Kristina is a local business leader and longtime supporter of family services in our community. As CEO of Thompson Industries, he brings strategic vision and business acumen to his role as Board Chair. David has been involved with Village Rising since its inception and has provided crucial guidance during periods of growth and transition. He is passionate about economic development and believes that strong families create strong communities. David holds an MBA from Business School and sits on several nonprofit and corporate boards. He has championed initiatives that connect local businesses with nonprofit organizations. David and his wife have three children and are active in their local community. He enjoys golf and mentoring young entrepreneurs.",
+    bio: "Kristina is a local business leader and longtime supporter of family services in our community. As CEO of Thompson Industries, he brings strategic vision and business acumen to his role as Board Chair.",
     image: imgContainer3,
   },
   {
@@ -42,22 +42,6 @@ const boardMembers = [
     title: "Director of Resources",
     bio: "Lucile is a Certified Public Accountant with extensive experience in nonprofit financial management. As Board Treasurer, he oversees Village Rising's financial health, budgeting, and reporting to ensure fiscal responsibility and sustainability. Robert has over 20 years of experience in accounting and has specialized in nonprofit finance for the past decade. He is a partner at Williams & Partners CPA and provides financial consulting to numerous charitable organizations. Robert implemented our current financial systems and reporting processes. He holds a degree in Accounting and maintains several professional certifications. Robert is committed to financial transparency and regularly presents to the board on fiscal matters. In his spare time, he volunteers as a financial literacy instructor and enjoys sailing.",
     image: imgContainer5,
-  },
-  {
-    name: "Jennifer Martinez",
-    title: "Development Director",
-    bio: "Jennifer brings a background in education and community organizing to her role as Board Secretary. She has spent over 18 years working in public education as a teacher and administrator, with deep expertise in serving diverse student populations. Maria is passionate about educational equity and has been a vocal advocate for immigrant families and English language learners. She holds a Master's degree in Education and is fluent in English and Spanish. Maria has been involved with Village Rising since 2017 and helped launch our education support programs. She currently serves as Principal at Riverside Elementary School. Maria is also active in several community coalitions focused on family support and youth development. She enjoys reading, gardening, and spending time with her extended family.",
-    initials: "MG",
-    initialsGradient:
-      "linear-gradient(136.219deg, rgb(0, 213, 190) 0%, rgb(0, 150, 137) 100%)",
-  },
-  {
-    name: "David Thompson",
-    title: "Board Member",
-    bio: "David is a healthcare professional who advocates passionately for family wellness programs and brings valuable expertise in health equity to the board. As a physician with over 12 years of experience in family medicine, James has witnessed firsthand the social determinants of health and their impact on families. He currently practices at Community Health Center where he leads initiatives to address health disparities. James holds an M.D. from Medical School and completed his residency in Family Medicine. He has published research on the intersection of poverty and health outcomes. James helped develop Village Rising's approach to holistic family wellness. He serves on several health-related boards and advisory committees. Outside of medicine, James enjoys running marathons and coaching youth soccer.",
-    initials: "JA",
-    initialsGradient:
-      "linear-gradient(136.219deg, rgb(255, 185, 0) 0%, rgb(225, 113, 0) 100%)",
   },
 ];
 
