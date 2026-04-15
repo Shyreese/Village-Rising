@@ -1,15 +1,18 @@
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Link } from "react-router";
+import videoSrc from "../../assets/Mother and Child Playing on Floor.mp4";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden" aria-label="Hero banner">
       {/* Background */}
       <div className="absolute inset-0" aria-hidden="true">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1530043123514-c01b94ef483b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBjb21tdW5pdHklMjBzdXBwb3J0JTIwbm9ucHJvZml0fGVufDF8fHx8MTc3MzA5NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-          alt=""
+        <video
           className="w-full h-full object-cover"
+          src={videoSrc}
+          muted
+          autoPlay
+          loop
+          playsInline
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -25,8 +28,11 @@ export function HeroSection() {
         </h1>
 
         <p className="font-['DM_Sans',sans-serif] font-semibold text-[#f4efe7] text-[18px] lg:text-[24px] leading-[1.4] mt-6 max-w-[700px]">
-          Helping families move from crisis to stability through childcare,
-          financial guidance, and housing support.
+          Village Rising's mission is to close the gap between crisis and
+          stability through integrated childcare, navigation, financial
+          literacy, and housing support by rebuilding the modern day village
+          and creating pathways to family stability, economic mobility, and
+          community leadership, one family at a time.
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-8 mt-10">

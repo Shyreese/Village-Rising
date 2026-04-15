@@ -17,6 +17,7 @@ interface ProgramCardProps {
   features: Feature[];
   bgColor?: string;
   eligibilityText?: string;
+  anchorId?: string;
 }
 
 export function ProgramCard({
@@ -28,6 +29,7 @@ export function ProgramCard({
   features,
   bgColor = "#fafaf9",
   eligibilityText,
+  anchorId,
 }: ProgramCardProps) {
   const imageBlock = (
     <div className="h-[350px] lg:h-[600px] overflow-hidden rounded-[16px]">
@@ -93,7 +95,7 @@ export function ProgramCard({
   );
 
   return (
-    <section id="programs-list" className="px-6">
+    <section id={anchorId} className="px-6">
       <div
         className="max-w-[1265px] mx-auto rounded-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-6 lg:p-10"
         style={{ backgroundColor: bgColor }}

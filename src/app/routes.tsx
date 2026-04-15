@@ -6,6 +6,7 @@ import { BoardPageView } from "./components/board/BoardPageView";
 import { ContactPageView } from "./components/contact/ContactPageView";
 import { ApplyPageView } from "./components/apply/ApplyPageView";
 import { DonatePageView } from "./components/donate/DonatePageView";
+import { GetInvolvedPageView } from "./components/GetInvolvedPageView";
 
 export const router = createBrowserRouter([
   {
@@ -35,5 +36,9 @@ export const router = createBrowserRouter([
   {
     path: "/donate",
     Component: DonatePageView,
+  },
+  {
+    path: "/involved",
+    Component: GetInvolvedPageView,
   },
 ]);

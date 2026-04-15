@@ -74,10 +74,10 @@ function ValueItem({ icon, iconBg, title, children }: ValueItemProps) {
 
 export function MissionValues() {
   return (
-    <section>
+    <section className="relative z-[1]">
       <h2 className="font-['Playfair_Display',serif] text-[#0a0a0a] text-[36px] leading-[1.1] mb-8">
-        Our Mission And Values
-      </h2>
+          Our Mission And Values
+        </h2>
 
       <div className="space-y-8">
         {/* Mission */}
@@ -87,8 +87,7 @@ export function MissionValues() {
           title="Our Mission"
         >
           <p className="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[1.5]">
-            To empower families through compassionate support, essential resources, and sustainable
-            pathways to stability, ensuring every family has the opportunity to thrive.
+            Village Rising's mission is to close the gap between crisis and stability through integrated childcare, navigation, financial literacy, and housing support by rebuilding the modern day village and creating pathways to family stability, economic mobility, and community leadership, one family at a time.
           </p>
         </ValueItem>
 
@@ -126,7 +125,7 @@ export function MissionValues() {
         >
           <p className="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[1.5]">
             A community where every family has access to the resources, support, and opportunities
-            needed to achieve stability, growth, and lasting wellbeing.
+            needed to achieve stability, growth, and lasting wellbeing regardless of income status.
           </p>
         </ValueItem>
       </div>

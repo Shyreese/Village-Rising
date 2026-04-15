@@ -7,6 +7,8 @@ import { StepIndicator } from "./StepIndicator";
 import { EligibilityCheck } from "./EligibilityCheck";
 import { YourResults } from "./YourResults";
 import { CompleteApplication } from "./CompleteApplication";
+import { HomeLogoBars } from "./../HomeLogoBars";
+import { HowItWorksSection } from "./HowItWorksSection";
 
 const heroContent: Record<
   number,
@@ -37,15 +39,16 @@ export function ApplyPageView() {
   const hero = heroContent[step];
 
   return (
-    <div className="min-h-screen bg-white font-['DM_Sans',sans-serif]">
-      <SkipLink />
-      <Navbar activePage="apply" />
+    <div className="min-h-screen bg-white font-['DM_Sans',sans-serif] relative overflow-hidden">
+      <div className="relative z-[1]">
+        <SkipLink />
+        <Navbar activePage="apply" />
 
-      {/* Hero */}
-      <section
-        className="bg-[#3f5a3c] relative overflow-hidden"
-        aria-labelledby="apply-heading"
-      >
+        {/* Hero */}
+        <section
+          className="bg-[#3f5a3c] relative overflow-hidden"
+          aria-labelledby="apply-heading"
+        >
         <div className="max-w-[832px] mx-auto px-4 sm:px-6 py-12 md:py-16">
           <h1
             id="apply-heading"
@@ -57,9 +60,12 @@ export function ApplyPageView() {
             <p className="font-['DM_Sans',sans-serif] text-[#f4efe7] text-[16px] sm:text-[18px] md:text-[24px] leading-[1.4]">
               {hero.subtitle}
             </p>
+          
           )}
           {step === 1 && (
+            
             <ul className="font-['DM_Sans',sans-serif] text-[#f4efe7] text-[14px] leading-[20px] mt-3 flex flex-wrap gap-x-4 gap-y-2">
+              <HowItWorksSection />
               <li className="flex items-center gap-2">
                 <span aria-hidden="true">&#10003;</span> Takes 2
                 minutes
@@ -85,20 +91,23 @@ export function ApplyPageView() {
         id="main-content"
         className="relative min-h-[600px]"
       >
-        {step === 1 && (
-          <EligibilityCheck onNext={() => setStep(2)} />
-        )}
-        {step === 2 && (
-          <CompleteApplication
-            onBack={() => setStep(1)}
-            onNext={() => setStep(3)}
-          />
-        )}
-        {step === 3 && (
-          <YourResults onBack={() => setStep(2)} />
-        )}
+        <HomeLogoBars />
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16 relative z-[1]">
+          {step === 1 && (
+            <EligibilityCheck onNext={() => setStep(2)} />
+          )}
+          {step === 2 && (
+            <CompleteApplication
+              onBack={() => setStep(1)}
+              onNext={() => setStep(3)}
+            />
+          )}
+          {step === 3 && (
+            <YourResults onBack={() => setStep(2)} />
+          )}
+        </div>
       </main>
-
+      </div>
       <Footer />
       <FloatingHelpButton />
     </div>
