@@ -133,8 +133,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
   // Personal Information
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [dob, setDob] = useState("");
-  const [ssn, setSsn] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [emergencyName, setEmergencyName] = useState("");
@@ -142,15 +140,12 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
   const [relationship, setRelationship] = useState("Select...");
 
   // Current Address
-  const [streetAddress, setStreetAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [state, setState] = useState("Select state...");
-  const [addressType, setAddressType] = useState("Select...");
 
   // Living Situation
   const [livingSituation, setLivingSituation] = useState("Select...");
-  const [homeOwnership, setHomeOwnership] = useState("");
 
   // Household Information
   const [householdSize, setHouseholdSize] = useState("");
@@ -161,9 +156,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
   // Employment Information
   const [employmentStatus, setEmploymentStatus] = useState("Select employment status...");
 
-  // Financial Information
-  const [annualIncome, setAnnualIncome] = useState("");
-  const [monthlyIncome, setMonthlyIncome] = useState("");
   const [healthInsurance, setHealthInsurance] = useState("");
 
   // Additional Information
@@ -183,27 +175,20 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
   const errors = {
     firstName: !firstName.trim(),
     lastName: !lastName.trim(),
-    dob: !dob.trim(),
-    ssn: !ssn.trim(),
     email: !email.trim(),
     phone: !phone.trim(),
     emergencyName: !emergencyName.trim(),
     emergencyPhone: !emergencyPhone.trim(),
     relationship: isDefaultSelect(relationship),
-    streetAddress: !streetAddress.trim(),
     city: !city.trim(),
     zipCode: !zipCode.trim(),
     state: isDefaultSelect(state),
-    addressType: isDefaultSelect(addressType),
     livingSituation: isDefaultSelect(livingSituation),
-    homeOwnership: !homeOwnership,
     householdSize: !householdSize.trim(),
     numAdults: !numAdults.trim(),
     numChildren: !numChildren.trim(),
     maritalStatus: isDefaultSelect(maritalStatus),
     employmentStatus: isDefaultSelect(employmentStatus),
-    annualIncome: !annualIncome.trim(),
-    monthlyIncome: !monthlyIncome.trim(),
     healthInsurance: !healthInsurance,
     disability: !disability,
     veteran: !veteran,
@@ -259,10 +244,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
           <FormField label="Last Name" required value={lastName} onChange={setLastName} error={!!e("lastName")} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <FormField label="Date of Birth" required type="date" value={dob} onChange={setDob} error={!!e("dob")} />
-          <FormField label="Social Security Number" required placeholder="XXX-XX-XXXX" value={ssn} onChange={setSsn} error={!!e("ssn")} />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <FormField label="Email Address" required type="email" value={email} onChange={setEmail} error={!!e("email")} />
           <FormField label="Phone Number" required type="tel" value={phone} onChange={setPhone} error={!!e("phone")} />
         </div>
@@ -285,15 +266,8 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
 
       {/* Current Address */}
       <FormSection title="Current Address" description="Where do you currently live?">
-        <div className="mb-4">
-          <FormField label="Street Address" required value={streetAddress} onChange={setStreetAddress} error={!!e("streetAddress")} />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-          <FormField label="Apartment/Suite Number" value="" onChange={() => {}} />
-          <FormField label="City" required value={city} onChange={setCity} error={!!e("city")} />
-          <FormField label="Zip Code" required value={zipCode} onChange={setZipCode} error={!!e("zipCode")} />
-        </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <FormField label="City" required value={city} onChange={setCity} error={!!e("city")} />
           <SelectField
             label="State"
             required
@@ -303,14 +277,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
             error={!!e("state")}
           />
           <FormField label="Zip Code" required value={zipCode} onChange={setZipCode} error={!!e("zipCode")} />
-          <SelectField
-            label="Type of Address"
-            required
-            options={["Select...", "Permanent", "Temporary", "Shelter", "Other"]}
-            value={addressType}
-            onChange={setAddressType}
-            error={!!e("addressType")}
-          />
         </div>
       </FormSection>
 
@@ -325,29 +291,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
             onChange={setLivingSituation}
             error={!!e("livingSituation")}
           />
-        </div>
-        <div className="mb-4">
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-            Do you own or rent your home? *
-          </label>
-          <div className="flex flex-wrap gap-4">
-            {["Own", "Rent", "Living with Family/Friends", "Currently Homeless", "Emergency Shelter"].map((opt) => (
-              <label key={opt} className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="homeOwnership"
-                  value={opt}
-                  checked={homeOwnership === opt}
-                  onChange={() => setHomeOwnership(opt)}
-                  className="accent-[#50c878]"
-                />
-                <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
-              </label>
-            ))}
-          </div>
-          {e("homeOwnership") && (
-            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select an option.</p>
-          )}
         </div>
       </FormSection>
 
@@ -391,19 +334,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
 
       {/* Financial Information */}
       <FormSection title="Financial Information">
-        <div className="mb-4">
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-            Tell us about your financial situation
-          </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <FormField label="Annual Household Income (before taxes)" required placeholder="$" value={annualIncome} onChange={setAnnualIncome} error={!!e("annualIncome")} />
-            <FormField label="Monthly Household Income (after taxes)" required placeholder="$" value={monthlyIncome} onChange={setMonthlyIncome} error={!!e("monthlyIncome")} />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <FormField label="Other Monthly Income" placeholder="$" value="" onChange={() => {}} />
-          <FormField label="Sources of Other Income" value="" onChange={() => {}} />
-        </div>
         <div className="mb-4">
           <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
             Do you have health insurance? *
@@ -500,20 +430,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
             value={primaryLanguage}
             onChange={setPrimaryLanguage}
             error={!!e("primaryLanguage")}
-          />
-          <SelectField
-            label="Ethnicity"
-            options={["Select ethnicity...", "African American", "Asian", "Caucasian", "Hispanic/Latino", "Native American", "Pacific Islander", "Multi-racial", "Other", "Prefer not to say"]}
-            value=""
-            onChange={() => {}}
-          />
-        </div>
-        <div>
-          <SelectField
-            label="Race (Optional)"
-            options={["Select race...", "American Indian/Alaska Native", "Asian", "Black/African American", "Hispanic/Latino", "Native Hawaiian/Pacific Islander", "White", "Two or More Races", "Other", "Prefer not to say"]}
-            value=""
-            onChange={() => {}}
           />
         </div>
       </FormSection>
