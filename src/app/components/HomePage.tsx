@@ -24,10 +24,9 @@ export function HomePage() {
       <main id="main-content" className="relative">
         <HomeLogoBars />
 
-        {/* Centered content container */}
+        {/* Centered content container           <ImpactSection />*/ }
         <div className="relative z-[1] max-w-[1260px] mx-auto px-4 sm:px-6">
           <MissionSection />
-          <ImpactSection />
           <div className="h-12 md:h-16" aria-hidden="true" />
           <WhoWeHelpSection />
           <WhatWeDoSection />

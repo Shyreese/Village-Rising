@@ -80,7 +80,7 @@ export function FinancialReporting() {
           <DocumentSection
             title="IRS Form 990"
             description="Our IRS Form 990 tax filings will be posted here for public review, demonstrating our commitment to financial accountability."
-            status="Updated"
+            status="2025"
           />
           <DocumentSection
             title="Impact Reports"

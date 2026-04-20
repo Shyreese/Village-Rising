@@ -3,39 +3,46 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Link } from "react-router";
 
 const services = [
-  {
-    icon: Home,
-    title: "Housing Support",
-    anchor: "housing-assistance",
-    description:
-      "Emergency shelter, rental assistance, and pathways to stable, affordable housing for families in need.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZmZvcmRhYmxlJTIwaG91c2luZyUyMGZhbWlseXxlbnwxfHx8fDE3NzMwOTQyODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  },
-  {
+    {
     icon: GraduationCap,
-    title: "Education & Childcare",
+    title: "Childcare and Family Resource",
     anchor: "education-support",
     description:
-      "Tutoring, after-school programs, scholarships, and childcare subsidies so parents can pursue their goals.",
+      "Provides safe, nurturing childcare while connecting families to essential resources that support stability, growth, and daily functioning.",
     image:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBjaGlsZGNhcmUlMjBzdHVkZW50fGVufDF8fHx8MTc3MzA5NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-  },
-  {
+  },  {
     icon: DollarSign,
-    title: "Financial Coaching",
+    title: "Financial Empowerment",
     anchor: "financial-coaching",
     description:
-      "Credit repair, debt management, home-buying guidance, and investment education for long-term wealth building.",
+      "Delivers practical financial education, tools, and guidance to help individuals build confidence, manage income, and create long-term stability.",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjb2FjaGluZyUyMGJ1ZGdldHxlbnwxfHx8fDE3NzMwOTQyODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  },{
+    icon: Home,
+    title: "Housing Stability",
+    anchor: "housing-assistance",
+    description:
+      "Offers temporary and emergency housing support to help individuals and families regain stability during times of transition or hardship.",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZmZvcmRhYmxlJTIwaG91c2luZyUyMGZhbWlseXxlbnwxfHx8fDE3NzMwOTQyODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
     icon: Users,
     title: "Workforce Development",
     anchor: "workforce-development",
     description:
-      "Job training, internships, resume building, and career coaching to help families achieve financial independence.",
+      "Creates pathways to employment through internships, skill-building, and real-world experience that prepare individuals for sustainable careers.",
+    image:
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3JrZm9yY2UlMjBkZXZlbG9wbWVudCUyMHRyYWluaW5nfGVufDF8fHx8MTc3MzA5NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+  },
+  {
+    icon: Users,
+    title: "Opportunity Access",
+    anchor: "opportunity-access",
+    description:
+      "Expands access to essential services that remove barriers to employment, housing, and advancement. This includes Live Scan background checks, notary and documentation support, and access to technology, with services continuing to grow based on community needs.",
     image:
       "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3JrZm9yY2UlMjBkZXZlbG9wbWVudCUyMHRyYWluaW5nfGVufDF8fHx8MTc3MzA5NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
   },
@@ -58,7 +65,7 @@ export function WhatWeDoSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {services.map((service) => (
             <div
               key={service.title}

@@ -36,13 +36,13 @@ export function CTASection() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/donate"
-              className="inline-block bg-[#2daae1] text-white font-['DM Sans',sans-serif] font-semibold text-[16px] px-6 py-2.5 rounded-full hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-[#2daae1] focus:ring-offset-2"
+              className="inline-block bg-[#BE5103] text-white font-['DM Sans',sans-serif] font-semibold text-[16px] px-6 py-2.5 rounded-full hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-[#2daae1] focus:ring-offset-2"
             >
               Donate
             </Link>
             <Link
               to="/board"
-              className="inline-block border-2 border-[#2daae1] text-[#2daae1] font-['DM Sans',sans-serif] font-semibold text-[16px] px-6 py-2 rounded-full hover:bg-[#2daae1] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#2daae1] focus:ring-offset-2"
+              className="inline-block border-2 border-[#BE5103] text-[#BE5103] font-['DM Sans',sans-serif] font-semibold text-[16px] px-6 py-2 rounded-full hover:bg-[#BE5103] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#2daae1] focus:ring-offset-2"
             >
               Partner With Us
             </Link>

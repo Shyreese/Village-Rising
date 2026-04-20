@@ -7,6 +7,7 @@ export function OurStory() {
       <div className="space-y-4">
         <p className="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[1.5]">
           Founded in 2025, Village Rising began with a simple mission: to close the gap between crisis and stability through integrated childcare, navigation, financial literacy, and housing support by rebuilding the modern day village and creating pathways to family stability, economic mobility, and community leadership, one family at a time.
+          We bridge the gap for families who need support, but may not qualify for traditional aid, because of income requirements.
         </p>
         <p className="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[1.5]">
           We recognized that families need more than temporary assistance—they need pathways to
