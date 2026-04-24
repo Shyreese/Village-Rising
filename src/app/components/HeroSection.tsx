@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import videoSrc from "../../assets/Mother and Child Playing on Floor.mp4";
+import videoSrc from "../../assets/Big Group Of People.mp4";
 
 export function HeroSection() {
   return (

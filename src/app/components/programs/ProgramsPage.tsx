@@ -15,7 +15,7 @@ import { HomeLogoBars } from "./../HomeLogoBars";
 import imgHousing from "@/assets/ac7adf1ec1d28b18ed35e1503159fd9ef32f2579.png";
 import imgFinancial from "@/assets/aa952a3bbad835f8c2d233a6712de5f76b8ca4d6.png";
 import imgWellness from "@/assets/5e7903ee64f62d274019a537e5705550a9550df2.png";
-import imgEducation from "@/assets/78952024b8798f384531b45f896c28f0cd01278f.png";
+import imgEducation from "@/assets/kids_at_playground.png";
 import imgWorkforce from "@/assets/a69e055b36c9810590be0eaf0589e2de6dcac47a.png";
 
 
