@@ -89,7 +89,7 @@ export function Navbar({ activePage }: NavbarProps) {
           {/* Apply Now - Solid Gold */}
           <Link
             to="/apply"
-            className="bg-[#c6a646] text-white font-['DM_Sans',sans-serif] font-semibold text-[14px] px-5 py-2 rounded-[18px] hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
+            className="border-2 border-[#c6a646] text-[#c6a646] font-['DM_Sans',sans-serif] font-semibold text-[14px] px-5 py-2 rounded-[18px] hover:bg-[#c6a646] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
           >
             Apply Now
           </Link>
@@ -97,7 +97,7 @@ export function Navbar({ activePage }: NavbarProps) {
           {/* Donate - White with Gold Border */}
           <Link
             to="/donate"
-            className="border-2 border-[#c6a646] text-[#c6a646] font-['DM_Sans',sans-serif] font-semibold text-[14px] px-5 py-2 rounded-[18px] hover:bg-[#c6a646] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
+            className="bg-[#c6a646] text-white font-['DM_Sans',sans-serif] font-semibold text-[16px] px-5 py-2 rounded-[18px] hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
           >
             Donate
           </Link>

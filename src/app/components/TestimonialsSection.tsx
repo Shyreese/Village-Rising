@@ -1,5 +1,6 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+
 const testimonials = [
   {
     quote:
@@ -21,7 +22,7 @@ export function TestimonialsSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <ImageWithFallback
-          src="/src/assets/53876-22989.avif"
+          src="https://res.cloudinary.com/dm4ezpefh/image/upload/v1777147918/53876-22989_ruoqqx.avif"
           alt="Community"
           className="w-full h-full object-cover"
         />
