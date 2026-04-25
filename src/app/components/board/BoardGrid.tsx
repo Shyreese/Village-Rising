@@ -10,37 +10,37 @@ const boardMembers = [
   {
     name: "Shyreese Tyiska",
     title: "Executive Director",
-    bio: "Shyreese brings over 15 years of nonprofit leadership experience to Village Rising. She founded the organization in 2016 with a vision to create comprehensive, integrated support systems for families in need. Under her leadership, Village Rising has grown from a grassroots volunteer effort into a robust organization serving thousands of families annually. Sarah holds a Master's degree in Social Work from State University and previously served as Program Director at Community Services Coalition. She is passionate about creating pathways to long-term stability for families and believes deeply in the power of community-driven solutions. When not working, Sarah enjoys hiking with her family and volunteering at the local food bank.",
+    bio: "Shyreese leads Village Rising’s early learning programs, supporting children’s development while partnering with families to build strong foundations for long-term success. Her approach reflects the organization’s belief in connection as the foundation of thriving communities.",
     image: imgContainer,
   },
   {
     name: "Paskael Tyiska Jr.",
     title: "Chief Operating Officer (COO)",
-    bio: "Paskael oversees all program operations at Village Rising, ensuring quality service delivery and continuous improvement across all initiatives. With a Master's in Social Work and over 10 years of experience in family services, Michael has been instrumental in designing and implementing our evidence-based programs since joining in 2018. He specializes in trauma-informed care and has developed training programs for staff and volunteers. Michael previously worked at Youth and Family Services where he managed case management teams. He is committed to measuring program outcomes and using data to improve services. Outside of work, Michael mentors graduate students and enjoys playing basketball.",
+    bio: "As Executive Director of Village Rising, Paskael leads programs and partnerships that connect families to resources and opportunities. His work is guided by integrity, service, and a commitment to strengthening family stability and community growth.",
     image: imgContainer1,
   },
   {
     name: "Domoniquic McPherson",
     title: "Community Engagement & Advocacy Coordinator",
-    bio: "Domoniquic leads all fundraising efforts and community partnerships for Village Rising. With over 12 years of experience in nonprofit development and corporate relations, she has successfully secured major grants and built lasting relationships with funding partners.",
+    bio: "Domoniquic supports Village Rising as Community Engagement & Advocacy Coordinator, bringing 6 years of dedicated experience at the intersection of advocacy, program coordination, and civic engagement. With a proven background in community organizing, stakeholder collaboration, and service navigation, he excels at forging strategic partnerships and delivering wraparound services that address complex social needs. Grounded in lived experience and a commitment to equity, Domoniquic’s empathetic and results-driven leadership ensures programs are accessible, accountable, and sustainable.",
     image: imgContainer2,
   },
   {
     name: "Kristina Phillips",
     title: "Program Advisor",
-    bio: "Kristina is a local business leader and longtime supporter of family services in our community. As CEO of Thompson Industries, he brings strategic vision and business acumen to his role as Board Chair.",
+    bio: "Kristina Phillips serves as a Program Advisor for Village Rising, bringing over 16 years of healthcare and regulatory leadership combined with more than 10 years of dedicated community and ministry service. As Practice Manager and Community Engagement Strategist at an oncology care center, she excels in optimizing operations, building partnerships, and aligning people, processes, and programs to drive mission-driven growth and support underserved populations.",
     image: imgContainer3,
   },
   {
     name: "Tyrone Jackson",
     title: "Financial Advisor",
-    bio: "Tyrone is an attorney specializing in nonprofit law and governance. As Board Vice Chair, she ensures Village Rising maintains compliance with all legal requirements and follows best practices in nonprofit operations. Lisa has over 15 years of experience advising nonprofit organizations on corporate governance, contracts, and regulatory compliance. She is a partner at Patel & Associates Law Firm and regularly provides pro bono legal services to community organizations. Lisa holds a J.D. from State Law School and is licensed in multiple states. She is passionate about access to justice and serves on the Legal Aid Society board. Lisa is also an adjunct professor teaching Nonprofit Law at the local university. She enjoys yoga and spending time with her two children.",
+    bio: "Tyrone C. Jackson serves as Chief Financial Officer and Board Member for Village Rising, drawing on over 50 years of combined public- and private-sector leadership in finance, operations, and management. With more than 30 years at California’s Franchise Tax Board as Administrator I and 20+ years managing fast-food operations, he brings expertise in compliance, team leadership, and operational efficiency. Committed to fiscal responsibility and community impact, Tyrone strengthens Village Rising’s financial transparency and long-term sustainability while co-owning INCHES Safety Solutions LLC.",
     image: imgContainer4,
   },
   {
     name: "Lucile Jackson",
     title: "Director of Resources",
-    bio: "Lucile is a Certified Public Accountant with extensive experience in nonprofit financial management. As Board Treasurer, he oversees Village Rising's financial health, budgeting, and reporting to ensure fiscal responsibility and sustainability. Robert has over 20 years of experience in accounting and has specialized in nonprofit finance for the past decade. He is a partner at Williams & Partners CPA and provides financial consulting to numerous charitable organizations. Robert implemented our current financial systems and reporting processes. He holds a degree in Accounting and maintains several professional certifications. Robert is committed to financial transparency and regularly presents to the board on fiscal matters. In his spare time, he volunteers as a financial literacy instructor and enjoys sailing.",
+    bio: "Lucile J. Jackson serves as Director of Resources for Village Rising, bringing over 15 years of experience in nonprofit leadership, resource development, and community safety education. Her background includes strategic planning, organizational operations, workforce training, and cross-sector partnerships, with a strong focus on building sustainable systems that expand access to critical resources for families and underserved communities. Her work reflects Village Rising’s commitment to accountability, empowerment, and long-term community resilience.",
     image: imgContainer5,
   },
 ];
