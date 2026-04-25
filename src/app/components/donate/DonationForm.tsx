@@ -25,7 +25,7 @@ const photosTopLeft = [
     style: { width: 285, height: 238, top: 48, left: 18, transform: "rotate(-4deg)" },
   },
   {
-    src: "https://images.unsplash.com/photo-1768597138878-ec64fc2c48fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBwaWNuaWMlMjBvdXRkb29yJTIwZ3Jhc3N8ZW58MXx8fHwxNzczMDk3MjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1769650796719-44c11172df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHdvbWFuJTIwc3R1ZHlpbmclMjBsaWJyYXJ5fGVufDF8fHx8MTc3MzA5Njc5OXww&ixlib=rb-4.1.0&q=80&w=1080",
     style: { width: 220, height: 183, top: 112, left: 240, transform: "rotate(3deg)" },
   },
   {
