@@ -1,0 +1,27 @@
+name: Deploy React Branch
+
+on:
+  push:
+    branches:
+      - New-VR # Replace with the name of your specific branch
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # Change to 'build' if using Create React App
+          branch: gh-pages # The branch the action will deploy to

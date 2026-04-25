@@ -21,11 +21,11 @@ const amounts = [
 // Top-left cluster (rows 1–3 of the design)
 const photosTopLeft = [
   {
-    src: "https://images.unsplash.com/photo-1749006813623-bc3bd798158c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBjb21tdW5pdHklMjBzdXBwb3J0JTIwZGl2ZXJzZXxlbnwxfHx8fDE3NzMwOTY3OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1768597138878-ec64fc2c48fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBwaWNuaWMlMjBvdXRkb29yJTIwZ3Jhc3N8ZW58MXx8fHwxNzczMDk3MjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     style: { width: 285, height: 238, top: 48, left: 18, transform: "rotate(-4deg)" },
   },
   {
-    src: "https://images.unsplash.com/photo-1643816831186-b2427a8f9f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHdvbWFuJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDF8fHx8MTc3MzA5NzIyMnww&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "https://images.unsplash.com/photo-1768597138878-ec64fc2c48fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBwaWNuaWMlMjBvdXRkb29yJTIwZ3Jhc3N8ZW58MXx8fHwxNzczMDk3MjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     style: { width: 220, height: 183, top: 112, left: 240, transform: "rotate(3deg)" },
   },
   {
