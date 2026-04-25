@@ -8,12 +8,12 @@ export function ServingSacramento() {
 
         <p className="font-['DM_Sans',sans-serif] text-[#4a5565] text-[18px] md:text-[20px] leading-[1.4] text-center mb-5 max-w-[700px] mx-auto">
           Village Rising operates remotely to better serve families across the
-          greater Sacramento area. Our team is available by phone, email, and
+          Greater Sacramento area. Our team is available by phone, email, and
           video conference to support you wherever you are.
         </p>
 
         <p className="font-['DM_Sans',sans-serif] text-[#4a5565] text-[16px] leading-[24px] text-center mb-3">
-          <span className="font-['DM_Sans',sans-serif] font-bold">Office Hours:</span>
+          <span className="font-['DM_Sans',sans-serif] font-bold">Operating Hours : </span>
           Monday-Friday, 9:00 AM - 5:00 PM (Pacific Time)
         </p>
 

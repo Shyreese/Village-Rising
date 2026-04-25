@@ -146,7 +146,7 @@ export function ContactInfo() {
               Located in Sacramento, CA
             </p>
             <p className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[14px] leading-[20px] mt-1">
-              Serving the greater Sacramento area
+              Serving the Greater Sacramento area
             </p>
           </div>
         </div>
