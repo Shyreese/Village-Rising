@@ -21,7 +21,7 @@ export function TestimonialsSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <ImageWithFallback
-          src="src\assets\53876-22989.avif"
+          src="/src/assets/53876-22989.avif"
           alt="Community"
           className="w-full h-full object-cover"
         />
