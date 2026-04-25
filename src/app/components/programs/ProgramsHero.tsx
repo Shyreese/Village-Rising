@@ -56,7 +56,7 @@ export function ProgramsHero() {
         </div>
 
         {/* Hero image on right side */}
-        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[480px] h-[380px] rounded-[20px] overflow-hidden shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.5)]">
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[580px] h-[480px] rounded-[20px] overflow-hidden shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.5)]">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1627662167802-d58480978ec0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBkaW5uZXIlMjB0YWJsZSUyMGVhdGluZyUyMHRvZ2V0aGVyJTIwaGFwcHl8ZW58MXx8fHwxNzczMDk3NjY5fDA&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Family dining together"

@@ -15,7 +15,7 @@ import { HomeLogoBars } from "./../HomeLogoBars";
 import imgHousing from "@/assets/ac7adf1ec1d28b18ed35e1503159fd9ef32f2579.png";
 import imgFinancial from "@/assets/aa952a3bbad835f8c2d233a6712de5f76b8ca4d6.png";
 import imgWellness from "@/assets/5e7903ee64f62d274019a537e5705550a9550df2.png";
-import imgEducation from "@/assets/78952024b8798f384531b45f896c28f0cd01278f.png";
+import imgEducation from "@/assets/kids_at_playground.png";
 import imgWorkforce from "@/assets/a69e055b36c9810590be0eaf0589e2de6dcac47a.png";
 
 
@@ -25,14 +25,14 @@ const programs = [
     tag: "Education Support",
     title: "Childcare and Family Resource program",
     description:
-      "We provide comprehensive education support combined with childcare assistance, helping parents pursue their education and career goals while ensuring their children receive quality care.",
+      "Provides safe, nurturing childcare while connecting families to essential resources that support stability, growth, and daily functioning.",
     image: imgEducation,
     imagePosition: "left" as const,
     bgColor: "#fff7ed",
     eligibilityText: "Open to working families and those pursuing education, with priority for families earning between low and middle income",
     features: [
       { title: "Quality Childcare", subtitle: "Affordable care options", icon: GraduationCap },
-      { title: "Tutoring Services", subtitle: "Academic support for all ages", icon: GraduationCap },
+      { title: "Family Resources", subtitle: "Academic support for all ages", icon: GraduationCap },
 /*       { title: "Scholarship Access", subtitle: "College funding assistance", icon: GraduationCap },
       { title: "GED Programs", subtitle: "High school equivalency", icon: GraduationCap },
       { title: "College Prep", subtitle: "Application and enrollment help", icon: GraduationCap },
@@ -44,7 +44,7 @@ const programs = [
     tag: "Housing Assistance",
     title: "Housing Assistance Program",
     description:
-      "Our housing programs provide emergency shelter, rental assistance, and pathways to affordable housing for families experiencing housing instability or working toward homeownership.",
+      "Offers temporary and emergency housing support to help individuals and families regain stability during times of transition or hardship.",
     image: imgHousing,
     imagePosition: "right" as const,
     bgColor: "#fafaf9",
@@ -52,29 +52,29 @@ const programs = [
     features: [
       //{ title: "Emergency Shelter", subtitle: "Immediate placement assistance", icon: Home },
       { title: "Rental Support", subtitle: "Assistance and deposit help", icon: Home },
-      { title: "Housing Counseling", subtitle: "Navigation and guidance", icon: Home },
-      { title: "Utility Assistance", subtitle: "Help with essential bills", icon: Home },
-      { title: "Homeownership Prep", subtitle: "Path to buying a home", icon: Home },
+      //{ title: "Housing Counseling", subtitle: "Navigation and guidance", icon: Home },
+      //{ title: "Utility Assistance", subtitle: "Help with essential bills", icon: Home },
+      //{ title: "Homeownership Prep", subtitle: "Path to buying a home", icon: Home },
       { title: "Rapid Rehousing", subtitle: "Quick housing solutions", icon: Home },
     ],
   },
     {
-    anchorId: "family-wellness",
-    tag: "Wellness Support",
+    anchorId: "opportunity-access",
+    tag: "Opportunity Access",
     title: "Opportunity Access Program",
     description:
-      "Supporting the whole family through comprehensive services that address physical, emotional, and social wellbeing.",
+      "Expands access to essential services that remove barriers to employment, housing, and advancement. This includes Live Scan background checks, notary and documentation support, and access to technology, with services continuing to grow based on community needs.",
     image: imgWellness,
     imagePosition: "right" as const,
     bgColor: "#f0fdfa",
     eligibilityText: "Open to all families in our service area, regardless of income",
     features: [
-      { title: "Counseling", subtitle: "Individual and family sessions", icon: Heart },
-      { title: "Health Navigation", subtitle: "Access to healthcare resources", icon: Heart },
-      { title: "Parent Education", subtitle: "Skills and development classes", icon: Heart },
-      { title: "Support Groups", subtitle: "Community peer connections", icon: Heart },
-      { title: "Crisis Intervention", subtitle: "Immediate support services", icon: Heart },
-      { title: "Youth Programs", subtitle: "Activities and mentoring", icon: Heart },
+      { title: "Live Scan Background Check", subtitle: "Individual and family sessions", icon: Heart },
+      { title: "Notary and Documentation Support", subtitle: "Access to healthcare resources", icon: Heart },
+      { title: "Access to Technology", subtitle: "Skills and development classes", icon: Heart },
+      { title: "Medi-Cal Application Support", subtitle: "Community peer connections", icon: Heart },
+      //{ title: "Crisis Intervention", subtitle: "Immediate support services", icon: Heart },
+      //{ title: "Youth Programs", subtitle: "Activities and mentoring", icon: Heart },
     ],
   },
     {
@@ -82,7 +82,7 @@ const programs = [
     tag: "Workforce Development",
     title: "Workforce Development Program",
     description:
-      "Our internship and workforce program provides real-world work experience, job training, and career development opportunities to help families build sustainable careers and achieve financial independence.",
+      "Creates pathways to employment through internships, skill-building, and real-world experience that prepare individuals for sustainable careers.",
     image: imgWorkforce,
     imagePosition: "right" as const,
     bgColor: "#eff6ff",
@@ -101,17 +101,17 @@ const programs = [
     tag: "Financial Coaching",
     title: "Financial Empowerment Series Program",
     description:
-      "Our comprehensive financial and professional coaching services help families build wealth, improve credit, and achieve major financial milestones like homeownership and career advancement.",
+      "Delivers practical financial education, tools, and guidance to help individuals build confidence, manage income, and create long-term stability.",
     image: imgFinancial,
     imagePosition: "left" as const,
     bgColor: "#fffbeb",
     eligibilityText: "Available to families committed to building long-term financial stability, especially those between low and middle income",
     features: [
-      { title: "Credit Improvement", subtitle: "Coaching and strategies", icon: DollarSign },
+      { title: "Credit Building ", subtitle: "Coaching and strategies", icon: DollarSign },
       { title: "Budgeting/Debt Management", subtitle: "Loan education and planning", icon: DollarSign },
-      { title: "Home Buying", subtitle: "First-time buyer guidance", icon: DollarSign },
-      { title: "Investment Education", subtitle: "Real estate and retirement basics", icon: DollarSign },
-      //{ title: "Career Coaching", subtitle: "Professional development support", icon: Briefcase },
+      { title: "Home Buying Coaching", subtitle: "First-time buyer guidance", icon: DollarSign },
+      { title: "Estate Planning", subtitle: "Real estate and retirement basics", icon: DollarSign },
+      { title: "Trust and Will Documentation Support", subtitle: "Professional development support", icon: Briefcase },
     ],
   },
 ];

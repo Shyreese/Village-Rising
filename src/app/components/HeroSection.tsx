@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import videoSrc from "../../assets/Mother and Child Playing on Floor.mp4";
+import videoSrc from "../../assets/Big Group Of People.mp4";
 
 export function HeroSection() {
   return (
@@ -23,8 +23,7 @@ export function HeroSection() {
 
         <h1 className="font-['DM_Serif_Display',serif] font-bold text-white text-[36px] sm:text-[48px] lg:text-[60px] leading-[1.1] max-w-[700px]">
           Our Mission is{" "}
-          <span className="block sm:inline">Connecting Families.</span>
-          <span className="block">Building Futures.</span>
+          <span className="block sm:inline">Connecting Families.Building Futures.</span>
         </h1>
 
         <p className="font-['DM_Sans',sans-serif] font-semibold text-[#f4efe7] text-[18px] lg:text-[24px] leading-[1.4] mt-6 max-w-[700px]">

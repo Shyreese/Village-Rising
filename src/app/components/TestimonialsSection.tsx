@@ -3,15 +3,15 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 const testimonials = [
   {
     quote:
-      '"I was hesitant to ask for help, but the application was so simple and my navigator Maria made me feel heard and supported from day one. Within 3 weeks, my kids were enrolled in after-school care."',
-    name: "Carmen R.",
-    detail: "Mother of 2 · Education Support Program",
+      '"I came across the village rising housing stability program and was accepted and welcomed into relief when I fell on hard times. I found myself a homeless single mother on the verge of living on the streets. The program provided me not only a secured place to live, but also agape love, encouragement, comfort, and resources for me to be able to rebuild my confidence and independence. I cannot thank the founders of this program enough. Without trusting the process, I wouldn’t have gotten that fresh start again. Thank you for saving me and my son! I encouraged anyone in hard times to join this program.It really works."',
+    name: "Chanita Davis",
+    detail: "Single Mother· Housing Stability Program",
   },
   {
     quote:
-      '"The housing assistance program literally saved my family. We were about to lose our apartment, and Village Rising helped us stay housed while I got back on my feet financially."',
-    name: "James T.",
-    detail: "Father of 3 · Housing Assistance Program",
+      '"Village Rising provided an excellent experience from start to finish. Our business often needs to move quickly, so it’s extremely important for us to work with someone who is flexible and able to respond just as fast and they delivered. They were incredibly responsive and arrived within just two hours to complete a notary for me, which I truly appreciated. Their professionalism and friendly attitude made the entire process smooth and comfortable. What stood out the most was their willingness to go above and beyond, taking the time to answer my questions and provide additional information that was very helpful. I would definitely recommend Village Rising to anyone in need of notary services, and I will absolutely be using them again in the future."',
+    name: "Ericson Porter",
+    detail: "Opportunity Access Program ",
   },
 ];
 
