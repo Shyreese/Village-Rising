@@ -337,11 +337,11 @@ export function DonationForm() {
             </div>
 
             {/* Donate button */}
-            <button className="w-full h-[96px] bg-gradient-to-b from-[#c6a646] to-[#b89536] rounded-[16px] shadow-[0px_15px_35px_0px_rgba(198,166,70,0.4)] cursor-pointer hover:brightness-110 transition mb-6">
+            <a href="https://givebutter.com/village-rising" ><button className="w-full h-[96px] bg-gradient-to-b from-[#c6a646] to-[#b89536] rounded-[16px] shadow-[0px_15px_35px_0px_rgba(198,166,70,0.4)] cursor-pointer hover:brightness-110 transition mb-6">
               <span className="font-['Inter',sans-serif] text-white text-[24px]">
                 Donate ${displayAmount} now
               </span>
-            </button>
+            </button></a>
 
             {/* Trust badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 py-4 border-t border-[#d1d5dc] mb-4">
