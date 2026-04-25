@@ -20,12 +20,10 @@ export function Navbar({ activePage }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
@@ -60,7 +58,6 @@ export function Navbar({ activePage }: NavbarProps) {
         <nav className="hidden md:flex items-center gap-6" role="navigation" aria-label="Main navigation">
           {navLinks.map((link) => {
             const active = isActive(link);
-            // Use Link for internal routes, anchor for hash links
             if (link.href.startsWith("/#")) {
               return (
                 <a
@@ -88,15 +85,19 @@ export function Navbar({ activePage }: NavbarProps) {
               </Link>
             );
           })}
+
+          {/* Apply Now - Solid Gold */}
           <Link
             to="/apply"
-            className="border-2 border-[#c6a646] text-[#c6a646] font-['DM_Sans',sans-serif] text-[12px] px-4 py-2 rounded-[18px] hover:bg-[#c6a646] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
+            className="bg-[#c6a646] text-white font-['DM_Sans',sans-serif] font-semibold text-[14px] px-5 py-2 rounded-[18px] hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
           >
             Apply Now
           </Link>
+
+          {/* Donate - White with Gold Border */}
           <Link
             to="/donate"
-            className="bg-[#c6a646] text-white font-['DM_Sans',sans-serif] font-semibold text-[16px] px-[18px] py-[8px] rounded-[25px] shadow-[0px_4px_4px_0px_rgba(184,149,54,0.25)] hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
+            className="border-2 border-[#c6a646] text-[#c6a646] font-['DM_Sans',sans-serif] font-semibold text-[14px] px-5 py-2 rounded-[18px] hover:bg-[#c6a646] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
           >
             Donate
           </Link>
@@ -122,23 +123,19 @@ export function Navbar({ activePage }: NavbarProps) {
           role="navigation"
           aria-label="Mobile navigation"
         >
-          {navLinks.map((link) => {
-            if (link.href.startsWith("/#")) {
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`block py-3 font-['DM_Sans',sans-serif] text-[16px] focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded px-2 ${
-                    isActive(link) ? "text-[#50c878]" : "text-[#4a5565]"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                  aria-current={isActive(link) ? "page" : undefined}
-                >
-                  {link.label}
-                </a>
-              );
-            }
-            return (
+          {navLinks.map((link) => (
+            link.href.startsWith("/#") ? (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`block py-3 font-['DM_Sans',sans-serif] text-[16px] focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded px-2 ${
+                  isActive(link) ? "text-[#50c878]" : "text-[#4a5565]"
+                }`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            ) : (
               <Link
                 key={link.label}
                 to={link.href}
@@ -146,23 +143,23 @@ export function Navbar({ activePage }: NavbarProps) {
                   isActive(link) ? "text-[#50c878]" : "text-[#4a5565]"
                 }`}
                 onClick={() => setMobileOpen(false)}
-                aria-current={isActive(link) ? "page" : undefined}
               >
                 {link.label}
               </Link>
-            );
-          })}
-          <div className="flex flex-col sm:flex-row gap-3 mt-3">
+            )
+          ))}
+
+          <div className="flex flex-col sm:flex-row gap-3 mt-4">
             <Link
               to="/apply"
-              className="bg-[#c6a646] text-white font-['DM_Sans',sans-serif] font-semibold text-[16px] px-4 py-3 rounded-[18px] text-center focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
+              className="bg-[#c6a646] text-white font-semibold text-[16px] px-5 py-3 rounded-[18px] text-center"
               onClick={() => setMobileOpen(false)}
             >
               Apply Now
             </Link>
             <Link
               to="/donate"
-              className="border-2 border-[#c6a646] text-[#c6a646] font-['DM_Sans',sans-serif] font-semibold text-[16px] px-4 py-3 rounded-[25px] text-center hover:bg-[#c6a646] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#c6a646] focus:ring-offset-2"
+              className="border-2 border-[#c6a646] text-[#c6a646] font-semibold text-[16px] px-5 py-3 rounded-[18px] text-center hover:bg-[#c6a646] hover:text-white transition"
               onClick={() => setMobileOpen(false)}
             >
               Donate
