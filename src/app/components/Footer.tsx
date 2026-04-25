@@ -29,15 +29,15 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - 2 columns, going down */}
           <div>
             <h3 className="font-['DM_Serif_Display',serif] font-semibold text-white text-[18px] mb-4">
               Quick Links
             </h3>
             <nav aria-label="Footer navigation">
-              <ul className="space-y-2">
+              <div className="grid grid-cols-2 gap-x-12 gap-y-2">
                 {quickLinks.map((link) => (
-                  <li key={link.label}>
+                  <div key={link.label}>
                     {link.href.startsWith("/#") ? (
                       <a
                         href={link.href}
@@ -53,9 +53,9 @@ export function Footer() {
                         {link.label}
                       </Link>
                     )}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </nav>
           </div>
 
