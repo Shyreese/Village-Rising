@@ -36,9 +36,8 @@ function FormField({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors ${
-          error ? "border-[#dc2626]" : "border-transparent"
-        }`}
+        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors ${error ? "border-[#dc2626]" : "border-transparent"
+          }`}
       />
       {error && (
         <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">
@@ -77,9 +76,8 @@ function SelectField({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${
-          error ? "border-[#dc2626]" : "border-transparent"
-        }`}
+        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${error ? "border-[#dc2626]" : "border-transparent"
+          }`}
       >
         {options.map((opt) => (
           <option key={opt}>{opt}</option>
@@ -240,27 +238,12 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
       <FormSection title="Personal Information" description="Tell us about yourself">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
           <FormField label="First Name" required value={firstName} onChange={setFirstName} error={!!e("firstName")} />
-          <FormField label="Middle Name" value="" onChange={() => {}} />
+          <FormField label="Middle Name" value="" onChange={() => { }} />
           <FormField label="Last Name" required value={lastName} onChange={setLastName} error={!!e("lastName")} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <FormField label="Email Address" required type="email" value={email} onChange={setEmail} error={!!e("email")} />
           <FormField label="Phone Number" required type="tel" value={phone} onChange={setPhone} error={!!e("phone")} />
-        </div>
-        <div className="mb-4">
-          <FormField label="Verify your phone" placeholder="Enter your PIN" value="" onChange={() => {}} />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <FormField label="Emergency Contact Name" required value={emergencyName} onChange={setEmergencyName} error={!!e("emergencyName")} />
-          <FormField label="Emergency Contact Phone" required type="tel" value={emergencyPhone} onChange={setEmergencyPhone} error={!!e("emergencyPhone")} />
-          <SelectField
-            label="Relationship"
-            required
-            options={["Select...", "Spouse", "Parent", "Sibling", "Friend", "Other"]}
-            value={relationship}
-            onChange={setRelationship}
-            error={!!e("relationship")}
-          />
         </div>
       </FormSection>
 
@@ -372,68 +355,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
         </div>
       </FormSection>
 
-      {/* Additional Information */}
-      <FormSection title="Additional Information">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-              Do you or anyone in your household have a disability? *
-            </label>
-            <div className="flex gap-4">
-              {["Yes", "No"].map((opt) => (
-                <label key={`disability-${opt}`} className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="disability"
-                    value={opt}
-                    checked={disability === opt}
-                    onChange={() => setDisability(opt)}
-                    className="accent-[#50c878]"
-                  />
-                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
-                </label>
-              ))}
-            </div>
-            {e("disability") && (
-              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select an option.</p>
-            )}
-          </div>
-          <div>
-            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-              Are you a veteran? *
-            </label>
-            <div className="flex gap-4">
-              {["Yes", "No"].map((opt) => (
-                <label key={`veteran-${opt}`} className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="veteran"
-                    value={opt}
-                    checked={veteran === opt}
-                    onChange={() => setVeteran(opt)}
-                    className="accent-[#50c878]"
-                  />
-                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
-                </label>
-              ))}
-            </div>
-            {e("veteran") && (
-              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select an option.</p>
-            )}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <SelectField
-            label="Primary Language"
-            required
-            options={["Select language...", "English", "Spanish", "Chinese", "Vietnamese", "Other"]}
-            value={primaryLanguage}
-            onChange={setPrimaryLanguage}
-            error={!!e("primaryLanguage")}
-          />
-        </div>
-      </FormSection>
-
       {/* Programs of Interest */}
       <FormSection title="Programs of Interest">
         <div className="mb-4">
@@ -442,11 +363,11 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
           </label>
           <div className="flex flex-col gap-2">
             {[
-              "Financial and Professional Coaching",
-              "Family Wellness Services",
-              "Education Support and Childcare Assistance",
-              "Internship and Workforce Assistance",
-              "Volunteer Opportunities",
+              "Childcare and Family Resource Program",
+              "Housing Assistance Program",
+              "Opportunity Access Program",
+              "Workforce Development Program",
+              "Financial Empowerment Series Program",
             ].map((program) => (
               <label key={program} className="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" className="accent-[#50c878]" />
@@ -468,23 +389,13 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
             rows={3}
             value={servicesInterest}
             onChange={(e) => setServicesInterest(e.target.value)}
-            className={`w-full px-3 py-2 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none ${
-              e("servicesInterest") ? "border-[#dc2626]" : "border-transparent"
-            }`}
+            className={`w-full px-3 py-2 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none ${e("servicesInterest") ? "border-[#dc2626]" : "border-transparent"
+              }`}
           />
           {e("servicesInterest") && (
             <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please describe what you're interested in.</p>
           )}
         </div>
-      </FormSection>
-
-      {/* Additional Notes */}
-      <FormSection title="Additional Notes or Comments">
-        <textarea
-          rows={3}
-          placeholder="Any other information you'd like us to know..."
-          className="w-full px-3 py-2 bg-[#f3f3f5] border border-transparent rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none"
-        />
       </FormSection>
 
       {/* Certification */}

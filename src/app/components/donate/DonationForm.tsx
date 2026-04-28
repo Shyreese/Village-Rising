@@ -48,10 +48,10 @@ const photosTopRight = [
     src: "https://images.unsplash.com/photo-1723771753948-e8d90d8e5950?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBmYXRoZXIlMjBkYXVnaHRlciUyMHBhcmt8ZW58MXx8fHwxNzczMDk2Nzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     style: { width: 197, height: 203, top: 14, right: 260, transform: "rotate(-2deg)" },
   },
- {
-  src: "https://images.unsplash.com/photo-1612021299961-d20428009494?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-  style: { width: 197, height: 161, top: 120, right: 420, transform: "rotate(2deg)" },
-},
+  {
+    src: "https://images.unsplash.com/photo-1612021299961-d20428009494?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    style: { width: 197, height: 161, top: 120, right: 420, transform: "rotate(2deg)" },
+  },
 ];
 
 // Mid-left cluster
@@ -262,11 +262,10 @@ export function DonationForm() {
                   <button
                     key={freq}
                     onClick={() => setFrequency(freq)}
-                    className={`py-5 rounded-[16px] font-['Inter',sans-serif] text-[16px] md:text-[18px] cursor-pointer transition-all ${
-                      frequency === freq
+                    className={`py-5 rounded-[16px] font-['Inter',sans-serif] text-[16px] md:text-[18px] cursor-pointer transition-all ${frequency === freq
                         ? "bg-[#c6a646] text-white border-[2.667px] border-[#c6a646] shadow-[0px_10px_15px_0px_rgba(0,0,0,0.1)]"
                         : "bg-white text-[#4a5565] border-[2.667px] border-[#d1d5dc]"
-                    }`}
+                      }`}
                   >
                     {freq}
                   </button>
@@ -287,27 +286,24 @@ export function DonationForm() {
                       setSelectedAmount(amt.value);
                       setCustomAmount("");
                     }}
-                    className={`rounded-[16px] py-6 md:py-8 cursor-pointer transition-all ${
-                      selectedAmount === amt.value && !customAmount
+                    className={`rounded-[16px] py-6 md:py-8 cursor-pointer transition-all ${selectedAmount === amt.value && !customAmount
                         ? "bg-gradient-to-b from-[#c6a646] to-[#b89536] border-[2.667px] border-[#c6a646] shadow-[0px_25px_50px_0px_rgba(0,0,0,0.25)]"
                         : "bg-white border-[2.667px] border-[#d1d5dc]"
-                    }`}
+                      }`}
                   >
                     <p
-                      className={`font-['Inter',sans-serif] text-[28px] md:text-[36px] leading-[40px] text-center ${
-                        selectedAmount === amt.value && !customAmount
+                      className={`font-['Inter',sans-serif] text-[28px] md:text-[36px] leading-[40px] text-center ${selectedAmount === amt.value && !customAmount
                           ? "text-white"
                           : "text-[#2c2c2c]"
-                      }`}
+                        }`}
                     >
                       {amt.label}
                     </p>
                     <p
-                      className={`font-['Inter',sans-serif] text-[14px] text-center mt-2 ${
-                        selectedAmount === amt.value && !customAmount
+                      className={`font-['Inter',sans-serif] text-[14px] text-center mt-2 ${selectedAmount === amt.value && !customAmount
                           ? "text-[rgba(255,255,255,0.9)]"
                           : "text-[#6b7c59]"
-                      }`}
+                        }`}
                     >
                       {amt.desc}
                     </p>
@@ -370,11 +366,6 @@ export function DonationForm() {
               Tax ID: 33-4782640
             </p>
           </div>
-        </div>
-
-        {/* Other Ways to Support */}
-        <div className="mt-10">
-          <OtherWaysToSupport />
         </div>
       </div>
     </section>

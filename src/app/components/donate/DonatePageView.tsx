@@ -4,7 +4,6 @@ import { FloatingHelpButton } from "../FloatingHelpButton";
 import { SkipLink } from "../SkipLink";
 import { DonateHero } from "./DonateHero";
 import { DonationForm } from "./DonationForm";
-import { OtherWaysToSupport } from "./OtherWaysToSupport";
 import { ThankYouSection } from "./ThankYouSection";
 import { HomeLogoBars } from "../HomeLogoBars";
 import { useEffect } from "react";
