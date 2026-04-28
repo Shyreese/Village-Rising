@@ -108,11 +108,10 @@ export function YourResults({ onBack }: YourResultsProps) {
         {programs.map((program) => (
           <div
             key={program.name}
-            className={`rounded-[10px] border-2 p-6 ${
-              program.qualified
+            className={`rounded-[10px] border-2 p-6 ${program.qualified
                 ? "border-[#50c878] bg-white"
                 : "border-[#e5e7eb] bg-white"
-            }`}
+              }`}
           >
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center gap-2">
@@ -144,18 +143,16 @@ export function YourResults({ onBack }: YourResultsProps) {
                 {program.services.map((service) => (
                   <li key={service} className="flex items-center gap-2">
                     <Circle
-                      className={`w-3 h-3 flex-shrink-0 ${
-                        program.qualified
+                      className={`w-3 h-3 flex-shrink-0 ${program.qualified
                           ? "text-[#50c878]"
                           : "text-[#d1d5dc]"
-                      }`}
+                        }`}
                     />
                     <span
-                      className={`font-['Inter',sans-serif] text-[14px] ${
-                        program.qualified
+                      className={`font-['Inter',sans-serif] text-[14px] ${program.qualified
                           ? "text-[#50c878]"
                           : "text-[#4a5565]"
-                      }`}
+                        }`}
                     >
                       {service}
                     </span>

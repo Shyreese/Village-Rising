@@ -23,10 +23,10 @@ const householdOptions = [
 
 const supportAreas = [
   {
-    id: "internship",
-    icon: Briefcase,
-    title: "Workforce Development Program",
-    desc: "Job training, internship opportunities",
+    id: "education",
+    icon: GraduationCap,
+    title: "Childcare and Family Resource Program",
+    desc: "Tutoring, scholarships, childcare",
   },
   {
     id: "housing",
@@ -35,22 +35,22 @@ const supportAreas = [
     desc: "Emergency shelter, rental assistance",
   },
   {
-    id: "education",
-    icon: GraduationCap,
-    title: "Childcare and Family Resource Program",
-    desc: "Tutoring, scholarships, childcare",
+    id: "Opportunity",
+    icon: DollarSign,
+    title: "Opportunity Access Program",
+    desc: "Support with pre-employment qualification, Live Scan, Notary, CPR, etc.",
+  },
+  {
+    id: "internship",
+    icon: Briefcase,
+    title: "Workforce Development Program",
+    desc: "Job training, internship opportunities",
   },
   {
     id: "financial",
     icon: DollarSign,
     title: "Financial Empowerment Series Program",
     desc: "Budget planning, credit building, job readiness",
-  },
-  {
-    id: "Opportunity",
-    icon: DollarSign,
-    title: "Opportunity Access Program",
-    desc: "Support with pre-employment qualification, Live Scan, Notary, CPR, etc.",
   },
 ];
 
@@ -96,9 +96,8 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
           <select
             value={income}
             onChange={(e) => setIncome(e.target.value)}
-            className={`w-full h-[49px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${
-              attempted && errors.income ? "border-[#dc2626]" : "border-[#d1d5dc]"
-            }`}
+            className={`w-full h-[49px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${attempted && errors.income ? "border-[#dc2626]" : "border-[#d1d5dc]"
+              }`}
           >
             {incomeOptions.map((opt) => (
               <option key={opt} value={opt === "Select income range" ? "" : opt}>
@@ -119,9 +118,8 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
           <select
             value={household}
             onChange={(e) => setHousehold(e.target.value)}
-            className={`w-full h-[49px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${
-              attempted && errors.household ? "border-[#dc2626]" : "border-[#d1d5dc]"
-            }`}
+            className={`w-full h-[49px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${attempted && errors.household ? "border-[#dc2626]" : "border-[#d1d5dc]"
+              }`}
           >
             {householdOptions.map((opt) => (
               <option key={opt} value={opt === "Select household size" ? "" : opt}>
@@ -148,11 +146,10 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
                   key={area.id}
                   type="button"
                   onClick={() => toggleArea(area.id)}
-                  className={`bg-white rounded-[10px] border-2 p-4 text-left cursor-pointer transition-colors ${
-                    selected
-                      ? "border-[#50c878] bg-[#f0fdf4]"
-                      : "border-[#e5e7eb] hover:border-[#d1d5dc]"
-                  }`}
+                  className={`bg-white rounded-[10px] border-2 p-4 text-left cursor-pointer transition-colors ${selected
+                    ? "border-[#50c878] bg-[#f0fdf4]"
+                    : "border-[#e5e7eb] hover:border-[#d1d5dc]"
+                    }`}
                 >
                   <div className="flex gap-3 items-start">
                     <div className="bg-[#f3f4f6] rounded-[10px] w-10 h-10 flex items-center justify-center flex-shrink-0">
@@ -189,9 +186,8 @@ export function EligibilityCheck({ onNext }: EligibilityCheckProps) {
             placeholder="e.g., 90210"
             value={zipCode}
             onChange={(e) => setZipCode(e.target.value)}
-            className={`w-full h-[50px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] outline-none focus:border-[#c6a646] transition-colors ${
-              attempted && errors.zipCode ? "border-[#dc2626]" : "border-[#d1d5dc]"
-            }`}
+            className={`w-full h-[50px] px-4 bg-white border rounded-[8px] font-['Inter',sans-serif] text-[16px] text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] outline-none focus:border-[#c6a646] transition-colors ${attempted && errors.zipCode ? "border-[#dc2626]" : "border-[#d1d5dc]"
+              }`}
           />
           {attempted && errors.zipCode && (
             <p className="font-['Inter',sans-serif] text-[#dc2626] text-[13px] mt-1">Please enter a valid 5-digit zip code.</p>
