@@ -155,14 +155,14 @@ export function ProgramsPage() {
 
 
 
-          {/* Success Stories Section */}
-          <section className="px-4 sm:px-6 pb-0" aria-labelledby="success-stories-heading">
+          {/* Success Stories Section*/} 
+          {/* <section className="px-4 sm:px-6 pb-0" aria-labelledby="success-stories-heading">
             <div className="max-w-[1310px] mx-auto bg-[#536b50] py-12 sm:py-16 px-6 sm:px-8 lg:px-16">
               <h2 id="success-stories-heading" className="font-['DM_Serif_Display',serif] text-white text-[24px] sm:text-[28px] lg:text-[33px] text-center mb-10">
                 Success Stories
               </h2>
 
-              {/* Testimonial cards */}
+              {/* Testimonial cards 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {[
                   {
@@ -197,7 +197,7 @@ export function ProgramsPage() {
                     </p>
                   </article>
                 ))}
-              </div>
+              </div> */}
 
               {/* CTA */}
               <div className="text-center">
