@@ -10,24 +10,38 @@ import { Link } from "react-router";
 import { PartnerSection } from "./PartnerSection";
 
 export function GetInvolvedPageView() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-['DM_Sans',sans-serif] relative overflow-hidden">
       <SkipLink />
       <Navbar activePage="get involved" />
-      <main id="main-content" className="relative">
-        <HomeLogoBars />
-        <div className="relative z-[1] max-w-[1260px] mx-auto px-4 sm:px-6">
-          {/* Hero Section */}
-          <section className="py-12 sm:py-16 md:py-24 text-center">
-            <h1 className="font-['DM_Serif_Display',serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] text-[#4a5565] mb-6">
+
+      {/* Green Hero Section - Consistent with About and Contact */}
+      <section className="bg-[#3f5a3c] relative overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="text-center">
+            <h1 className="font-['DM_Serif_Display',serif] font-normal text-white text-[36px] md:text-[48px] lg:text-[52px] leading-[1.1] mb-4">
               Get Involved
             </h1>
-            <p className="font-['DM_Sans',sans-serif] text-[16px] sm:text-[18px] text-[#6b7280] max-w-[600px] mx-auto">
+
+            <p className="font-['DM_Sans',sans-serif] font-medium text-[#f4efe7] 
+                         text-[17px] sm:text-[19px] md:text-[22px] lg:text-[23px]
+                         leading-[1.3] md:leading-tight 
+                         tracking-[-0.01em] mx-auto max-w-[1000px]">
               Join us in making a difference in our community. There are many ways to get involved and support Village Rising's mission.
             </p>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          {/* Ways to Get Involved */}
+      <main id="main-content" className="relative">
+        <HomeLogoBars />
+
+        <div className="relative z-[1] max-w-[1260px] mx-auto px-4 sm:px-6">
+
           {/* Volunteer Section */}
           <section className="py-12 px-4 sm:px-6" aria-labelledby="volunteer-heading">
             <div className="max-w-[1260px] mx-auto bg-[#ecfdf5] rounded-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden">
@@ -40,6 +54,7 @@ export function GetInvolvedPageView() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+
                 {/* Content */}
                 <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
                   <span className="inline-block bg-[#50c878] text-white font-bold text-[14px] px-4 py-1.5 rounded-full w-fit mb-6">
@@ -99,7 +114,9 @@ export function GetInvolvedPageView() {
               </div>
             </div>
           </section>
+
           <PartnerSection />
+
           {/* Call to Action */}
           <section className="py-12 sm:py-16 text-center">
             <h2 className="font-['DM_Serif_Display',serif] font-bold text-[28px] sm:text-[32px] text-[#4a5565] mb-6">
@@ -125,6 +142,7 @@ export function GetInvolvedPageView() {
           </section>
         </div>
       </main>
+
       <Footer />
       <FloatingHelpButton />
     </div>
