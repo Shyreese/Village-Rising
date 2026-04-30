@@ -52,7 +52,7 @@ export function FloatingHelpButton() {
     <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-4">
       {/* Help Popup */}
       {isOpen && (
-        <div 
+        <div
           ref={popupRef}
           className="bg-white rounded-[16px] shadow-[0px_10px_40px_rgba(0,0,0,0.15)] p-6 w-[calc(100vw-2rem)] sm:w-[320px] animate-in slide-in-from-bottom-5 fade-in duration-200 ring-1 ring-[#c6a646]/20"
           role="dialog"
@@ -60,7 +60,7 @@ export function FloatingHelpButton() {
           aria-modal="true"
         >
           <div className="flex justify-between items-start mb-4">
-            <h3 
+            <h3
               id="help-popup-title"
               className="font-['DM_Serif_Display',serif] text-[#0a0a0a] text-[20px] leading-[1.2]"
             >
@@ -74,14 +74,14 @@ export function FloatingHelpButton() {
               <X className="w-5 h-5" />
             </button>
           </div>
-          
+
           <p className="font-['DM_Sans',sans-serif] text-[#4a5565] text-[15px] mb-5">
             Our team is available to assist you with any questions about donations or our programs.
           </p>
 
           <div className="space-y-4">
-            <a 
-              href="mailto:support@villagerising.org" 
+            <a
+              href="mailto:support@villagerising.org"
               className="flex items-center gap-3 p-3 rounded-[8px] hover:bg-[#f4efe7] transition-colors group focus:outline-none focus:ring-2 focus:ring-[#c6a646]"
               aria-label="Email us at support@villagerising.org"
             >
@@ -90,12 +90,12 @@ export function FloatingHelpButton() {
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Email Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">info@villagevalues.org</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">info@ourvillage.org</div>
               </div>
             </a>
-            
-            <a 
-              href="tel:+19267640211" 
+
+            <a
+              href="tel:+19167610211"
               className="flex items-center gap-3 p-3 rounded-[8px] hover:bg-[#f4efe7] transition-colors group focus:outline-none focus:ring-2 focus:ring-[#c6a646]"
               aria-label="Call us at (926) 764-0211"
             >
@@ -104,7 +104,7 @@ export function FloatingHelpButton() {
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Call Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">(926) 764-0211</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">(916) 761-0211</div>
               </div>
             </a>
           </div>

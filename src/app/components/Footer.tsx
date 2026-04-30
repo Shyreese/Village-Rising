@@ -66,7 +66,7 @@ export function Footer() {
             </h3>
             <address className="not-italic">
               <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[15px] mb-2">
-                <a 
+                <a
                   href="mailto:info@ourvillagerising.org"
                   className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded"
                 >
@@ -74,7 +74,7 @@ export function Footer() {
                 </a>
               </p>
               <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[15px]">
-                <a 
+                <a
                   href="tel:+15551234567"
                   className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#c6a646] rounded"
                 >
@@ -88,7 +88,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-[#1e2939] pt-6">
           <p className="font-['DM_Sans',sans-serif] text-[#d1d5dc] text-[13px] sm:text-[14px] text-center">
-            © 2026 Village Rising. All rights reserved. 
+            © 2026 Village Rising. All rights reserved.
           </p>
         </div>
       </div>

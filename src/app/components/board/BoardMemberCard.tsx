@@ -51,7 +51,7 @@ export function BoardMemberCard({
             {name}
           </span>
         </div>
-        
+
         {/* Arrow positioned on the right */}
         <button className="absolute right-0 top-1/2 -translate-y-1/2 text-[#50c878]">
           {expanded ? (
