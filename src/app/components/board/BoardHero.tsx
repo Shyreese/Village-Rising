@@ -3,7 +3,7 @@ export function BoardHero() {
     <section className="bg-[#3f5a3c] relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 md:py-20">
         <h1 className="font-['DM_Serif_Display',serif] font-normal text-white text-[36px] md:text-[48px] leading-[1.1] mb-6 text-center">
-          Our Board & Leadership
+          Meet Our Board Members
         </h1>
         
         <p className="font-['DM_Sans',sans-serif] font-medium text-[#f4efe7] 

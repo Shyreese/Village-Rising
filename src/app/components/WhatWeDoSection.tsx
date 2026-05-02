@@ -1,6 +1,7 @@
 import { Home, GraduationCap, DollarSign, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Link } from "react-router";
+import imgOpp from "../../assets/0644165e93abb8d611ec35082a1c526ceb6c95b2.png"
 
 const services = [
     {
@@ -44,7 +45,7 @@ const services = [
     description:
       "Expands access to essential services that remove barriers to employment, housing, and advancement. This includes Live Scan background checks, notary and documentation support, and access to technology, with services continuing to grow based on community needs.",
     image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3JrZm9yY2UlMjBkZXZlbG9wbWVudCUyMHRyYWluaW5nfGVufDF8fHx8MTc3MzA5NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      imgOpp,
   },
 ];
 
