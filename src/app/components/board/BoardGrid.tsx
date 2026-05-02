@@ -15,7 +15,7 @@ const boardMembers = [
   },
   {
     name: "Paskael Tyiska Jr.",
-    title: "Co-Founder & Chief Operating Officer",
+    title: "Board Memeber, Co-Founder & Chief Operating Officer",
     bio: "Paskael Tyiska is the Co-Founder and Chief Operating Officer of Village Rising, where he oversees operations, systems, and organizational execution. He is responsible for ensuring that the organization’s vision is carried out through efficient, structured, and sustainable processes. With a strong focus on operational excellence, Paskael builds and maintains systems that support consistency, accountability, and long-term growth. His leadership ensures that programs and initiatives are delivered with precision while remaining aligned with the organization’s mission. Through his work, Paskael is committed to creating a stable and well-organized foundation that allows Village Rising to effectively serve families and the broader community.",
     image: imgContainer1,
   },
