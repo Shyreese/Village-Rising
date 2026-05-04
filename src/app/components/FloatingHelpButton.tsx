@@ -81,16 +81,16 @@ export function FloatingHelpButton() {
 
           <div className="space-y-4">
             <a
-              href="mailto:support@villagerising.org"
+              href="mailto:info@ourvillagerising.org"
               className="flex items-center gap-3 p-3 rounded-[8px] hover:bg-[#f4efe7] transition-colors group focus:outline-none focus:ring-2 focus:ring-[#c6a646]"
-              aria-label="Email us at support@villagerising.org"
+              aria-label="Email us at info@ourvillagerising.org"
             >
               <div className="bg-[#cbfbf1] text-[#009689] p-2 rounded-full" aria-hidden="true">
                 <Mail className="w-4 h-4" />
               </div>
               <div>
                 <div className="font-['DM_Sans',sans-serif] font-medium text-[#0a0a0a] text-[14px]">Email Us</div>
-                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">info@ourvillage.org</div>
+                <div className="font-['DM_Sans',sans-serif] text-[#6a7282] text-[13px] group-hover:text-[#c6a646] transition-colors">info@ourvillagerising.org</div>
               </div>
             </a>
 
