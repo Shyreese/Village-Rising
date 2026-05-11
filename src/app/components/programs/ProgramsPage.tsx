@@ -71,7 +71,7 @@ const programs = [
     features: [
       { title: "Live Scan Background Check", subtitle: "Individual and family sessions", icon: Heart },
       { title: "Notary and Documentation Support", subtitle: "Access to healthcare resources", icon: Heart },
-      { title: "Access to Technology", subtitle: "Skills and development classes", icon: Heart },
+      { title: "Access to Technology", subtitle: "Skills and development classes <br> For access low-cost high-quality refurbished computers and or Internet click <a href='https://villagerising.pcsrefurbished.com/sales/salesHome.aspx' target='_blank' style='color: blue; text-decoration: underline;'> here </a>", icon: Heart },
       { title: "Medi-Cal Application Support", subtitle: "Community peer connections", icon: Heart },
       //{ title: "Crisis Intervention", subtitle: "Immediate support services", icon: Heart },
       //{ title: "Youth Programs", subtitle: "Activities and mentoring", icon: Heart },
@@ -114,7 +114,22 @@ const programs = [
       { title: "Trust and Will Documentation Support", subtitle: "Professional development support", icon: Briefcase },
     ],
   },
+  {
+    anchorId: "more-resources",
+    tag: "Resources",
+    title: "Resources",
+    description:
+      "Can't find what you're looking for? Click this link to explore more resources!",
+    image: "https://res.cloudinary.com/dm4ezpefh/image/upload/v1769142359/samples/cloudinary-group.jpg",
+    imagePosition: "right" as const,
+    bgColor: "#fff7ed",
+    //eligibilityText:"" ,
+    features: [],
+  },
 ];
+
+
+
 
 export function ProgramsPage() {
   useEffect(() => {
@@ -133,6 +148,10 @@ export function ProgramsPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleMoreResourceClick = () => {
+    window.open('https://findhelp.org/', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-white font-['DM_Sans',sans-serif] relative overflow-hidden">
       <SkipLink />
@@ -149,7 +168,11 @@ export function ProgramsPage() {
           {/* Program Cards */}
           <div id="programs-list" className="space-y-8 pb-12">
             {programs.map((program) => (
-              <ProgramCard key={program.title} {...program} />
+              <ProgramCard 
+                key={program.title} 
+                {...program} 
+                onButtonClick={program.anchorId === "more-resources" ? handleMoreResourceClick : undefined}
+              />
             ))}
           </div>
 
