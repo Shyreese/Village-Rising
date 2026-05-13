@@ -164,6 +164,7 @@ export function DonationForm() {
   const [frequency, setFrequency] = useState("One-Time Gift");
   const [selectedAmount, setSelectedAmount] = useState(100);
   const [customAmount, setCustomAmount] = useState("");
+  const [showQRModal, setShowQRModal] = useState(false);
 
   const displayAmount = customAmount ? customAmount : selectedAmount;
 
@@ -333,11 +334,78 @@ export function DonationForm() {
             </div>
 
             {/* Donate button */}
-            <a href="https://givebutter.com/village-rising" ><button className="w-full h-[96px] bg-gradient-to-b from-[#c6a646] to-[#b89536] rounded-[16px] shadow-[0px_15px_35px_0px_rgba(198,166,70,0.4)] cursor-pointer hover:brightness-110 transition mb-6">
-              <span className="font-['Inter',sans-serif] text-white text-[24px]">
-                Donate ${displayAmount} now
-              </span>
-            </button></a>
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <a href="https://givebutter.com/village-rising" className="flex-1">
+                <button className="w-full h-[96px] bg-gradient-to-b from-[#c6a646] to-[#b89536] rounded-[16px] shadow-[0px_15px_35px_0px_rgba(198,166,70,0.4)] cursor-pointer hover:brightness-110 transition">
+                  <span className="font-['Inter',sans-serif] text-white text-[24px]">
+                    Donate ${displayAmount} now
+                  </span>
+                </button>
+              </a>
+              <button 
+                onClick={() => setShowQRModal(true)}
+                className="flex-1 h-[96px] bg-white border-[2.667px] border-[#c6a646] rounded-[16px] shadow-[0px_15px_35px_0px_rgba(0,0,0,0.1)] cursor-pointer hover:bg-[#f5f3ee] transition"
+              >
+                <span className="font-['Inter',sans-serif] text-[#c6a646] text-[24px]">
+                  Scan QR Code
+                </span>
+              </button>
+            </div>
+
+            {/* QR Code Modal */}
+            {showQRModal && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative">
+                  <button 
+                    onClick={() => setShowQRModal(false)}
+                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition"
+                    aria-label="Close"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+
+                  <h3 className="text-2xl font-bold text-center mb-6">Scan to Pay</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="text-center">
+                      <h4 className="text-xl font-semibold mb-4">Pay with Zelle®</h4>
+                      <div className="w-48 h-48 mx-auto rounded-lg shadow-md bg-white p-2 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="https://i.imgur.com/CZID90b.png" 
+                          alt="Zelle QR Code" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://placehold.co/192x192/9333ea/FFFFFF?text=Zelle+QR';
+                          }}
+                        />
+                      </div>
+                      <p className="text-sm text-gray-600 mt-4">Use your <strong className="text-gray-800">mobile banking app</strong> to scan.</p>
+                    </div>
+
+                    <div className="text-center">
+                      <h4 className="text-xl font-semibold mb-4">Pay with Givebutter</h4>
+                      <div className="w-48 h-48 mx-auto rounded-lg shadow-md bg-white p-2 flex items-center justify-center">
+                        <img 
+                          src="https://i.imgur.com/qGIfPuL.png" 
+                          alt="Givebutter QR Code"
+                          className="max-w-full max-h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://placehold.co/192x192/059669/FFFFFF?text=Givebutter+QR';
+                          }}
+                        />
+                      </div>
+                      <p className="text-sm text-gray-600 mt-4">Scan here for Givebutter donations.</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-center mt-8 text-burnt-orange font-semibold">
+                    Important: To receive a tax receipt, please close this window after donating and fill out the "QR Code Donation Receipt" form on our page.
+                  </p>
+                </div>
+              </div>
+            )}
+
 
             {/* Trust badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 py-4 border-t border-[#d1d5dc] mb-4">
