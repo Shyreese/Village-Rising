@@ -161,7 +161,7 @@ function PhotoCard({ src, style, side }: { src: string; style: Record<string, nu
 }
 
 export function DonationForm() {
-  const [frequency, setFrequency] = useState("One-Time Gift");
+  const [frequency, setFrequency] = useState("Monthly Support");
   const [selectedAmount, setSelectedAmount] = useState(100);
   const [customAmount, setCustomAmount] = useState("");
   const [showQRModal, setShowQRModal] = useState(false);
