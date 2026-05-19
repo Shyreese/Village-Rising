@@ -4,14 +4,10 @@
     <meta charset="utf-8">
     <title>Village Rising</title>
     <script type="text/javascript">
-      // This script takes a "real" path and turns it into a Hash path
-      // Example: /involved -> /#/involved
-      var path = window.location.pathname;
-      var search = window.location.search;
-      var hash = window.location.hash;
-
-      // Redirect to the root with the path as a hash
-      window.location.replace(window.location.origin + '/#' + path + search + hash);
+      // Preserve the original URL path and make the SPA bootstrap at root.
+      // The app will read ?redirect= and replace the URL to the original route.
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(window.location.origin + '/?redirect=' + encodeURIComponent(path));
     </script>
   </head>
   <body>
