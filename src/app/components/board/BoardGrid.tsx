@@ -9,14 +9,14 @@ import imgContainer5 from "../../../assets/88abf02c29e161416516325b9c3d498dee4bf
 const boardMembers = [
   {
     name: "Shyreese Tyiska",
-    title: "Board Member, Co-Founder & Executive Director",
-    bio: "Shyreese Tyiska is the Co-Founder and Executive Director of Village Rising, where she leads the organization’s vision, strategy, and community impact initiatives. She is dedicated to building pathways that strengthen families, expand access to resources, and create meaningful opportunities for long-term growth. With a strong foundation in structured program development and people-centered leadership, Shyreese focuses on designing initiatives that are both practical and impactful. Her approach prioritizes clarity, accessibility, and sustainability, ensuring that the organization’s work meets real needs while maintaining a high standard of excellence. Through Village Rising, Shyreese is committed to fostering a connected and supportive environment where individuals and families can grow, access opportunities, and move forward with confidence.",
+    title: "Board Member, Executive Director",
+    bio: "Shyreese Tyiska is the Executive Director of Village Rising, where she leads the organization’s vision, strategy, and community impact initiatives. She is dedicated to building pathways that strengthen families, expand access to resources, and create meaningful opportunities for long-term growth. With a strong foundation in structured program development and people-centered leadership, Shyreese focuses on designing initiatives that are both practical and impactful. Her approach prioritizes clarity, accessibility, and sustainability, ensuring that the organization’s work meets real needs while maintaining a high standard of excellence. Through Village Rising, Shyreese is committed to fostering a connected and supportive environment where individuals and families can grow, access opportunities, and move forward with confidence.",
     image: imgContainer,
   },
   {
     name: "Paskael Tyiska Jr.",
-    title: "Board Member, Co-Founder & Chief Operating Officer",
-    bio: "Paskael Tyiska is the Co-Founder and Chief Operating Officer of Village Rising, where he oversees operations, systems, and organizational execution. He is responsible for ensuring that the organization’s vision is carried out through efficient, structured, and sustainable processes. With a strong focus on operational excellence, Paskael builds and maintains systems that support consistency, accountability, and long-term growth. His leadership ensures that programs and initiatives are delivered with precision while remaining aligned with the organization’s mission. Through his work, Paskael is committed to creating a stable and well-organized foundation that allows Village Rising to effectively serve families and the broader community.",
+    title: "Board Member, Chief Operating Officer",
+    bio: "Paskael Tyiska is the Chief Operating Officer of Village Rising, where he oversees operations, systems, and organizational execution. He is responsible for ensuring that the organization’s vision is carried out through efficient, structured, and sustainable processes. With a strong focus on operational excellence, Paskael builds and maintains systems that support consistency, accountability, and long-term growth. His leadership ensures that programs and initiatives are delivered with precision while remaining aligned with the organization’s mission. Through his work, Paskael is committed to creating a stable and well-organized foundation that allows Village Rising to effectively serve families and the broader community.",
     image: imgContainer1,
   },
   {
@@ -48,7 +48,7 @@ const boardMembers = [
 export function BoardGrid() {
   return (
     <section className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 py-12 md:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {boardMembers.map((member) => (
           <BoardMemberCard key={member.name} {...member} />
         ))}
