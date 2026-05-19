@@ -6,7 +6,7 @@ const url = new URL(window.location.href);
 const redirect = url.searchParams.get("redirect");
 
 if (redirect) {
-  window.history.replaceState({}, "", redirect);
+  window.location.replace(redirect);
 }
 
 createRoot(document.getElementById("root")!).render(
