@@ -6,8 +6,12 @@
     <script type="text/javascript">
       // Preserve the original URL path and make the SPA bootstrap at root.
       // The app will read ?redirect= and replace the URL to the original route.
-      var path = window.location.pathname + window.location.search + window.location.hash;
-      window.location.replace(window.location.origin + '/?redirect=' + encodeURIComponent(path));
+      // Avoid redirect loops by not redirecting if a redirect param already exists.
+      (function () {
+        if (window.location.search.indexOf('redirect=') !== -1) return;
+        var path = window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(window.location.origin + '/?redirect=' + encodeURIComponent(path));
+      })();
     </script>
   </head>
   <body>
