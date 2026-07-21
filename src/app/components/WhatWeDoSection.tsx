@@ -31,10 +31,10 @@ const services = [
   },
   {
     icon: Users,
-    title: "Workforce Development",
+    title: "Branches Internship Program",
     anchor: "workforce-development",
     description:
-      "Creates pathways to employment through internships, skill-building, and real-world experience that prepare individuals for sustainable careers.",
+      "Branches interns receive opportunities to connect with small businesses for hands-on, specialized projects",
     image:
       "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3JrZm9yY2UlMjBkZXZlbG9wbWVudCUyMHRyYWluaW5nfGVufDF8fHx8MTc3MzA5NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
   },

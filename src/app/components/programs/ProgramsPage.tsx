@@ -80,9 +80,9 @@ const programs = [
     {
     anchorId: "workforce-development",
     tag: "Workforce Development",
-    title: "Workforce Development Program",
+    title: "Branches Internship Program",
     description:
-      "Creates pathways to employment through internships, skill-building, and real-world experience that prepare individuals for sustainable careers.",
+      "Branches interns receive opportunities to connect with small businesses for hands-on, specialized projects",
     image: imgWorkforce,
     imagePosition: "right" as const,
     bgColor: "#eff6ff",
