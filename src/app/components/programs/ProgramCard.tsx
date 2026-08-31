@@ -12,6 +12,7 @@ interface ProgramCardProps {
   tag: string;
   title: string;
   description: string;
+  header:string;
   image: string;
   imagePosition: "left" | "right";
   features: Feature[];
@@ -25,6 +26,7 @@ export function ProgramCard({
   tag,
   title,
   description,
+  header,
   image,
   imagePosition,
   features,
@@ -54,6 +56,9 @@ export function ProgramCard({
         {description}
       </p>
 
+      <p className="font-bold text-[#101828] text-[18px]">
+        {header}
+      </p>
       {/* Features grid or button */}
       {features.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
