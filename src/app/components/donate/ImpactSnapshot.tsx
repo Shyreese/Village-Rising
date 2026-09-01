@@ -1,9 +1,9 @@
-const stats = [
+/*const stats = [
   { value: "100+", label: "Families Supported Annually" },
   { value: "75%", label: "Housing Stabilization Target" },
   { value: "70%", label: "Workforce Placement Goal" },
   { value: "60%", label: "Financial Milestone Achievement" },
-];
+]; */
 
 export function ImpactSnapshot() {
   return (
@@ -19,7 +19,7 @@ export function ImpactSnapshot() {
           </p>
         </div>
 
-        {/* Stats */}
+        {/* Stats 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
           {stats.map((stat) => (
             <div key={stat.value} className="text-center">
@@ -29,7 +29,7 @@ export function ImpactSnapshot() {
               <p className="text-[#4a5565] text-[14px]">{stat.label}</p>
             </div>
           ))}
-        </div>
+        </div>*/}
 
         {/* Footer */}
         <div className="border-t border-[#e5e7eb] pt-6 text-center">

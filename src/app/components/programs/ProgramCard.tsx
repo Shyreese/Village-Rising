@@ -65,7 +65,7 @@ export function ProgramCard({
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-white rounded-[14px] border border-[#e5e7eb] shadow-sm p-3.5 flex items-center gap-3"
+              className="bg-white rounded-[14px] border border-[#e5e7eb] p-3.5 flex items-center gap-3"
             >
               <div className="w-10 h-10 bg-[#50c878] rounded-[10px] flex items-center justify-center shrink-0">
                 <feature.icon className="w-5 h-5 text-white" strokeWidth={1.5} />
@@ -99,9 +99,9 @@ export function ProgramCard({
         <div className="bg-white rounded-[14px] border border-[#e5e7eb] shadow-sm p-5 mb-6">
           <div className="flex items-center gap-2 mb-2">
             <CheckCircle className="w-5 h-5 text-[#50c878]" strokeWidth={1.5} />
-            <p className="font-bold text-[#101828] text-[18px]">Eligibility</p>
+            <p className="font-bold text-[#101828] text-[18px] ">Eligibility</p>
           </div>
-          <p className="text-[#364153] text-[14px] leading-[1.6]">
+          <p className="text-[#364153] text-[14px] leading-[1.6] whitespace-pre-line">
             {eligibilityText}
           </p>
         </div>

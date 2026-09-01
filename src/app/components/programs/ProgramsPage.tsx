@@ -87,7 +87,7 @@ const programs = [
     image: imgWorkforce,
     imagePosition: "right" as const,
     bgColor: "#eff6ff",
-    eligibilityText: "Branches is an internship available to college sophomores through graduate students only. College freshmen are welcome by referrals only. Junior high and high school students should inquire with their high school counselors about internship opportunities.",
+    eligibilityText: "Branches is an internship available to college sophomores through graduate students only. College freshmen are welcome by referrals only. \n\nJunior high and high school students should inquire with their high school counselors about internship opportunities.",
     features: [
       { title: "Professional Development", subtitle: " Through the modern software and technology", icon: Briefcase },
       { title: "Personal and Professional Financial Discipline",  icon: Briefcase },
