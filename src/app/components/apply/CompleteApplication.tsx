@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 interface CompleteApplicationProps {
   onBack: () => void;
@@ -27,7 +28,7 @@ function FormField({
 }) {
   return (
     <div className={`${className}`}>
-      <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-2">
+      <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[20px] font-semibold mb-2">
         {label}
         {required && " *"}
       </label>
@@ -36,56 +37,13 @@ function FormField({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors ${error ? "border-[#dc2626]" : "border-transparent"
-          }`}
+        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors ${
+          error ? "border-[#dc2626]" : "border-transparent"
+        }`}
       />
       {error && (
         <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">
           This field is required.
-        </p>
-      )}
-    </div>
-  );
-}
-
-function SelectField({
-  label,
-  options,
-  required = false,
-  className = "",
-  value,
-  onChange,
-  error,
-}: {
-  label: string;
-  options: string[];
-  required?: boolean;
-  className?: string;
-  value: string;
-  onChange: (val: string) => void;
-  error?: boolean;
-}) {
-  return (
-    <div className={`${className}`}>
-      {label && (
-        <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-2">
-          {label}
-          {required && " *"}
-        </label>
-      )}
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={`w-full h-[36px] px-3 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] outline-none focus:border-[#c6a646] transition-colors appearance-none cursor-pointer ${error ? "border-[#dc2626]" : "border-transparent"
-          }`}
-      >
-        {options.map((opt) => (
-          <option key={opt}>{opt}</option>
-        ))}
-      </select>
-      {error && (
-        <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">
-          Please make a selection.
         </p>
       )}
     </div>
@@ -104,11 +62,11 @@ function FormSection({
   return (
     <div className="border border-[#e5e7eb] rounded-[10px] mb-6">
       <div className="px-6 pt-6 pb-2">
-        <h3 className="font-['Inter',sans-serif] text-[#0a0a0a] text-[16px] leading-[16px] mb-1.5">
+        <h3 className="font-['Inter',sans-serif] text-[#0a0a0a] text-[18px] font-bold leading-[22px] mb-1.5">
           {title}
         </h3>
         {description && (
-          <p className="font-['Inter',sans-serif] text-[#717182] text-[16px] leading-[24px]">
+          <p className="font-['Inter',sans-serif] text-[#717182] text-[14px] leading-[22px]">
             {description}
           </p>
         )}
@@ -118,83 +76,116 @@ function FormSection({
   );
 }
 
-// Helper: check if a select value is the default placeholder
-function isDefaultSelect(val: string) {
-  return (
-    val === "" ||
-    val.toLowerCase().startsWith("select") ||
-    val === "Select..."
-  );
-}
-
 export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps) {
-  // Personal Information
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  // 1. Contact Information State
+  const [fullName, setFullName] = useState("");
+  const [contactInfo, setContactInfo] = useState("");
+  const [safeContactMethods, setSafeContactMethods] = useState<string[]>([]);
+  const [bestTimeToContact, setBestTimeToContact] = useState("");
 
-  // Current Address
-  const [city, setCity] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [state, setState] = useState("Select state...");
+  // 2. Current Situation State
+  const [currentCity, setCurrentCity] = useState("");
+  const [whereStaying, setWhereStaying] = useState("");
+  const [safePlace24Hours, setSafePlace24Hours] = useState("");
+  const [whenNeedHelp, setWhenNeedHelp] = useState("");
+  const [householdDetails, setHouseholdDetails] = useState("");
 
-  // Living Situation
-  const [livingSituation, setLivingSituation] = useState("Select...");
+  // 3. Benefits and Support State
+  const [calworksStatus, setCalworksStatus] = useState("");
+  const [calworksHomelessAssistance, setCalworksHomelessAssistance] = useState("");
 
-  // Household Information
-  const [householdSize, setHouseholdSize] = useState("");
-  const [numAdults, setNumAdults] = useState("");
-  const [numChildren, setNumChildren] = useState("");
-  const [maritalStatus, setMaritalStatus] = useState("Select...");
+  // 4. Help Request Details State
+  const [helpLookingFor, setHelpLookingFor] = useState<string[]>([]);
+  const [contacted211, setContacted211] = useState("");
+  const [additionalDetails, setAdditionalDetails] = useState("");
 
-  // Employment Information
-  const [employmentStatus, setEmploymentStatus] = useState("Select employment status...");
-
-  const [healthInsurance, setHealthInsurance] = useState("");
-
-
-  // Programs of Interest
-  const [servicesInterest, setServicesInterest] = useState("");
-
-  // Certification
-  const [certified1, setCertified1] = useState(false);
-  const [certified2, setCertified2] = useState(false);
-
+  // Submission / Loading State
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [attempted, setAttempted] = useState(false);
 
+  // Toggle helpers for multi-select checkboxes
+  const toggleSafeContact = (method: string) => {
+    setSafeContactMethods((prev) =>
+      prev.includes(method) ? prev.filter((m) => m !== method) : [...prev, method]
+    );
+  };
+
+  const toggleHelpLookingFor = (item: string) => {
+    setHelpLookingFor((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
+  };
+
+  // Required Field Validation
   const errors = {
-    firstName: !firstName.trim(),
-    lastName: !lastName.trim(),
-    email: !email.trim(),
-    phone: !phone.trim(),
-    city: !city.trim(),
-    zipCode: !zipCode.trim(),
-    state: isDefaultSelect(state),
-    livingSituation: isDefaultSelect(livingSituation),
-    householdSize: !householdSize.trim(),
-    numAdults: !numAdults.trim(),
-    numChildren: !numChildren.trim(),
-    maritalStatus: isDefaultSelect(maritalStatus),
-    employmentStatus: isDefaultSelect(employmentStatus),
-    healthInsurance: !healthInsurance,
-    servicesInterest: !servicesInterest.trim(),
-    certified1: !certified1,
-    certified2: !certified2,
+    fullName: !fullName.trim(),
+    contactInfo: !contactInfo.trim(),
+    safeContactMethods: safeContactMethods.length === 0,
+    currentCity: !currentCity.trim(),
+    whereStaying: !whereStaying,
+    safePlace24Hours: !safePlace24Hours,
+    whenNeedHelp: !whenNeedHelp,
+    householdDetails: !householdDetails.trim(),
+    helpLookingFor: helpLookingFor.length === 0,
   };
 
   const isValid = !Object.values(errors).some(Boolean);
-
-  const handleSubmit = () => {
-    setAttempted(true);
-    if (isValid) onNext();
-  };
-
   const e = (key: keyof typeof errors) => attempted && errors[key];
+
+  // Submit Handler sending mapped data to EmailJS
+  const handleSubmit = async () => {
+    setAttempted(true);
+
+    if (!isValid) return;
+
+    const { VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY } =
+      import.meta.env;
+
+    if (!VITE_EMAILJS_SERVICE_ID || !VITE_EMAILJS_TEMPLATE_ID || !VITE_EMAILJS_PUBLIC_KEY) {
+      console.error("EmailJS configuration is missing. Check the VITE_EMAILJS_* environment variables.");
+      alert("Application email is not configured. Please contact us directly.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const templateParams = {
+      full_name: fullName,
+      contact_info: contactInfo,
+      safe_contact_methods: safeContactMethods.join(", "),
+      best_time_to_contact: bestTimeToContact || "Not specified",
+      current_city: currentCity,
+      where_staying: whereStaying,
+      safe_place_24h: safePlace24Hours,
+      when_need_help: whenNeedHelp,
+      household_details: householdDetails,
+      calworks_status: calworksStatus || "Not provided (Optional)",
+      calworks_homeless_assistance: calworksHomelessAssistance || "N/A",
+      help_looking_for: helpLookingFor.join(", "),
+      contacted_211: contacted211 || "Not specified (Optional)",
+      additional_details: additionalDetails || "None provided (Optional)",
+    };
+
+    try {
+      await emailjs.send(
+        VITE_EMAILJS_SERVICE_ID,
+        VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSubmitting(false);
+      onNext();
+    } catch (error) {
+      console.error("Failed to send application email:", error);
+      setIsSubmitting(false);
+      alert("Failed to submit application. Please check your network connection and try again.");
+    }
+  };
 
   return (
     <div className="max-w-[896px] mx-auto px-6 py-10">
-      {/* Back button & heading */}
+      {/* Back button & Header Info */}
       <div className="mb-8">
         <button
           onClick={onBack}
@@ -203,16 +194,23 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
           <ArrowLeft className="w-4 h-4" />
           Back to Eligibility Check
         </button>
-        <h2 className="font-['Playfair_Display',serif] text-[#101828] text-[36px] leading-[48px] mb-2">
-          Application
+
+        <h2 className="font-['Playfair_Display',serif] text-[#101828] text-[36px] leading-[48px] mb-4">
+          Housing Assistance Inquiry
         </h2>
-        <p className="font-['Inter',sans-serif] text-[#4a5565] text-[20px] leading-[28px]">
-          Please complete all sections to help us determine your qualification
-          for assistance programs
-        </p>
+
+        {/* Introductory Notice */}
+        <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-[10px] p-5 text-[#334155] font-['Inter',sans-serif] text-[14px] leading-[22px] space-y-3">
+          <p>
+            <strong>Village Rising</strong> helps households facing a housing crisis explore temporary shelter options and connect with housing resources. Assistance depends on available partners and funding. Submitting this request does not guarantee a room, payment, or placement.
+          </p>
+          <p className="p-3 bg-[#eff6ff] border-l-4 border-[#2563eb] text-[#1e40af] rounded-r-[6px]">
+            If you are currently without safe shelter, you can call <strong>2-1-1 and press 8</strong> to request a housing assessment and learn about available resources. You may also submit this form so Village Rising can follow up.
+          </p>
+        </div>
       </div>
 
-      {/* Validation summary banner */}
+      {/* Validation Summary Banner */}
       {attempted && !isValid && (
         <div className="bg-[#fef2f2] border border-[#dc2626] rounded-[10px] px-6 py-4 mb-6">
           <p className="font-['Inter',sans-serif] text-[#dc2626] text-[14px] leading-[20px]">
@@ -221,214 +219,314 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
         </div>
       )}
 
-      {/* Personal Information */}
-      <FormSection title="Personal Information" description="Tell us about yourself">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-          <FormField label="First Name" required value={firstName} onChange={setFirstName} error={!!e("firstName")} />
-          <FormField label="Middle Name" value="" onChange={() => { }} />
-          <FormField label="Last Name" required value={lastName} onChange={setLastName} error={!!e("lastName")} />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <FormField label="Email Address" required type="email" value={email} onChange={setEmail} error={!!e("email")} />
-          <FormField label="Phone Number" required type="tel" value={phone} onChange={setPhone} error={!!e("phone")} />
-        </div>
-      </FormSection>
-
-      {/* Current Address */}
-      <FormSection title="Current Address" description="Where do you currently live?">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <FormField label="City" required value={city} onChange={setCity} error={!!e("city")} />
-          <SelectField
-            label="State"
+      {/* 1. Your Contact Information */}
+      <FormSection title="Your contact information">
+        <div className="space-y-4">
+          <FormField
+            label="What is your name?"
             required
-            options={["Select state...", "CA", "AZ", "NV", "OR", "WA", "Other"]}
-            value={state}
-            onChange={setState}
-            error={!!e("state")}
+            value={fullName}
+            onChange={setFullName}
+            error={!!e("fullName")}
           />
-          <FormField label="Zip Code" required value={zipCode} onChange={setZipCode} error={!!e("zipCode")} />
-        </div>
-      </FormSection>
 
-      {/* Living Situation */}
-      <FormSection title="Living Situation" description="Help us understand your current living arrangements">
-        <div className="mb-4">
-          <SelectField
-            label="Current Living Situation"
+          <FormField
+            label="What phone number or email can we use to reach you?"
             required
-            options={["Select...", "Own Home", "Renting", "Living with Family/Friends", "Currently Homeless", "Emergency Shelter", "Temporary Housing"]}
-            value={livingSituation}
-            onChange={setLivingSituation}
-            error={!!e("livingSituation")}
+            placeholder="e.g. (916) 555-0199 or name@example.com"
+            value={contactInfo}
+            onChange={setContactInfo}
+            error={!!e("contactInfo")}
+          />
+
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+              Is it safe for us to contact you? Select all that apply: *
+            </label>
+            <div className="space-y-2">
+              {[
+                "Call me",
+                "Text me",
+                "Email me",
+                "You may leave a voicemail",
+                "Please do not leave a voicemail",
+              ].map((method) => (
+                <label key={method} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={safeContactMethods.includes(method)}
+                    onChange={() => toggleSafeContact(method)}
+                    className="accent-[#50c878]"
+                  />
+                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{method}</span>
+                </label>
+              ))}
+            </div>
+            {e("safeContactMethods") && (
+              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">
+                Please select at least one contact preference.
+              </p>
+            )}
+          </div>
+
+          <FormField
+            label="When is the best time to contact you?"
+            placeholder="e.g. Mornings, weekdays after 2 PM"
+            value={bestTimeToContact}
+            onChange={setBestTimeToContact}
           />
         </div>
       </FormSection>
 
-      {/* Household Information */}
-      <FormSection title="Household Information">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-          <FormField label="Total Household Size" required value={householdSize} onChange={setHouseholdSize} error={!!e("householdSize")} />
-          <FormField label="Number of Adults (18+)" required value={numAdults} onChange={setNumAdults} error={!!e("numAdults")} />
-          <FormField label="Number of Children" required value={numChildren} onChange={setNumChildren} error={!!e("numChildren")} />
-        </div>
-        <div className="mb-4">
-          <SelectField
-            label="Marital/Relationship Status"
+      {/* 2. Your Current Situation */}
+      <FormSection title="Your current situation">
+        <div className="space-y-5">
+          <FormField
+            label="What city are you currently in?"
             required
-            options={["Select...", "Single", "Married", "Domestic Partnership", "Separated", "Divorced", "Widowed"]}
-            value={maritalStatus}
-            onChange={setMaritalStatus}
-            error={!!e("maritalStatus")}
+            value={currentCity}
+            onChange={setCurrentCity}
+            error={!!e("currentCity")}
           />
-        </div>
-      </FormSection>
 
-      {/* Employment Information */}
-      <FormSection title="Employment Information">
-        <div className="mb-4">
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-            Tell us about your employment status
-          </label>
-          <p className="font-['Inter',sans-serif] text-[#717182] text-[14px] mb-3">
-            Current Employment Status
-          </p>
-          <SelectField
-            label=""
-            options={["Select employment status...", "Employed Full-Time", "Employed Part-Time", "Self-Employed", "Unemployed", "Student", "Retired", "Unable to Work"]}
-            value={employmentStatus}
-            onChange={setEmploymentStatus}
-            error={!!e("employmentStatus")}
-          />
-        </div>
-      </FormSection>
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+              Where are you staying now? *
+            </label>
+            <div className="space-y-2">
+              {[
+                "In a car",
+                "Outside",
+                "In a shelter or motel",
+                "Temporarily with someone",
+                "In housing I may lose soon",
+                "Other",
+              ].map((opt) => (
+                <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="whereStaying"
+                    value={opt}
+                    checked={whereStaying === opt}
+                    onChange={() => setWhereStaying(opt)}
+                    className="accent-[#50c878]"
+                  />
+                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
+                </label>
+              ))}
+            </div>
+            {e("whereStaying") && (
+              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select where you are currently staying.</p>
+            )}
+          </div>
 
-      {/* Financial Information */}
-      <FormSection title="Financial Information">
-        <div className="mb-4">
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-            Do you have health insurance? *
-          </label>
-          <div className="flex gap-4">
-            {["Yes", "No"].map((opt) => (
-              <label key={opt} className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="insurance"
-                  value={opt}
-                  checked={healthInsurance === opt}
-                  onChange={() => setHealthInsurance(opt)}
-                  className="accent-[#50c878]"
-                />
-                <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
-              </label>
-            ))}
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+              Do you have a safe place to sleep over the next 24 hours? *
+            </label>
+            <div className="flex gap-6">
+              {["Yes", "No", "Unsure"].map((opt) => (
+                <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="safePlace24Hours"
+                    value={opt}
+                    checked={safePlace24Hours === opt}
+                    onChange={() => setSafePlace24Hours(opt)}
+                    className="accent-[#50c878]"
+                  />
+                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
+                </label>
+              ))}
+            </div>
+            {e("safePlace24Hours") && (
+              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select an option.</p>
+            )}
           </div>
-          {e("healthInsurance") && (
-            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select an option.</p>
-          )}
-        </div>
-        <div>
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-            Are you currently receiving any other sources of (Check all that apply)
-          </label>
-          <div className="flex flex-wrap gap-3">
-            {["CalFresh/SNAP", "TANF", "Medi-Cal", "Medicaid", "Section 8/Housing Voucher", "SSI/SSDI", "WIC", "Unemployment"].map((opt) => (
-              <label key={opt} className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" className="accent-[#50c878]" />
-                <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-      </FormSection>
 
-      {/* Programs of Interest */}
-      <FormSection title="Programs of Interest">
-        <div className="mb-4">
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-3">
-            Select all programs you would like to apply for:
-          </label>
-          <div className="flex flex-col gap-2">
-            {[
-              "Childcare and Family Resource Program",
-              "Housing Assistance Program",
-              "Opportunity Access Program",
-              "Workforce Development Program",
-              "Financial Empowerment Series Program",
-            ].map((program) => (
-              <label key={program} className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" className="accent-[#50c878]" />
-                <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">
-                  {program}
-                </span>
-              </label>
-            ))}
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+              When do you need help? *
+            </label>
+            <div className="flex flex-wrap gap-6">
+              {["Immediately", "Within 7 days", "Later"].map((opt) => (
+                <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="whenNeedHelp"
+                    value={opt}
+                    checked={whenNeedHelp === opt}
+                    onChange={() => setWhenNeedHelp(opt)}
+                    className="accent-[#50c878]"
+                  />
+                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
+                </label>
+              ))}
+            </div>
+            {e("whenNeedHelp") && (
+              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please select when you need help.</p>
+            )}
           </div>
-        </div>
-        <div className="mb-4">
-          <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[14px] mb-2">
-            What are you specifically interested in? *
-          </label>
-          <p className="font-['Inter',sans-serif] text-[#717182] text-[13px] mb-2">
-            Briefly describe the services you're in need of or a problem or situation we can help address
-          </p>
-          <textarea
-            rows={3}
-            value={servicesInterest}
-            onChange={(e) => setServicesInterest(e.target.value)}
-            className={`w-full px-3 py-2 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none ${e("servicesInterest") ? "border-[#dc2626]" : "border-transparent"
+
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-1">
+              How many adults and children need housing with you? Do you have any pets? *
+            </label>
+            <p className="font-['Inter',sans-serif] text-[#717182] text-[13px] mb-2">
+              Example: 2 adults, 1 child, 1 dog
+            </p>
+            <textarea
+              rows={2}
+              value={householdDetails}
+              onChange={(e) => setHouseholdDetails(e.target.value)}
+              className={`w-full px-3 py-2 bg-[#f3f3f5] border rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none ${
+                e("householdDetails") ? "border-[#dc2626]" : "border-transparent"
               }`}
-          />
-          {e("servicesInterest") && (
-            <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please describe what you're interested in.</p>
+            />
+            {e("householdDetails") && (
+              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">Please provide household details.</p>
+            )}
+          </div>
+        </div>
+      </FormSection>
+
+      {/* 3. Benefits and Support */}
+      <FormSection title="Benefits and support">
+        <div className="space-y-4">
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+              Does anyone in your household currently receive CalWORKs cash aid, or have you applied for it? (Optional)
+            </label>
+            <div className="space-y-2">
+              {[
+                "Yes, receiving CalWORKs",
+                "Applied and waiting for a decision",
+                "No",
+                "I’m not sure",
+                "Prefer not to answer",
+              ].map((opt) => (
+                <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="calworksStatus"
+                    value={opt}
+                    checked={calworksStatus === opt}
+                    onChange={() => setCalworksStatus(opt)}
+                    className="accent-[#50c878]"
+                  />
+                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Conditional Question: Shown only if receiving or applied for CalWORKs */}
+          {(calworksStatus === "Yes, receiving CalWORKs" || calworksStatus === "Applied and waiting for a decision") && (
+            <div className="mt-4 pt-4 border-t border-[#e5e7eb]">
+              <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+                If receiving CalWORKs or awaiting a decision: Have you requested CalWORKs Homeless Assistance?
+              </label>
+              <div className="flex gap-6">
+                {["Yes", "No", "I’m not sure"].map((opt) => (
+                  <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="calworksHomelessAssistance"
+                      value={opt}
+                      checked={calworksHomelessAssistance === opt}
+                      onChange={() => setCalworksHomelessAssistance(opt)}
+                      className="accent-[#50c878]"
+                    />
+                    <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </FormSection>
 
-      {/* Certification */}
-      <div className={`bg-[#fef3c6] border rounded-[10px] p-6 mb-8 ${attempted && (errors.certified1 || errors.certified2) ? "border-[#dc2626]" : "border-[#c6a646]"}`}>
-        <div className="flex items-start gap-3 mb-3">
-          <input
-            type="checkbox"
-            checked={certified1}
-            onChange={(e) => setCertified1(e.target.checked)}
-            className="accent-[#50c878] mt-1"
-          />
-          <p className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[20px]">
-            By submitting this application, I certify that all information provided is true and accurate to the best of my knowledge. I understand that providing false information may result in disqualification.
-          </p>
+      {/* 4. Requested Help & Additional Details */}
+      <FormSection title="What help are you looking for?">
+        <div className="space-y-5">
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-2">
+              Select all that apply: *
+            </label>
+            <div className="space-y-2">
+              {[
+                "Emergency shelter resources",
+                "A short motel stay, if available",
+                "Help keeping my current housing",
+                "Referral to longer-term housing resources",
+                "Deposit or application resources",
+                "Transportation resources",
+                "Benefits or employment resources",
+                "Other",
+              ].map((item) => (
+                <label key={item} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={helpLookingFor.includes(item)}
+                    onChange={() => toggleHelpLookingFor(item)}
+                    className="accent-[#50c878]"
+                  />
+                  <span className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px]">{item}</span>
+                </label>
+              ))}
+            </div>
+            {e("helpLookingFor") && (
+              <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-1">
+                Please select at least one type of help requested.
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-1">
+              Have you contacted 2-1-1 about housing? If yes, what next step were you given? (Optional)
+            </label>
+            <textarea
+              rows={2}
+              value={contacted211}
+              onChange={(e) => setContacted211(e.target.value)}
+              className="w-full px-3 py-2 bg-[#f3f3f5] border border-transparent rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none"
+            />
+          </div>
+
+          <div>
+            <label className="block font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] font-semibold mb-1">
+              Is there anything we should know to help identify a suitable option, such as transportation, accessibility, pets, or needing to remain near work or school? (Optional)
+            </label>
+            <textarea
+              rows={3}
+              value={additionalDetails}
+              onChange={(e) => setAdditionalDetails(e.target.value)}
+              className="w-full px-3 py-2 bg-[#f3f3f5] border border-transparent rounded-[8px] font-['Inter',sans-serif] text-[14px] text-[#0a0a0a] placeholder:text-[#9ca3af] outline-none focus:border-[#c6a646] transition-colors resize-none"
+            />
+          </div>
         </div>
-        <div className="flex items-start gap-3">
-          <input
-            type="checkbox"
-            checked={certified2}
-            onChange={(e) => setCertified2(e.target.checked)}
-            className="accent-[#50c878] mt-1"
-          />
-          <p className="font-['Inter',sans-serif] text-[#0a0a0a] text-[14px] leading-[20px]">
-            I authorize verification of the information provided and consent to the gathering of additional information as may be required.
-          </p>
-        </div>
-        {attempted && (errors.certified1 || errors.certified2) && (
-          <p className="font-['Inter',sans-serif] text-[#dc2626] text-[12px] mt-3">
-            You must agree to both certification statements before submitting.
-          </p>
-        )}
+      </FormSection>
+
+      {/* Consent & Submission Policy Statement */}
+      <div className="bg-[#fef3c6] border border-[#c6a646] rounded-[10px] p-5 mb-8 text-[#0a0a0a] font-['Inter',sans-serif] text-[14px] leading-[20px]">
+        By submitting this form, you agree that Village Rising may contact you about your request. We will ask your permission before sharing your information with an outside referral partner.
       </div>
 
-      {/* Buttons */}
+      {/* Form Action Buttons */}
       <div className="flex gap-4 mb-6">
         <button
           onClick={onBack}
           className="bg-white border border-[#d1d5dc] text-[#364153] font-['Inter',sans-serif] text-[14px] px-6 py-2.5 rounded-[8px] hover:bg-[#f9fafb] transition-colors cursor-pointer"
         >
-          Save Draft
+          Back
         </button>
         <button
           onClick={handleSubmit}
-          className="bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['Inter',sans-serif] text-[14px] px-6 py-2.5 rounded-[8px] cursor-pointer"
+          disabled={isSubmitting}
+          className="bg-[#c6a646] hover:bg-[#b5953d] transition-colors text-white font-['Inter',sans-serif] text-[14px] px-6 py-2.5 rounded-[8px] cursor-pointer disabled:opacity-50"
         >
-          Submit Application
+          {isSubmitting ? "Submitting..." : "Submit Inquiry"}
         </button>
       </div>
 
