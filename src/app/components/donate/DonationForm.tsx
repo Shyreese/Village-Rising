@@ -158,7 +158,7 @@ function PhotoCard({
    ================================================================ */
 export function DonationForm() {
   const [showQRModal, setShowQRModal] = useState(false);
-
+const [selectedFund, setSelectedFund] = useState("12345");
   /* Inject Givebutter script once on mount */
   useEffect(() => {
     if (!document.querySelector('script[src*="givebutter.com/js/widget.js"]')) {
@@ -238,10 +238,38 @@ export function DonationForm() {
               pierce it. We wrap it in a styled container so it sits flush with
               the card aesthetic. Givebutter picks up brand colours from your
               campaign settings on givebutter.com.
-            */}
+            
             <div className="mb-8 rounded-[16px] overflow-hidden border-[2.667px] border-[#d1d5dc] bg-white">
               <givebutter-widget id="j2Obxa" />
             </div>
+            */}
+<div>
+      {/* Sub-Category Selection UI */}
+      <div className="mb-4">
+        <label htmlFor="fund-select" className="block text-sm font-semibold mb-2 text-gray-700">
+          Select Designation
+        </label>
+        <select
+          id="fund-select"
+          value={selectedFund}
+          onChange={(e) => setSelectedFund(e.target.value)}
+          className="w-full p-2.5 rounded-lg border border-[#d1d5dc] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="12345">Youth Programs</option>
+          <option value="67890">Building Fund</option>
+          <option value="11223">General Operations</option>
+        </select>
+      </div>
+
+      {/* Givebutter Container */}
+      <div className="mb-8 rounded-[16px] overflow-hidden border-[2.667px] border-[#d1d5dc] bg-white">
+        <givebutter-widget 
+          key={selectedFund} 
+          id="j2Obxa" 
+          fund={selectedFund} 
+        />
+      </div>
+    </div>
 
             {/* QR Code button */}
             <div className="mb-6">

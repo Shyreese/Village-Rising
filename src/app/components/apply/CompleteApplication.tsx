@@ -133,9 +133,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [emergencyName, setEmergencyName] = useState("");
-  const [emergencyPhone, setEmergencyPhone] = useState("");
-  const [relationship, setRelationship] = useState("Select...");
 
   // Current Address
   const [city, setCity] = useState("");
@@ -156,10 +153,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
 
   const [healthInsurance, setHealthInsurance] = useState("");
 
-  // Additional Information
-  const [disability, setDisability] = useState("");
-  const [veteran, setVeteran] = useState("");
-  const [primaryLanguage, setPrimaryLanguage] = useState("Select language...");
 
   // Programs of Interest
   const [servicesInterest, setServicesInterest] = useState("");
@@ -175,9 +168,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
     lastName: !lastName.trim(),
     email: !email.trim(),
     phone: !phone.trim(),
-    emergencyName: !emergencyName.trim(),
-    emergencyPhone: !emergencyPhone.trim(),
-    relationship: isDefaultSelect(relationship),
     city: !city.trim(),
     zipCode: !zipCode.trim(),
     state: isDefaultSelect(state),
@@ -188,9 +178,6 @@ export function CompleteApplication({ onBack, onNext }: CompleteApplicationProps
     maritalStatus: isDefaultSelect(maritalStatus),
     employmentStatus: isDefaultSelect(employmentStatus),
     healthInsurance: !healthInsurance,
-    disability: !disability,
-    veteran: !veteran,
-    primaryLanguage: isDefaultSelect(primaryLanguage),
     servicesInterest: !servicesInterest.trim(),
     certified1: !certified1,
     certified2: !certified2,
